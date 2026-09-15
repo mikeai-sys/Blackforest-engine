@@ -34,7 +34,6 @@ not-for-profit.
 ## New Features
 
 ### Editor & Debugging
-- **Toolbar logo** — Project manager logo capped to 24×24 with `set_expand_icon(true)`; new `TitleBarLogo` button in the editor title bar for About BlackForest
 - **Frame Debugger** — New debugger tab showing Objects/Primitives/Draw-calls per frame, texture/buffer/video memory, and all 5 pipeline-compile counters via `RenderingServer::get_rendering_info`
 
 ### AI Agent Integration
