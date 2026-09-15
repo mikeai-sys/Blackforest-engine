@@ -16,6 +16,10 @@ be exported with one click to a number of platforms, including the major desktop
 platforms (Linux, macOS, Windows), mobile platforms (Android, iOS), as well as
 Web-based platforms and [consoles](https://blackforestengine.org/consoles).
 
+BlackForest features integrated AI capabilities, including an MCP bridge for AI
+agent-driven game development, and aggressive 3D rendering support delivering a
+high-performance 3D workflow comparable to Unity.
+
 ## Free, open source and community-driven
 
 BlackForest is completely free and open source under the very permissive [MIT license](https://blackforestengine.org/license).
@@ -24,6 +28,8 @@ to the last line of engine code. BlackForest's development is fully independent 
 community-driven, empowering users to help shape their engine to match their
 expectations. It is supported by the [BlackForest Foundation](https://blackforest.foundation/)
 not-for-profit.
+
+> **Note:** BlackForest Engine is a fork of [Godot Engine](https://github.com/godotengine/godot), built with integrated AI capabilities and aggressive 3D rendering support.
 
 Before being open sourced in [February 2014](https://github.com/godotengine/godot/commit/0b806ee0fc9097fa7bda7ac0109191c9c5e0a1ac),
 BlackForest had been developed by [Juan Linietsky](https://github.com/reduz) and
