@@ -31,6 +31,33 @@ not-for-profit.
 
 > **Note:** BlackForest Engine is a fork of [Godot Engine](https://github.com/godotengine/godot), built with integrated AI capabilities and aggressive 3D rendering support.
 
+## New Features
+
+### Editor & Debugging
+- **Toolbar logo** — Project manager logo capped to 24×24 with `set_expand_icon(true)`; new `TitleBarLogo` button in the editor title bar for About BlackForest
+- **Frame Debugger** — New debugger tab showing Objects/Primitives/Draw-calls per frame, texture/buffer/video memory, and all 5 pipeline-compile counters via `RenderingServer::get_rendering_info`
+
+### AI Agent Integration
+- **MCP bridge** — AI agents can scaffold projects, author scenes and scripts, validate headlessly, run, and capture screenshots
+- **`bf_eval`** — Run arbitrary GDScript in the engine headless and return output (planned)
+- **`bf_class_doc`** — Introspect engine class API (methods, signals, properties) via ClassDB (planned)
+- **`bf_export`** — Export/build projects to shippable builds (planned)
+- **`bf_import_asset`** — Import external assets (glb, png, wav, etc.) into projects (planned)
+- **`bf_set_setting`** — Edit project.godot settings (planned)
+
+### Media & Video
+- **FFmpeg H.264/AAC module** — Full video decode (video → `sws_scale` → RGBA texture, audio → `swr` → mix ring); fixed build blockers and audio heap-corruption crash; verified with H.264 playback
+
+### 3D Rendering
+- **Large Worlds** — Chunk streaming, precision origin shifting for huge coordinates, HLOD district baking, and billboard impostors via bundled addon
+- **Aggressive 3D support** — High-performance 3D workflow comparable to Unity; planned HW ray-traced reflections, virtual shadow maps, and Nanite-lite GPU-driven LODs
+
+### C# / .NET
+- **Mono editor** — C# glue generation via `--generate-mono-glue`; managed assemblies building (GodotSharp, GodotPlugins, GodotSharpEditor)
+
+### Cross-Platform
+- **Android ABI Gradle cache fix** — Exports now pick up ABI changes correctly
+
 Before being open sourced in [February 2014](https://github.com/godotengine/godot/commit/0b806ee0fc9097fa7bda7ac0109191c9c5e0a1ac),
 BlackForest had been developed by [Juan Linietsky](https://github.com/reduz) and
 [Ariel Manzur](https://github.com/punto-) for several years as an in-house
