@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     public static partial class ResourceLoader
     {

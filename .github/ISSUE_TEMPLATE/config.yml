@@ -1,14 +1,14 @@
 blank_issues_enabled: false
 
 contact_links:
-  - name: Godot proposals
+  - name: BlackForest proposals
     url: https://github.com/godotengine/godot-proposals
-    about: Please submit feature proposals on the Godot proposals repository, not here.
+    about: Please submit feature proposals on the BlackForest proposals repository, not here.
 
-  - name: Godot documentation repository
+  - name: BlackForest documentation repository
     url: https://github.com/godotengine/godot-docs
-    about: Please report issues with documentation on the Godot documentation repository, not here.
+    about: Please report issues with documentation on the BlackForest documentation repository, not here.
 
-  - name: Godot community channels
-    url: https://godotengine.org/community
+  - name: BlackForest community channels
+    url: https://blackforestengine.org/community
     about: Please ask for technical support on one of the other community channels, not here.

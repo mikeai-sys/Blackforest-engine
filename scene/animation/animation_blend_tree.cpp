@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -737,7 +737,7 @@ AnimationNode::NodeTimeInfo AnimationNodeOneShot::_process(ProcessState &p_proce
 
 	if (Animation::is_less_or_equal_approx(cur_fade_in_remaining, 0) && !do_start && !is_fading_out) {
 		// Predict time scale by difference of delta times to estimate input animation's remain time in self time scale.
-		// TODO: Time scale should be included into NodeTimeInfo for Godot 5.0.
+		// TODO: Time scale should be included into NodeTimeInfo for BlackForest 5.0.
 		double abs_os_delta = Math::abs(os_nti.delta);
 		double tscl = Math::is_zero_approx(abs_delta) || Math::is_zero_approx(abs_os_delta) || Math::is_equal_approx(abs_delta, abs_os_delta) ? 1.0 : (abs_delta / abs_os_delta);
 		double os_rem = os_nti.get_remain(break_loop_at_end) * tscl;

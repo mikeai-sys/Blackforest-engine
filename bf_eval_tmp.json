@@ -1,0 +1,1 @@
+{"code": "extends RefCounted\nfunc main():\n\tvar v = Vector3(1,2,3).normalized()\n\tvar cls = ClassDB.class_get_method_list(\"CharacterBody3D\", true)\n\treturn {\"norm\": v, \"method_count\": cls.size(), \"first\": cls[0][\"name\"]}"}

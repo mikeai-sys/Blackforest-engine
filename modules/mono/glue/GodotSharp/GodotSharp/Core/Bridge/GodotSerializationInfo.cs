@@ -1,8 +1,8 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot.Bridge;
+namespace BlackForest.Bridge;
 
 public sealed class GodotSerializationInfo : IDisposable
 {

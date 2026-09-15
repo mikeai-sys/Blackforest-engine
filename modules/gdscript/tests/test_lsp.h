@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -322,7 +322,7 @@ void assert_no_errors_in(const String &p_path) {
 //      -> Character on `r` -> cursor between `a`&`r`s for tests:
 // * Line & Char:
 //   * LSP: both 0-based
-//   * Godot: both 1-based
+//   * BlackForest: both 1-based
 TEST_SUITE("[Modules][GDScript][LSP][Editor]") {
 	TEST_CASE("[workspace][resolve_symbol]") {
 		EditorFileSystem *efs = memnew(EditorFileSystem);
@@ -481,7 +481,7 @@ TEST_SUITE("[Modules][GDScript][LSP][Editor]") {
 		CHECK_EQ(LSP::marked_documentation("[color=#zzzzzz]invalid color hex[/color]", span_allowed_tags), "invalid color hex");
 		CHECK_EQ(LSP::marked_documentation("[color=#ff0000\"> <script>malicious code</script>]no escaping[/color]", span_allowed_tags), "no escaping");
 
-		// The following tests are for all the link patterns specific to Godot's built-in docs that we render as inline code.
+		// The following tests are for all the link patterns specific to BlackForest's built-in docs that we render as inline code.
 		CHECK_EQ(LSP::marked_documentation("Class link: [Node2D], [Sprite2D]", {}), "Class link: `Node2D`, `Sprite2D`");
 		CHECK_EQ(LSP::marked_documentation("Single class [RigidBody2D]", {}), "Single class `RigidBody2D`");
 		CHECK_EQ(LSP::marked_documentation("[method Node2D.set_position]", {}), "`Node2D.set_position`");
@@ -496,16 +496,16 @@ TEST_SUITE("[Modules][GDScript][LSP][Editor]") {
 		CHECK_EQ(LSP::marked_documentation("[param delta]", {}), "`delta`");
 
 		// Markdown links
-		CHECK_EQ(LSP::marked_documentation("[url=https://godotengine.org]link to Godot Engine[/url]", {}),
-				"[link to Godot Engine](https://godotengine.org)");
-		CHECK_EQ(LSP::marked_documentation("[url]https://godotengine.org/[/url]", {}),
-				"[https://godotengine.org/](https://godotengine.org/)");
+		CHECK_EQ(LSP::marked_documentation("[url=https://blackforestengine.org]link to BlackForest Engine[/url]", {}),
+				"[link to BlackForest Engine](https://blackforestengine.org)");
+		CHECK_EQ(LSP::marked_documentation("[url]https://blackforestengine.org/[/url]", {}),
+				"[https://blackforestengine.org/](https://blackforestengine.org/)");
 
 		// Code listings
-		CHECK_EQ(LSP::marked_documentation("[codeblock]\nfunc test():\n    print(\"Hello, Godot!\")\n[/codeblock]", {}),
-				"```gdscript\nfunc test():\n    print(\"Hello, Godot!\")\n```");
-		CHECK_EQ(LSP::marked_documentation("[codeblock lang=csharp]\npublic void Test()\n{\n    GD.Print(\"Hello, Godot!\");\n}\n[/codeblock]", {}),
-				"```csharp\npublic void Test()\n{\n    GD.Print(\"Hello, Godot!\");\n}\n```");
+		CHECK_EQ(LSP::marked_documentation("[codeblock]\nfunc test():\n    print(\"Hello, BlackForest!\")\n[/codeblock]", {}),
+				"```gdscript\nfunc test():\n    print(\"Hello, BlackForest!\")\n```");
+		CHECK_EQ(LSP::marked_documentation("[codeblock lang=csharp]\npublic void Test()\n{\n    GD.Print(\"Hello, BlackForest!\");\n}\n[/codeblock]", {}),
+				"```csharp\npublic void Test()\n{\n    GD.Print(\"Hello, BlackForest!\");\n}\n```");
 		// Code listings with multiple languages (the codeblocks tag is used in the built-in reference)
 		// When [codeblocks] is used, we only convert the [gdscript] tag to a code block like the built-in editor.
 		// NOTE: There is always a GDScript code listing in the built-in class reference.
@@ -518,8 +518,8 @@ TEST_SUITE("[Modules][GDScript][LSP][Editor]") {
 
 		// We have to be careful that different patterns don't conflict with each
 		// other, especially with urls that use brackets in markdown.
-		CHECK_EQ(LSP::marked_documentation("Class [Sprite2D] with [url=https://godotengine.org]link[/url]", {}),
-				"Class `Sprite2D` with [link](https://godotengine.org)");
+		CHECK_EQ(LSP::marked_documentation("Class [Sprite2D] with [url=https://blackforestengine.org]link[/url]", {}),
+				"Class `Sprite2D` with [link](https://blackforestengine.org)");
 	}
 	TEST_CASE("get_symbol_name_under_position") {
 		const String code = U"we_do	suPPort Unicöde  and @annotations, numb3rs \n0nly for-continuation #comment\n@start@\na\n b \n";

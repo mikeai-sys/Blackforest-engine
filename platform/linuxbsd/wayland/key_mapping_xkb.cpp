@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -37,7 +37,7 @@
 #endif // SOWRAP_ENABLED
 
 void KeyMappingXKB::initialize() {
-	// XKB keycode to Godot Key map.
+	// XKB keycode to BlackForest Key map.
 
 	xkb_keycode_map[XKB_KEY_Escape] = Key::ESCAPE;
 	xkb_keycode_map[XKB_KEY_Tab] = Key::TAB;
@@ -197,7 +197,7 @@ void KeyMappingXKB::initialize() {
 	xkb_keycode_map[XKB_KEY_XF86LaunchC] = Key::LAUNCHE;
 	xkb_keycode_map[XKB_KEY_XF86LaunchD] = Key::LAUNCHF;
 
-	// Scancode to Godot Key map.
+	// Scancode to BlackForest Key map.
 	scancode_map[0x09] = Key::ESCAPE;
 	scancode_map[0x0A] = Key::KEY_1;
 	scancode_map[0x0B] = Key::KEY_2;
@@ -355,7 +355,7 @@ void KeyMappingXKB::initialize() {
 	scancode_map[0xD4] = Key::F34;
 	scancode_map[0xD5] = Key::F35;
 
-	// Godot to scancode map.
+	// BlackForest to scancode map.
 	for (const KeyValue<unsigned int, Key> &E : scancode_map) {
 		scancode_map_inv[E.value] = E.key;
 	}

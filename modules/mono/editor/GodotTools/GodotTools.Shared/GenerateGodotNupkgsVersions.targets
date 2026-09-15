@@ -1,5 +1,5 @@
 <Project>
-  <!-- Generate C# file with the version of all the nupkgs bundled with Godot -->
+  <!-- Generate C# file with the version of all the nupkgs bundled with BlackForest -->
 
   <Target Name="SetPropertiesForGenerateGodotNupkgsVersions">
     <PropertyGroup>

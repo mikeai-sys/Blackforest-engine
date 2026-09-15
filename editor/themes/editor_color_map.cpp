@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -46,8 +46,8 @@ void EditorColorMap::create() {
 	// This can be a basis for proper palette validation later.
 
 	// Convert:               FROM       TO
-	add_conversion_color_pair("#478cbf", "#478cbf"); // Godot Blue
-	add_conversion_color_pair("#414042", "#414042"); // Godot Gray
+	add_conversion_color_pair("#478cbf", "#478cbf"); // BlackForest Blue
+	add_conversion_color_pair("#414042", "#414042"); // BlackForest Gray
 
 	add_conversion_color_pair("#ffffff", "#414141"); // Pure white
 	add_conversion_color_pair("#fefefe", "#fefefe"); // Forced light color
@@ -170,10 +170,10 @@ void EditorColorMap::create() {
 	add_conversion_exception("EditorPathSmoothHandle");
 	add_conversion_exception("EditorBoneHandle");
 	add_conversion_exception("Editor3DHandle");
-	add_conversion_exception("Godot");
+	add_conversion_exception("BlackForest");
 	add_conversion_exception("Sky");
 	add_conversion_exception("EditorControlAnchor");
-	add_conversion_exception("DefaultProjectIcon");
+
 	add_conversion_exception("ZoomMore");
 	add_conversion_exception("ZoomLess");
 	add_conversion_exception("ZoomReset");

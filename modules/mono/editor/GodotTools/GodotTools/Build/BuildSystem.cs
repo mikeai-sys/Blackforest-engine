@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Godot;
+using BlackForest;
 using GodotTools.BuildLogger;
 using GodotTools.Internals;
 using GodotTools.Utils;
@@ -33,7 +33,7 @@ namespace GodotTools.Build
 
             string launchMessage = startInfo.GetCommandLineDisplay(new StringBuilder("Running: ")).ToString();
             stdOutHandler?.Invoke(launchMessage);
-            if (Godot.OS.IsStdOutVerbose())
+            if (BlackForest.OS.IsStdOutVerbose())
                 Console.WriteLine(launchMessage);
 
             startInfo.RedirectStandardOutput = true;
@@ -104,7 +104,7 @@ namespace GodotTools.Build
 
             string launchMessage = startInfo.GetCommandLineDisplay(new StringBuilder("Running: ")).ToString();
             stdOutHandler?.Invoke(launchMessage);
-            if (Godot.OS.IsStdOutVerbose())
+            if (BlackForest.OS.IsStdOutVerbose())
                 Console.WriteLine(launchMessage);
 
             startInfo.RedirectStandardOutput = true;
@@ -330,7 +330,7 @@ namespace GodotTools.Build
 
             string launchMessage = startInfo.GetCommandLineDisplay(new StringBuilder("Packaging: ")).ToString();
             stdOutHandler?.Invoke(launchMessage);
-            if (Godot.OS.IsStdOutVerbose())
+            if (BlackForest.OS.IsStdOutVerbose())
                 Console.WriteLine(launchMessage);
 
             startInfo.RedirectStandardOutput = true;

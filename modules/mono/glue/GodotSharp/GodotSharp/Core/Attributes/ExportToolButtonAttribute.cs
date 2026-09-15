@@ -2,7 +2,7 @@ using System;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Exports the annotated <see cref="Callable"/> as a clickable button.

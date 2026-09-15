@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -38,7 +38,7 @@
 #define _MKSTR(m_x) _STR(m_x)
 #endif
 
-// Godot versions are of the form <major>.<minor> for the initial release,
+// BlackForest versions are of the form <major>.<minor> for the initial release,
 // and then <major>.<minor>.<patch> for subsequent bugfix releases where <patch> != 0
 // That's arbitrary, but we find it pretty and it's the current policy.
 
@@ -59,7 +59,7 @@
 // Example: 3.1.4 will be 0x030104, making comparison easy from script.
 #define GODOT_VERSION_HEX 0x10000 * GODOT_VERSION_MAJOR + 0x100 * GODOT_VERSION_MINOR + GODOT_VERSION_PATCH
 
-// Describes the full configuration of that Godot version, including the version number,
+// Describes the full configuration of that BlackForest version, including the version number,
 // the status (beta, stable, etc.), potential module-specific features (e.g. mono)
 // and double-precision status.
 // Example: "3.1.4.stable.mono.double"
@@ -74,8 +74,8 @@
 // Example: "3.1.4.stable.mono.double.official"
 #define GODOT_VERSION_FULL_BUILD GODOT_VERSION_FULL_CONFIG "." GODOT_VERSION_BUILD
 
-// Same as above, but prepended with Godot's name and a cosmetic "v" for "version".
-// Example: "Godot v3.1.4.stable.official.mono.double"
+// Same as above, but prepended with BlackForest's name and a cosmetic "v" for "version".
+// Example: "BlackForest v3.1.4.stable.official.mono.double"
 #define GODOT_VERSION_FULL_NAME GODOT_VERSION_NAME " v" GODOT_VERSION_FULL_BUILD
 
 // Git commit hash, generated at build time in `core/version_hash.gen.cpp`.

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -640,7 +640,7 @@ class SampleNode {
 		} else {
 			this._positionWorklet = new AudioWorkletNode(
 				GodotAudio.ctx,
-				'godot-position-reporting-processor'
+				'blackforest-position-reporting-processor'
 			);
 		}
 		this._playbackPosition = this.offset;
@@ -797,7 +797,7 @@ class SampleNode {
 }
 
 /**
- * Collection of nodes to represents a Godot Engine audio bus.
+ * Collection of nodes to represents a BlackForest Engine audio bus.
  * @class
  */
 class Bus {
@@ -1282,7 +1282,7 @@ const _GodotAudio = {
 			}, 1000);
 			GodotOS.atexit(GodotAudio.close_async);
 
-			const path = GodotConfig.locate_file('godot.audio.position.worklet.js');
+			const path = GodotConfig.locate_file('blackforest.audio.position.worklet.js');
 			GodotAudio.audioPositionWorkletPromise = ctx.audioWorklet.addModule(path);
 
 			return ctx.destination.channelCount;
@@ -1954,13 +1954,13 @@ const GodotAudioWorklet = {
 		ring_buffer: null,
 
 		create: function (channels) {
-			const path = GodotConfig.locate_file('godot.audio.worklet.js');
+			const path = GodotConfig.locate_file('blackforest.audio.worklet.js');
 			GodotAudioWorklet.promise = GodotAudio.ctx.audioWorklet
 				.addModule(path)
 				.then(function () {
 					GodotAudioWorklet.worklet = new AudioWorkletNode(
 						GodotAudio.ctx,
-						'godot-processor',
+						'blackforest-processor',
 						{
 							outputChannelCount: [channels],
 						}
@@ -2212,7 +2212,7 @@ const GodotAudioScript = {
 					}
 				}
 
-				// Let Godot process the input/output.
+				// Let BlackForest process the input/output.
 				onprocess();
 
 				// Write the output.

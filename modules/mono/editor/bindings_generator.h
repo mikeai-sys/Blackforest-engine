@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -166,14 +166,14 @@ class BindingsGenerator {
 		bool is_static = false;
 
 		/**
-		 * Virtual methods ("virtual" as defined by the Godot API) are methods that by default do nothing,
+		 * Virtual methods ("virtual" as defined by the BlackForest API) are methods that by default do nothing,
 		 * but can be overridden by the user to add custom functionality.
 		 * e.g.: _ready, _process, etc.
 		 */
 		bool is_virtual = false;
 
 		/**
-		 * Determines if the call should fallback to Godot's object.Call(string, params) in C#.
+		 * Determines if the call should fallback to BlackForest's object.Call(string, params) in C#.
 		 */
 		bool requires_object_call = false;
 

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -347,7 +347,7 @@ class ScriptInstance;
  * Base class for all OBJECT Variant types.
  *
  * For documentation, see:
- * https://docs.godotengine.org/en/latest/engine_details/architecture/object_class.html
+ * https://docs.blackforestengine.org/en/latest/engine_details/architecture/object_class.html
  */
 class Object {
 public:

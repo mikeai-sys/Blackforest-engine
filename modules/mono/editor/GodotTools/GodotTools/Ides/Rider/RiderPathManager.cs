@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
-using Godot;
+using BlackForest;
 using GodotTools.Internals;
 using JetBrains.Rider.PathLocator;
 
@@ -38,7 +38,7 @@ namespace GodotTools.Ides.Rider
             if (!editorSettings.HasSetting(EditorPathSettingName))
             {
                 Globals.EditorDef(EditorPathSettingName, "");
-                editorSettings.AddPropertyInfo(new Godot.Collections.Dictionary
+                editorSettings.AddPropertyInfo(new BlackForest.Collections.Dictionary
                 {
                     ["type"] = (int)Variant.Type.String,
                     ["name"] = EditorPathSettingName,

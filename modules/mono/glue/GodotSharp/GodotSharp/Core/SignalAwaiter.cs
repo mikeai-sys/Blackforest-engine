@@ -1,8 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot
+namespace BlackForest
 {
     public class SignalAwaiter : IAwaiter<Variant[]>, IAwaitable<Variant[]>
     {

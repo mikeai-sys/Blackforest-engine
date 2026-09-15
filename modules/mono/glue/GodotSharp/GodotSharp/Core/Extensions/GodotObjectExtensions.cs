@@ -1,10 +1,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     public partial class GodotObject
     {
@@ -69,7 +69,7 @@ namespace Godot
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <returns>
-        /// The <see cref="Godot.WeakRef"/> reference to the object or <see langword="null"/>.
+        /// The <see cref="BlackForest.WeakRef"/> reference to the object or <see langword="null"/>.
         /// </returns>
         public static WeakRef? WeakRef(GodotObject? obj)
         {

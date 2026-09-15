@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -114,7 +114,7 @@ void print_web_header() {
 	// Emscripten.
 	char *emscripten_version_char = godot_js_emscripten_get_version();
 	String emscripten_version = vformat("Emscripten %s", emscripten_version_char);
-	// `free()` is used here because it's not memory that was allocated by Godot.
+	// `free()` is used here because it's not memory that was allocated by BlackForest.
 	free(emscripten_version_char);
 
 	// Build features.

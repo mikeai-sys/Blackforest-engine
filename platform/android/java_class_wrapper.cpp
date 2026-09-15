@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -729,7 +729,7 @@ bool JavaClass::_get(const StringName &p_name, Variant &r_ret) const {
 }
 
 Variant JavaClass::callp(const StringName &p_method, const Variant **p_args, int p_argcount, Callable::CallError &r_error) {
-	// Godot methods take precedence.
+	// BlackForest methods take precedence.
 	Variant ret = RefCounted::callp(p_method, p_args, p_argcount, r_error);
 	if (r_error.error == Callable::CallError::CALL_OK) {
 		return ret;
@@ -855,7 +855,7 @@ JavaClass::~JavaClass() {
 /////////////////////
 
 Variant JavaObject::callp(const StringName &p_method, const Variant **p_args, int p_argcount, Callable::CallError &r_error) {
-	// Godot methods take precedence.
+	// BlackForest methods take precedence.
 	Variant ret = RefCounted::callp(p_method, p_args, p_argcount, r_error);
 	if (r_error.error == Callable::CallError::CALL_OK) {
 		return ret;

@@ -1,15 +1,15 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
-    /// Specifies a custom icon for representing this class in the Godot Editor.
+    /// Specifies a custom icon for representing this class in the BlackForest Editor.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class IconAttribute : Attribute
     {
         /// <summary>
-        /// File path to a custom icon for representing this class in the Godot Editor.
+        /// File path to a custom icon for representing this class in the BlackForest Editor.
         /// </summary>
         public string Path { get; }
 

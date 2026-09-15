@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -251,8 +251,8 @@ void OpenXRHandTrackingExtension::on_process() {
 
 			if (hand_trackers[i].locations.isActive) {
 				// SKELETON_RIG_HUMANOID bone adjustment. This rotation performs:
-				// OpenXR Z+ -> Godot Humanoid Y-  (Back along the bone)
-				// OpenXR Y+ -> Godot Humanoid Z- (Out the back of the hand)
+				// OpenXR Z+ -> BlackForest Humanoid Y-  (Back along the bone)
+				// OpenXR Y+ -> BlackForest Humanoid Z- (Out the back of the hand)
 				const Quaternion bone_adjustment(0.0, -Math::SQRT12, Math::SQRT12, 0.0);
 
 				for (int joint = 0; joint < XR_HAND_JOINT_COUNT_EXT; joint++) {

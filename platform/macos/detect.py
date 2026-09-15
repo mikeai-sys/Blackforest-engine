@@ -30,7 +30,7 @@ def get_opts():
     # Dependencies folder.
     deps_folder = os.getenv("LOCALAPPDATA")
     if deps_folder:
-        deps_folder = os.path.join(deps_folder, "Godot", "build_deps")
+        deps_folder = os.path.join(deps_folder, "BlackForest", "build_deps")
     else:
         # Cross-compiling, the deps install script puts things in `bin`.
         # Getting an absolute path to it is a bit hacky in Python.
@@ -147,7 +147,7 @@ def configure(env: "SConsEnvironment"):
         env["AS"] = basecmd + "as"
 
     elif "APPLE_LLVM_CROSS" in os.environ:  # cross-compile from Linux with clang
-        # Opt-in path used by the godot-apple build containers (no osxcross).
+        # Opt-in path used by the blackforest-apple build containers (no osxcross).
         # clang/clang++ resolve to the LLVM toolchain on PATH; the Apple target
         # triple and SDK sysroot are passed as flags. No Darwin/SDK version is
         # encoded here: the deployment target comes from -mmacosx-version-min
@@ -186,8 +186,8 @@ def configure(env: "SConsEnvironment"):
 
     # LTO
 
-    if env["lto"] == "auto":  # LTO benefits for macOS (size, performance) haven't been clearly established yet.
-        env["lto"] = "none"
+    if env["lto"] == "auto":  # BlackForest: ThinLTO is well supported by Apple clang and gives free cross-TU inlining.
+        env["lto"] = "thin"
 
     if env["lto"] != "none":
         if env["lto"] == "thin":
@@ -247,7 +247,7 @@ def configure(env: "SConsEnvironment"):
                 "The screen reader support driver requires dependencies to be installed.\n"
                 f"You can install them by running `python3 {os.path.join('misc', 'scripts', 'install_accesskit.py')}`.\n"
                 "See the documentation for more information:\n\t"
-                "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_macos.html#compiling-with-accesskit-support"
+                "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_macos.html#compiling-with-accesskit-support"
                 "\nAlternatively, disable this driver by compiling with `accesskit=no` explicitly."
             )
             env["accesskit"] = False
@@ -320,7 +320,7 @@ def configure(env: "SConsEnvironment"):
                     "The ANGLE rendering driver requires dependencies to be installed.\n"
                     f"You can install them by running `python3 {os.path.join('misc', 'scripts', 'install_angle.py')}`.\n"
                     "See the documentation for more information:\n\t"
-                    "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_macos.html#compiling-with-angle-support"
+                    "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_macos.html#compiling-with-angle-support"
                     "\nAlternatively, disable this driver by compiling with `angle=no` explicitly."
                 )
                 env["angle"] = False

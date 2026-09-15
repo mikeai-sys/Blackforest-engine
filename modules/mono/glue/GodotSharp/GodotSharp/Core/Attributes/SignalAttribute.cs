@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Declares a <see langword="delegate"/> as a signal. This allows any connected

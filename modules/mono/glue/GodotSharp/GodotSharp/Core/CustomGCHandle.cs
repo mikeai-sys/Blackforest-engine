@@ -5,9 +5,9 @@ using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Loader;
-using Godot.Bridge;
+using BlackForest.Bridge;
 
-namespace Godot;
+namespace BlackForest;
 
 /// <summary>
 /// Provides a GCHandle that becomes weak when unloading the assembly load context, without having

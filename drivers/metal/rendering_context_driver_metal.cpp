@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -54,8 +54,8 @@ os_log_t LOG_DRIVER;
 os_log_t LOG_INTERVALS;
 
 __attribute__((constructor)) static void InitializeLogging(void) {
-	LOG_DRIVER = os_log_create("org.godotengine.godot.metal", OS_LOG_CATEGORY_POINTS_OF_INTEREST);
-	LOG_INTERVALS = os_log_create("org.godotengine.godot.metal", "events");
+	LOG_DRIVER = os_log_create("org.blackforestengine.blackforest.metal", OS_LOG_CATEGORY_POINTS_OF_INTEREST);
+	LOG_INTERVALS = os_log_create("org.blackforestengine.blackforest.metal", "events");
 }
 
 RenderingContextDriverMetal::RenderingContextDriverMetal() {

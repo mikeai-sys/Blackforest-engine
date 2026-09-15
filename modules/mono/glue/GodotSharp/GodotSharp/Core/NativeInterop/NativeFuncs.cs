@@ -4,10 +4,10 @@
 
 using System;
 using System.Runtime.CompilerServices;
-using Godot.SourceGenerators.Internal;
+using BlackForest.SourceGenerators.Internal;
 
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     /*
      * IMPORTANT:

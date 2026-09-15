@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -1013,12 +1013,12 @@ void PixelFormats::modifyMTLFormatCapabilities(const MetalFeatures &p_feat) {
 	setMTLPixFmtCapsIf(iosOnly2, Depth32Float_Stencil8, DRM);
 }
 
-// Populates the DataFormat lookup maps and connects Godot and Metal pixel formats to one-another.
+// Populates the DataFormat lookup maps and connects BlackForest and Metal pixel formats to one-another.
 void PixelFormats::buildDFFormatMaps() {
 	for (DataFormatDesc &dfDesc : _data_format_descs) {
-		// Populate the back reference from the Metal formats to the Godot format.
+		// Populate the back reference from the Metal formats to the BlackForest format.
 		// Validate the corresponding Metal formats for the platform, and clear them
-		// in the Godot format if not supported.
+		// in the BlackForest format if not supported.
 		if (dfDesc.mtlPixelFormat) {
 			MTLFormatDesc &mtlDesc = getMTLPixelFormatDesc(dfDesc.mtlPixelFormat);
 			if (mtlDesc.dataFormat == RDC::DATA_FORMAT_MAX) {

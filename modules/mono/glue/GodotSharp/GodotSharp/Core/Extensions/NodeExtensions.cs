@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     public partial class Node
     {

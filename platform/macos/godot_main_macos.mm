@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -121,7 +121,7 @@ __attribute__((visibility("default"))) int main(int argc, char **argv) {
 #endif
 
 	if (is_embedded) {
-		// No dock icon for the embedded process, as it is hosted in the Godot editor.
+		// No dock icon for the embedded process, as it is hosted in the BlackForest editor.
 		ProcessSerialNumber psn = { 0, kCurrentProcess };
 		(void)TransformProcessType(&psn, kProcessTransformToBackgroundApplication);
 	}

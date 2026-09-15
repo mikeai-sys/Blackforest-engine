@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Allows the annotated class to execute in the editor.

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -49,7 +49,7 @@ typedef struct
 /**
  * Platform APIs are being registered only after extensions, making them unavailable during initialization (on any level).
  *
- * Due to that we run the tests in Mainloop `startup_callback` (available since Godot 4.5), called after the initialization.
+ * Due to that we run the tests in Mainloop `startup_callback` (available since BlackForest 4.5), called after the initialization.
  */
 void startup_func() {
 	bool success = (builtin_methods_compatibility_test() && class_methods_compatibility_test() && utility_functions_compatibility_test());

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -362,12 +362,12 @@ void NativeMenuMacOS::popup(const RID &p_rid, const Vector2i &p_position) {
 	if (ds) {
 		Point2i position = p_position;
 		// macOS native y-coordinate relative to _get_screens_origin() is negative,
-		// Godot passes a positive value.
+		// BlackForest passes a positive value.
 		position.y *= -1;
 		position += ds->_get_screens_origin();
 		position /= ds->screen_get_max_scale();
 
-		[md->menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(position.x, position.y - 5) inView:nil]; // Menu vertical position doesn't include rounded corners, add `5` display pixels to better align it with Godot buttons.
+		[md->menu popUpMenuPositioningItem:nil atLocation:NSMakePoint(position.x, position.y - 5) inView:nil]; // Menu vertical position doesn't include rounded corners, add `5` display pixels to better align it with BlackForest buttons.
 
 		ds->release_pressed_events(); // Note: context menu block main loop and consume events, pressed keys and mouse buttons should be released manually.
 		ds->sync_mouse_state();

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -340,7 +340,7 @@ String OS_MacOS::get_version_alias() const {
 	} else {
 		macos_string += "Unknown";
 	}
-	// macOS versions older than 10.13 cannot run Godot.
+	// macOS versions older than 10.13 cannot run BlackForest.
 	return vformat("%s (%s)", macos_string, get_version());
 }
 

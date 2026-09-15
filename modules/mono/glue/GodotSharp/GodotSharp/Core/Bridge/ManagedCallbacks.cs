@@ -1,8 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot.Bridge
+namespace BlackForest.Bridge
 {
     [StructLayout(LayoutKind.Sequential)]
     public unsafe struct ManagedCallbacks

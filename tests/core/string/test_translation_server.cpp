@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -37,7 +37,7 @@ TEST_FORCE_LINK(test_translation_server)
 namespace TestTranslationServer {
 
 TEST_CASE("[TranslationServer] Translation operations") {
-	Ref<TranslationDomain> td = TranslationServer::get_singleton()->get_or_add_domain("godot.test");
+	Ref<TranslationDomain> td = TranslationServer::get_singleton()->get_or_add_domain("blackforest.test");
 	CHECK(td->get_translations().is_empty());
 
 	Ref<Translation> t1 = memnew(Translation);
@@ -56,7 +56,7 @@ TEST_CASE("[TranslationServer] Translation operations") {
 
 	Ref<Translation> t2 = memnew(Translation);
 	t2->set_locale("uk_UA"); // Ukrainian in Ukraine.
-	t2->add_message("Hello Godot", String(U"Привіт, Годо."));
+	t2->add_message("Hello BlackForest", String(U"Привіт, Годо."));
 	td->add_translation(t2);
 	CHECK(td->get_translations().size() == 2);
 	CHECK(td->has_translation_for_locale("uk", true));
@@ -85,7 +85,7 @@ TEST_CASE("[TranslationServer] Translation operations") {
 	// If no suitable Translation object has been found - the original message should be returned.
 	CHECK(td->translate("Good Morning", StringName()) == "Good Morning");
 
-	TranslationServer::get_singleton()->remove_domain("godot.test");
+	TranslationServer::get_singleton()->remove_domain("blackforest.test");
 }
 
 TEST_CASE("[TranslationServer] Locale operations") {

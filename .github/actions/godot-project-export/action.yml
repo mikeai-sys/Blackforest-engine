@@ -1,9 +1,9 @@
-name: Export Godot project
-description: Export a test Godot project.
+name: Export BlackForest project
+description: Export a test BlackForest project.
 
 inputs:
   bin:
-    description: The path to the Godot executable
+    description: The path to the BlackForest executable
     required: true
 
 runs:
@@ -12,27 +12,27 @@ runs:
     - name: Import resources and export project
       shell: sh
       run: |
-        git clone --depth=1 https://github.com/godotengine/godot-tests.git /tmp/godot-tests
+        git clone --depth=1 https://github.com/godotengine/godot-tests.git /tmp/blackforest-tests
 
         echo "Exporting project for Linux (PCK)"
-        ${{ inputs.bin }} --headless --path /tmp/godot-tests/tests/test_project/ --export-pack "Linux" /tmp/test_project.pck 2>&1 | tee log.txt || true
+        ${{ inputs.bin }} --headless --path /tmp/blackforest-tests/tests/test_project/ --export-pack "Linux" /tmp/test_project.pck 2>&1 | tee log.txt || true
         GODOT_CHECK_CI_LOG_ALL_ERRORS=1 misc/scripts/check_ci_log.py log.txt
 
         echo "Exporting project for Linux (ZIP)"
-        ${{ inputs.bin }} --headless --path /tmp/godot-tests/tests/test_project/ --export-pack "Linux" /tmp/test_project.zip 2>&1 | tee log.txt || true
+        ${{ inputs.bin }} --headless --path /tmp/blackforest-tests/tests/test_project/ --export-pack "Linux" /tmp/test_project.zip 2>&1 | tee log.txt || true
         GODOT_CHECK_CI_LOG_ALL_ERRORS=1 misc/scripts/check_ci_log.py log.txt
 
         echo "Exporting project for Linux as dedicated server (PCK)"
-        ${{ inputs.bin }} --headless --path /tmp/godot-tests/tests/test_project/ --export-pack "Linux Server" /tmp/test_project_server.pck 2>&1 | tee log.txt || true
+        ${{ inputs.bin }} --headless --path /tmp/blackforest-tests/tests/test_project/ --export-pack "Linux Server" /tmp/test_project_server.pck 2>&1 | tee log.txt || true
         GODOT_CHECK_CI_LOG_ALL_ERRORS=1 misc/scripts/check_ci_log.py log.txt
 
     - name: Run project files from folder
       shell: sh
       run: |
-        xvfb-run ${{ inputs.bin }} --path /tmp/godot-tests/tests/test_project/ --language fr --resolution 64x64 --write-movie /tmp/test_project_folder.png --quit 2>&1 | tee log.txt || true
+        xvfb-run ${{ inputs.bin }} --path /tmp/blackforest-tests/tests/test_project/ --language fr --resolution 64x64 --write-movie /tmp/test_project_folder.png --quit 2>&1 | tee log.txt || true
         GODOT_CHECK_CI_LOG_ALL_ERRORS=1 misc/scripts/check_ci_log.py log.txt
 
-        ${{ inputs.bin }} --headless --path /tmp/godot-tests/tests/test_project/ --quit 2>&1 | tee log.txt || true
+        ${{ inputs.bin }} --headless --path /tmp/blackforest-tests/tests/test_project/ --quit 2>&1 | tee log.txt || true
         GODOT_CHECK_CI_LOG_ALL_ERRORS=1 misc/scripts/check_ci_log.py log.txt
 
     - name: Run exported project PCK/ZIP

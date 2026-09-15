@@ -189,7 +189,7 @@ def get_opts():
     # Dependencies folder.
     deps_folder = os.getenv("LOCALAPPDATA")
     if deps_folder and not os.getenv("MSYSTEM"):
-        deps_folder = os.path.join(deps_folder, "Godot", "build_deps")
+        deps_folder = os.path.join(deps_folder, "BlackForest", "build_deps")
     else:
         # Cross-compiling, the deps install script puts things in `bin`.
         # Getting an absolute path to it is a bit hacky in Python.
@@ -473,7 +473,7 @@ def configure_msvc(env: "SConsEnvironment"):
                 "The screen reader support driver requires dependencies to be installed.\n"
                 f"You can install them by running `python {os.path.join('misc', 'scripts', 'install_accesskit.py')}`.\n"
                 "See the documentation for more information:\n\t"
-                "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-accesskit-support"
+                "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-accesskit-support"
                 "\nAlternatively, disable this driver by compiling with `accesskit=no` explicitly."
             )
             env["accesskit"] = False
@@ -530,7 +530,7 @@ def configure_msvc(env: "SConsEnvironment"):
                     "The ANGLE rendering driver requires dependencies to be installed.\n"
                     f"You can install them by running `python {os.path.join('misc', 'scripts', 'install_angle.py')}`.\n"
                     "See the documentation for more information:\n\t"
-                    "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-angle-support"
+                    "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-angle-support"
                     "\nAlternatively, disable this driver by compiling with `angle=no` explicitly."
                 )
                 env["angle"] = False
@@ -565,7 +565,7 @@ def configure_msvc(env: "SConsEnvironment"):
             env.AppendUnique(LINKFLAGS=["/LTCG"])
         env.AppendUnique(ARFLAGS=["/LTCG"])
 
-    env.Append(LINKFLAGS=["/NATVIS:platform\\windows\\godot.natvis"])
+    env.Append(LINKFLAGS=["/NATVIS:platform\\windows\\blackforest.natvis"])
 
     if env["use_asan"]:
         env.AppendUnique(LINKFLAGS=["/STACK:" + str(STACK_SIZE_SANITIZERS)])
@@ -877,7 +877,7 @@ def configure_mingw(env: "SConsEnvironment"):
                 "The screen reader support driver requires dependencies to be installed.\n"
                 f"You can install them by running `python {os.path.join('misc', 'scripts', 'install_accesskit.py')}`.\n"
                 "See the documentation for more information:\n\t"
-                "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-accesskit-support"
+                "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-accesskit-support"
                 "\nAlternatively, disable this driver by compiling with `accesskit=no` explicitly."
             )
             env["accesskit"] = False
@@ -944,7 +944,7 @@ def configure_mingw(env: "SConsEnvironment"):
                     "The ANGLE rendering driver requires dependencies to be installed.\n"
                     f"You can install them by running `python {os.path.join('misc', 'scripts', 'install_angle.py')}`.\n"
                     "See the documentation for more information:\n\t"
-                    "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-angle-support"
+                    "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#compiling-with-angle-support"
                     "\nAlternatively, disable this driver by compiling with `angle=no` explicitly."
                 )
                 env["angle"] = False
@@ -976,7 +976,7 @@ def check_d3d12_installed(env, suffix):
             "The Direct3D 12 rendering driver requires dependencies to be installed.\n"
             f"You can install them by running `python {os.path.join('misc', 'scripts', 'install_d3d12_sdk_windows.py')}`.\n"
             "See the documentation for more information:\n\t"
-            "https://docs.godotengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#installing-direct3d-12-requirements"
+            "https://docs.blackforestengine.org/en/latest/engine_details/development/compiling/compiling_for_windows.html#installing-direct3d-12-requirements"
             "\nAlternatively, disable this driver by compiling with `d3d12=no` explicitly."
         )
         sys.exit(255)

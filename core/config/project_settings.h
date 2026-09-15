@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -54,7 +54,7 @@ class ProjectSettings : public Object {
 public:
 	typedef HashMap<String, Variant> CustomMap;
 	// This constant is used to make the ".godot" folder and paths like "res://.godot/editor".
-	static inline const String PROJECT_DATA_DIR_NAME_SUFFIX = "godot";
+	static inline const String PROJECT_DATA_DIR_NAME_SUFFIX = "blackforest";
 	static inline const String EDITOR_SETTING_OVERRIDE_PREFIX = PNAME("editor_overrides") + String("/");
 
 	// Properties that are not for built in values begin from this value, so builtin ones are displayed first.

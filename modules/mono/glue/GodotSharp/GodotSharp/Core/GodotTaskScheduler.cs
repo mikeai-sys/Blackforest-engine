@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// GodotTaskScheduler contains a linked list of tasks to perform as a queue. Methods

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -986,7 +986,7 @@ void DisplayServerWeb::process_joypads() {
 		}
 		for (int b = 0; b < s_btns_num; b++) {
 			// Buttons 6 and 7 in the standard mapping need to be
-			// axis to be handled as JoyAxis::TRIGGER by Godot.
+			// axis to be handled as JoyAxis::TRIGGER by BlackForest.
 			if (s_standard && (b == 6)) {
 				input->joy_axis(idx, JoyAxis::TRIGGER_LEFT, s_btns[b]);
 			} else if (s_standard && (b == 7)) {

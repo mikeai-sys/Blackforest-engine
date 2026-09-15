@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -212,7 +212,7 @@ Variant GDScriptLanguageProtocol::initialize(const Dictionary &p_params) {
 	LSP::InitializeResult ret;
 
 	{
-		// Warn if the workspace root does not match with the project that is currently open in Godot,
+		// Warn if the workspace root does not match with the project that is currently open in BlackForest,
 		// since it might lead to unexpected behavior, like wrong warnings about duplicate class names.
 
 		String root;
@@ -228,7 +228,7 @@ Variant GDScriptLanguageProtocol::initialize(const Dictionary &p_params) {
 			// Show a general warning, which works for all clients.
 			LSP::ShowMessageParams params{
 				LSP::MessageType::Warning,
-				"The GDScript Language Server might not work correctly with other projects than the one opened in Godot."
+				"The GDScript Language Server might not work correctly with other projects than the one opened in BlackForest."
 			};
 			notify_client("window/showMessage", params.to_json());
 

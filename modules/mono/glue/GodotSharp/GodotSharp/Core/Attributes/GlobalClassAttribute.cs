@@ -2,10 +2,10 @@ using System;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
-    /// Exposes the target class as a global script class to Godot Engine.
+    /// Exposes the target class as a global script class to BlackForest Engine.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class GlobalClassAttribute : Attribute { }

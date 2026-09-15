@@ -22,11 +22,11 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# Base Godot dependencies path
+# Base BlackForest dependencies path
 # If cross-compiling (no LOCALAPPDATA), we install in `bin`
 deps_folder = os.getenv("LOCALAPPDATA")
 if deps_folder and not os.getenv("MSYSTEM"):
-    deps_folder = os.path.join(deps_folder, "Godot", "build_deps")
+    deps_folder = os.path.join(deps_folder, "BlackForest", "build_deps")
 else:
     deps_folder = os.path.join("bin", "build_deps")
 
@@ -63,7 +63,7 @@ for arch in [
     "x86_64-llvm",
     "x86_64-msvc",
 ]:
-    mesa_filename = "godot-nir-static-" + arch + "-release.zip"
+    mesa_filename = "blackforest-nir-static-" + arch + "-release.zip"
     mesa_archive = os.path.join(deps_folder, mesa_filename)
     mesa_folder = os.path.join(deps_folder, "mesa-" + arch)
 
@@ -144,4 +144,4 @@ print(f"DirectX 12 Agility SDK {agility_sdk_version} installed successfully.\n")
 
 # Complete message
 color_print(f'{Ansi.GREEN}All Direct3D 12 SDK components were installed to "{deps_folder}" successfully!')
-color_print(f'{Ansi.GREEN}You can now build Godot with Direct3D 12 support enabled by running "scons d3d12=yes".')
+color_print(f'{Ansi.GREEN}You can now build BlackForest with Direct3D 12 support enabled by running "scons d3d12=yes".')

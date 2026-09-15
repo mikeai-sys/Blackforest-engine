@@ -47,7 +47,7 @@
 			return ResourceSaver.save(mesh, filename)
 		[/gdscript]
 		[csharp]
-		using Godot;
+		using BlackForest;
 
 		public partial class MySpecialPlugin : EditorImportPlugin
 		{
@@ -86,11 +86,11 @@
 				return "Default";
 			}
 
-			public override Godot.Collections.Array&lt;Godot.Collections.Dictionary&gt; _GetImportOptions(string path, int presetIndex)
+			public override BlackForest.Collections.Array&lt;BlackForest.Collections.Dictionary&gt; _GetImportOptions(string path, int presetIndex)
 			{
 				return
 				[
-					new Godot.Collections.Dictionary
+					new BlackForest.Collections.Dictionary
 					{
 						{ "name", "myOption" },
 						{ "default_value", false },
@@ -98,7 +98,7 @@
 				];
 			}
 
-			public override Error _Import(string sourceFile, string savePath, Godot.Collections.Dictionary options, Godot.Collections.Array&lt;string&gt; platformVariants, Godot.Collections.Array&lt;string&gt; genFiles)
+			public override Error _Import(string sourceFile, string savePath, BlackForest.Collections.Dictionary options, BlackForest.Collections.Array&lt;string&gt; platformVariants, BlackForest.Collections.Array&lt;string&gt; genFiles)
 			{
 				using var file = FileAccess.Open(sourceFile, FileAccess.ModeFlags.Read);
 				if (file.GetError() != Error.Ok)
@@ -172,7 +172,7 @@
 					return true
 				[/gdscript]
 				[csharp]
-				public override bool _GetOptionVisibility(string path, StringName optionName, Godot.Collections.Dictionary options)
+				public override bool _GetOptionVisibility(string path, StringName optionName, BlackForest.Collections.Dictionary options)
 				{
 					// Only show the lossy quality setting if the compression mode is set to "Lossy".
 					if (optionName == "compress/lossy_quality" &amp;&amp; options.ContainsKey("compress/mode"))
@@ -215,7 +215,7 @@
 		<method name="_get_resource_type" qualifiers="virtual required const">
 			<return type="String" />
 			<description>
-				Gets the Godot resource type associated with this loader. e.g. [code]"Mesh"[/code] or [code]"Animation"[/code].
+				Gets the BlackForest resource type associated with this loader. e.g. [code]"Mesh"[/code] or [code]"Animation"[/code].
 			</description>
 		</method>
 		<method name="_get_save_extension" qualifiers="virtual required const">

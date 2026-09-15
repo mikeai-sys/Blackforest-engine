@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -50,6 +50,8 @@ class EditorProfiler;
 class EditorFileDialog;
 class EditorVisualProfiler;
 class EditorPerformanceProfiler;
+class EditorMemoryProfiler;
+class EditorFrameDebugger;
 class SceneDebuggerTree;
 class EditorDebuggerPlugin;
 class DebugAdapterProtocol;
@@ -161,6 +163,8 @@ private:
 	EditorProfiler *profiler = nullptr;
 	EditorVisualProfiler *visual_profiler = nullptr;
 	EditorPerformanceProfiler *performance_profiler = nullptr;
+	EditorMemoryProfiler *memory_profiler = nullptr;
+	EditorFrameDebugger *frame_debugger = nullptr;
 	EditorExpressionEvaluator *expression_evaluator = nullptr;
 
 	ProcessID remote_pid = 0;

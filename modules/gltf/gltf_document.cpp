@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -226,7 +226,7 @@ Error GLTFDocument::_serialize_gltf_extensions(Ref<GLTFState> p_state) const {
 }
 
 Error GLTFDocument::_serialize_scenes(Ref<GLTFState> p_state) {
-	// Godot only supports one scene per glTF file.
+	// BlackForest only supports one scene per glTF file.
 	Array scenes;
 	Dictionary scene_dict;
 	scenes.append(scene_dict);
@@ -665,7 +665,7 @@ void GLTFDocument::_compute_node_heights(Ref<GLTFState> p_state) {
 		}
 
 		if (_naming_version < 2) {
-			// This is incorrect, but required for compatibility with previous Godot versions.
+			// This is incorrect, but required for compatibility with previous BlackForest versions.
 			if (node->height == 0) {
 				p_state->root_nodes.push_back(node_i);
 			}
@@ -1469,7 +1469,7 @@ Error GLTFDocument::_parse_meshes(Ref<GLTFState> p_state) {
 					ERR_FAIL_INDEX_V(material, p_state->materials.size(), ERR_FILE_CORRUPT);
 					Ref<Material> mat3d = p_state->materials[material];
 					ERR_FAIL_COND_V(mat3d.is_null(), ERR_FILE_CORRUPT);
-					// Remap the glTF file's UV texture coordinates to Godot's UV and UV2 as best as possible.
+					// Remap the glTF file's UV texture coordinates to BlackForest's UV and UV2 as best as possible.
 					if (mat3d->has_meta("_gltf_primary_texture_coord")) {
 						const int tex_coord = mat3d->get_meta("_gltf_primary_texture_coord");
 						mat_primary_texture_coord = "TEXCOORD_" + itos(tex_coord);
@@ -1500,7 +1500,7 @@ Error GLTFDocument::_parse_meshes(Ref<GLTFState> p_state) {
 				mat_name = mat->get_name();
 			}
 
-			// Read the mesh primitive data into Godot ArrayMesh array data.
+			// Read the mesh primitive data into BlackForest ArrayMesh array data.
 			Array array;
 			array.resize(Mesh::ARRAY_MAX);
 
@@ -1508,7 +1508,7 @@ Error GLTFDocument::_parse_meshes(Ref<GLTFState> p_state) {
 			if (mesh_prim.has("mode")) {
 				const int mode = mesh_prim["mode"];
 				ERR_FAIL_INDEX_V(mode, 7, ERR_FILE_CORRUPT);
-				// Convert mesh.primitive.mode to Godot Mesh enum. See:
+				// Convert mesh.primitive.mode to BlackForest Mesh enum. See:
 				// https://www.khronos.org/registry/glTF/specs/2.0/glTF-2.0.html#_mesh_primitive_mode
 				static const Mesh::PrimitiveType primitives2[7] = {
 					Mesh::PRIMITIVE_POINTS, // 0 POINTS
@@ -1681,7 +1681,7 @@ Error GLTFDocument::_parse_meshes(Ref<GLTFState> p_state) {
 				}
 				array[Mesh::ARRAY_BONES] = joints;
 			}
-			// glTF stores weights as a VEC4 array or multiple VEC4 arrays, but Godot's
+			// glTF stores weights as a VEC4 array or multiple VEC4 arrays, but BlackForest's
 			// ArrayMesh uses a flat array of either 4 or 8 floats per vertex.
 			// Therefore, decode up to two glTF VEC4 arrays as float arrays.
 			if (a.has("WEIGHTS_0") && !a.has("WEIGHTS_1")) {
@@ -2342,7 +2342,7 @@ Error GLTFDocument::_parse_images(Ref<GLTFState> p_state, const String &p_base_p
 		//  - a URI with embedded base64-encoded data, or
 		//  - a reference to a bufferView; in that case mimeType must be defined."
 		// Since mimeType is optional for external files and base64 data, we'll have to
-		// fall back on letting Godot parse the data to figure out if it's PNG or JPEG.
+		// fall back on letting BlackForest parse the data to figure out if it's PNG or JPEG.
 
 		// We'll assume that we use either URI or bufferView, so let's warn the user
 		// if their image somehow uses both. And fail if it has neither.
@@ -2391,7 +2391,7 @@ Error GLTFDocument::_parse_images(Ref<GLTFState> p_state, const String &p_base_p
 				// ResourceLoader will rely on the file extension to use the relevant loader.
 				// The spec says that if mimeType is defined, it should take precedence (e.g.
 				// there could be a `.png` image which is actually JPEG), but there's no easy
-				// API for that in Godot, so we'd have to load as a buffer (i.e. embedded in
+				// API for that in BlackForest, so we'd have to load as a buffer (i.e. embedded in
 				// the material), so we only do that only as fallback.
 				if (ResourceLoader::exists(resource_uri)) {
 					Ref<Texture2D> texture = ResourceLoader::load(resource_uri, "Texture2D");
@@ -3059,7 +3059,7 @@ Error GLTFDocument::_parse_materials(Ref<GLTFState> p_state) {
 					if (primary_texture_coord == -1) {
 						primary_texture_coord = spec_gloss_tex_coord;
 					} else if (spec_gloss_tex_coord != primary_texture_coord) {
-						WARN_PRINT("glTF: File uses different UV maps for specular/glossiness and diffuse textures. Godot does not support this. Using diffuse texture's UV map only and ignoring specular/glossiness texture's UV map.");
+						WARN_PRINT("glTF: File uses different UV maps for specular/glossiness and diffuse textures. BlackForest does not support this. Using diffuse texture's UV map only and ignoring specular/glossiness texture's UV map.");
 					}
 				}
 			}
@@ -3128,7 +3128,7 @@ Error GLTFDocument::_parse_materials(Ref<GLTFState> p_state) {
 					if (primary_texture_coord == -1) {
 						primary_texture_coord = metal_rough_tex_coord;
 					} else if (metal_rough_tex_coord != primary_texture_coord) {
-						WARN_PRINT("glTF: File uses different UV maps for metallic/roughness and base color textures. Godot does not support this. Using base color texture's UV map only and ignoring metallic/roughness texture's UV map.");
+						WARN_PRINT("glTF: File uses different UV maps for metallic/roughness and base color textures. BlackForest does not support this. Using base color texture's UV map only and ignoring metallic/roughness texture's UV map.");
 					}
 				}
 			}
@@ -3145,7 +3145,7 @@ Error GLTFDocument::_parse_materials(Ref<GLTFState> p_state) {
 				if (primary_texture_coord == -1) {
 					primary_texture_coord = normal_tex_coord;
 				} else if (normal_tex_coord != primary_texture_coord) {
-					WARN_PRINT("glTF: File uses different UV maps for normal and base color textures. Godot does not support this. Using base color texture's UV map only and ignoring normal texture's UV map.");
+					WARN_PRINT("glTF: File uses different UV maps for normal and base color textures. BlackForest does not support this. Using base color texture's UV map only and ignoring normal texture's UV map.");
 				}
 			}
 			if (normal_tex_dict.has("scale")) {
@@ -3200,7 +3200,7 @@ Error GLTFDocument::_parse_materials(Ref<GLTFState> p_state) {
 						secondary_texture_coord = emissive_tex_coord;
 						material->set_flag(BaseMaterial3D::FLAG_EMISSION_ON_UV2, true);
 					} else {
-						WARN_PRINT("glTF: File uses different UV maps for emission, occlusion, and primary textures (baseColor/normal/etc). Godot does not support this, it only supports up to two UV maps. Using occlusion texture's UV map only and ignoring emission texture's UV map.");
+						WARN_PRINT("glTF: File uses different UV maps for emission, occlusion, and primary textures (baseColor/normal/etc). BlackForest does not support this, it only supports up to two UV maps. Using occlusion texture's UV map only and ignoring emission texture's UV map.");
 					}
 				}
 			}
@@ -4234,7 +4234,7 @@ Node3D *GLTFDocument::_generate_spatial(Ref<GLTFState> p_state, const GLTFNodeIn
 void GLTFDocument::_convert_scene_node(Ref<GLTFState> p_state, Node *p_current, const GLTFNodeIndex p_gltf_parent, const GLTFNodeIndex p_gltf_root) {
 #ifdef TOOLS_ENABLED
 	if (Engine::get_singleton()->is_editor_hint() && p_gltf_root != -1 && p_current->get_owner() == nullptr) {
-		WARN_VERBOSE("glTF export warning: Node '" + p_current->get_name() + "' has no owner. This is likely a temporary node generated by a @tool script. This would not be saved when saving the Godot scene, therefore it will not be exported to glTF.");
+		WARN_VERBOSE("glTF export warning: Node '" + p_current->get_name() + "' has no owner. This is likely a temporary node generated by a @tool script. This would not be saved when saving the BlackForest scene, therefore it will not be exported to glTF.");
 		return;
 	}
 #endif // TOOLS_ENABLED
@@ -4264,7 +4264,7 @@ void GLTFDocument::_convert_scene_node(Ref<GLTFState> p_state, Node *p_current, 
 	} else if (Object::cast_to<Skeleton3D>(p_current)) {
 		Skeleton3D *skel = Object::cast_to<Skeleton3D>(p_current);
 		_convert_skeleton_to_gltf(skel, p_state, p_gltf_parent, p_gltf_root, gltf_node);
-		// We ignore the Godot Engine node that is the skeleton.
+		// We ignore the BlackForest Engine node that is the skeleton.
 		return;
 	} else if (Object::cast_to<MultiMeshInstance3D>(p_current)) {
 		MultiMeshInstance3D *multi = Object::cast_to<MultiMeshInstance3D>(p_current);
@@ -4630,7 +4630,7 @@ void GLTFDocument::_generate_scene_node(Ref<GLTFState> p_state, const GLTFNodeIn
 		if (gltf_node->mesh >= 0) {
 			current_node = _generate_mesh_instance(p_state, p_node_index);
 			// glTF specifies that skinned meshes should ignore their node transforms,
-			// only being controlled by the skeleton, so Godot will reparent a skinned
+			// only being controlled by the skeleton, so BlackForest will reparent a skinned
 			// mesh to its skeleton. However, we still need to ensure any child nodes
 			// keep their place in the tree, so if there are any child nodes, the skinned
 			// mesh must not be the base node, so generate an empty spatial base.
@@ -4658,7 +4658,7 @@ void GLTFDocument::_generate_scene_node(Ref<GLTFState> p_state, const GLTFNodeIn
 	// It is also possible that user code generates a Skeleton3D node, and this code also works for that case.
 	if (likely(!Object::cast_to<Skeleton3D>(current_node))) {
 		if (current_node) {
-			// Set the name of the Godot node to the name of the glTF node.
+			// Set the name of the BlackForest node to the name of the glTF node.
 			String gltf_node_name = gltf_node->get_name();
 			if (!gltf_node_name.is_empty()) {
 				current_node->set_name(gltf_node_name);
@@ -4676,10 +4676,10 @@ void GLTFDocument::_generate_scene_node(Ref<GLTFState> p_state, const GLTFNodeIn
 		_attach_node_to_skeleton(p_state, p_node_index, current_node, parent_skeleton, p_scene_root);
 		return;
 	}
-	// Not a skeleton bone, so definitely some kind of node that goes in the Godot scene tree.
+	// Not a skeleton bone, so definitely some kind of node that goes in the BlackForest scene tree.
 	if (current_node == nullptr) {
 		current_node = _generate_spatial(p_state, p_node_index);
-		// Set the name of the Godot node to the name of the glTF node.
+		// Set the name of the BlackForest node to the name of the glTF node.
 		String gltf_node_name = gltf_node->get_name();
 		if (!gltf_node_name.is_empty()) {
 			current_node->set_name(gltf_node_name);
@@ -4745,7 +4745,7 @@ void GLTFDocument::_attach_node_to_skeleton(Ref<GLTFState> p_state, const GLTFNo
 			attachment_godot_node = bone_attachment;
 		}
 		// By this point, `attachment_godot_node` is either a BoneAttachment3D or part of a BoneAttachment3D subtree.
-		// If the node is a plain non-joint, we should generate a Godot node for it.
+		// If the node is a plain non-joint, we should generate a BlackForest node for it.
 		if (p_current_node == nullptr) {
 			DEV_ASSERT(!gltf_node->joint);
 			p_current_node = _generate_spatial(p_state, p_node_index);
@@ -4756,8 +4756,8 @@ void GLTFDocument::_attach_node_to_skeleton(Ref<GLTFState> p_state, const GLTFNo
 		p_current_node->set_name(gltf_node->get_name());
 		attachment_godot_node->add_child(p_current_node, true);
 	} else {
-		// If this glTF is a plain joint, this glTF node only becomes a Godot bone.
-		// We refer to the skeleton itself as this glTF node's corresponding Godot node.
+		// If this glTF is a plain joint, this glTF node only becomes a BlackForest bone.
+		// We refer to the skeleton itself as this glTF node's corresponding BlackForest node.
 		// This may be overridden later if the joint has a non-joint as a child in need of an attachment.
 		p_current_node = p_godot_skeleton;
 	}
@@ -4769,7 +4769,7 @@ void GLTFDocument::_attach_node_to_skeleton(Ref<GLTFState> p_state, const GLTFNo
 	}
 }
 
-// Deprecated code used when naming_version is 0 or 1 (Godot 4.0 to 4.4).
+// Deprecated code used when naming_version is 0 or 1 (BlackForest 4.0 to 4.4).
 void GLTFDocument::_generate_scene_node_compat_4pt4(Ref<GLTFState> p_state, const GLTFNodeIndex p_node_index, Node *p_scene_parent, Node *p_scene_root) {
 	Ref<GLTFNode> gltf_node = p_state->nodes[p_node_index];
 
@@ -4816,7 +4816,7 @@ void GLTFDocument::_generate_scene_node_compat_4pt4(Ref<GLTFState> p_state, cons
 	if (!current_node) {
 		if (gltf_node->skin >= 0 && gltf_node->mesh >= 0 && !gltf_node->children.is_empty()) {
 			// glTF specifies that skinned meshes should ignore their node transforms,
-			// only being controlled by the skeleton, so Godot will reparent a skinned
+			// only being controlled by the skeleton, so BlackForest will reparent a skinned
 			// mesh to its skeleton. However, we still need to ensure any child nodes
 			// keep their place in the tree, so if there are any child nodes, the skinned
 			// mesh must not be the base node, so generate an empty spatial base.
@@ -4869,7 +4869,7 @@ void GLTFDocument::_generate_scene_node_compat_4pt4(Ref<GLTFState> p_state, cons
 	}
 }
 
-// Deprecated code used when naming_version is 0 or 1 (Godot 4.0 to 4.4).
+// Deprecated code used when naming_version is 0 or 1 (BlackForest 4.0 to 4.4).
 void GLTFDocument::_generate_skeleton_bone_node_compat_4pt4(Ref<GLTFState> p_state, const GLTFNodeIndex p_node_index, Node *p_scene_parent, Node *p_scene_root) {
 	Ref<GLTFNode> gltf_node = p_state->nodes[p_node_index];
 
@@ -5162,7 +5162,7 @@ Ref<GLTFObjectModelProperty> GLTFDocument::import_object_model_property(Ref<GLTF
 				ret->append_path_to_property(node_path, "blend_shapes/morph_" + weight_index_string);
 				ret->set_types(Variant::FLOAT, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT);
 			}
-			// Else, Godot's MeshInstance3D does not expose the blend shape weights as one property.
+			// Else, BlackForest's MeshInstance3D does not expose the blend shape weights as one property.
 			// But that's fine, we handle this case in _parse_animation_pointer instead.
 		} else if (node_prop == "extensions") {
 			ERR_FAIL_COND_V(split.size() < 5, ret);
@@ -5229,11 +5229,11 @@ Ref<GLTFObjectModelProperty> GLTFDocument::import_object_model_property(Ref<GLTF
 						ret->set_types(Variant::FLOAT, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT);
 					}
 				} else if (mat_prop == "occlusionTexture" && sub_prop == "strength") {
-					// This is the closest thing Godot has to an occlusion strength property.
+					// This is the closest thing BlackForest has to an occlusion strength property.
 					ret->append_path_to_property(mat_path, "ao_light_affect");
 					ret->set_types(Variant::FLOAT, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT);
 				} else if (mat_prop == "occlusionTexture" || mat_prop == "emissiveTexture") {
-					// Occlusion and/or emission textures can use Godot's UV2, so we need to check if KHR_texture_transform animates them.
+					// Occlusion and/or emission textures can use BlackForest's UV2, so we need to check if KHR_texture_transform animates them.
 					const Ref<BaseMaterial3D> base_material_3d = pointed_material;
 					if (base_material_3d.is_valid()) {
 						if ((mat_prop == "occlusionTexture" && base_material_3d->get_flag(BaseMaterial3D::FLAG_AO_ON_UV2)) || (mat_prop == "emissiveTexture" && base_material_3d->get_flag(BaseMaterial3D::FLAG_EMISSION_ON_UV2))) {
@@ -5268,9 +5268,9 @@ Ref<GLTFObjectModelProperty> GLTFDocument::import_object_model_property(Ref<GLTF
 						const String &tex_ext_name = split[5];
 						const String &tex_ext_prop = split[6];
 						if (tex_ext_dict == "extensions" && tex_ext_name == "KHR_texture_transform") {
-							// Godot only supports UVs for the whole material, not per texture.
+							// BlackForest only supports UVs for the whole material, not per texture.
 							// We treat the albedo texture as the main texture, and import as UV1.
-							// Godot does not support texture rotation, only offset and scale.
+							// BlackForest does not support texture rotation, only offset and scale.
 							if (tex_ext_prop == "offset") {
 								ret->append_path_to_property(mat_path, "uv1_offset");
 								ret->set_types(Variant::VECTOR3, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT2);
@@ -5350,7 +5350,7 @@ Ref<GLTFObjectModelProperty> GLTFDocument::import_object_model_property(Ref<GLTF
 		}
 		if (ret.is_null() || !ret->has_node_paths()) {
 			if (split.has("KHR_texture_transform")) {
-				WARN_VERBOSE(vformat("glTF: Texture transforms are only supported per material in Godot. All KHR_texture_transform properties will be ignored except for the albedo texture. Ignoring JSON pointer '%s'.", p_json_pointer));
+				WARN_VERBOSE(vformat("glTF: Texture transforms are only supported per material in BlackForest. All KHR_texture_transform properties will be ignored except for the albedo texture. Ignoring JSON pointer '%s'.", p_json_pointer));
 			} else {
 				WARN_PRINT(vformat("glTF: Animation contained JSON pointer '%s' which could not be resolved. This property will not be animated.", p_json_pointer));
 			}
@@ -5439,7 +5439,7 @@ Ref<GLTFObjectModelProperty> GLTFDocument::export_object_model_property(Ref<GLTF
 					const Ref<BaseMaterial3D> &base_material_3d = p_state->materials[i];
 					if (base_material_3d.is_valid()) {
 						const bool is_uv2 = !is_uv1;
-						// occlusionTexture and emissiveTexture can use Godot's UV2, so we need to check if those are animated.
+						// occlusionTexture and emissiveTexture can use BlackForest's UV2, so we need to check if those are animated.
 						if (mat_dict.has("occlusionTexture")) {
 							if (is_uv2 == base_material_3d->get_flag(BaseMaterial3D::FLAG_AO_ON_UV2)) {
 								PackedStringArray occlusion = split_json_pointer.duplicate();
@@ -5486,7 +5486,7 @@ Ref<GLTFObjectModelProperty> GLTFDocument::export_object_model_property(Ref<GLTF
 			}
 		}
 	} else {
-		// Properties directly on Godot nodes.
+		// Properties directly on BlackForest nodes.
 		Ref<GLTFNode> gltf_node = p_state->nodes[p_gltf_node_index];
 		if (Object::cast_to<Camera3D>(target_object) && gltf_node->camera >= 0) {
 			split_json_pointer.append("cameras");
@@ -5555,7 +5555,7 @@ Ref<GLTFObjectModelProperty> GLTFDocument::export_object_model_property(Ref<GLTF
 				split_json_pointer.append("translation");
 				ret->set_types(Variant::VECTOR3, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT3);
 			} else if (target_prop == "quaternion") {
-				// Note: Only Quaternion rotation can be converted from Godot in this mapping.
+				// Note: Only Quaternion rotation can be converted from BlackForest in this mapping.
 				// Struct methods like from_euler are not accessible from the Expression class. :(
 				split_json_pointer.append("rotation");
 				ret->set_types(Variant::QUATERNION, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT4);
@@ -5847,7 +5847,7 @@ void GLTFDocument::_import_animation(Ref<GLTFState> p_state, AnimationPlayer *p_
 			animation->track_set_path(track_idx, blend_path);
 			animation->track_set_imported(track_idx, true); //helps merging later
 
-			// Only LINEAR and STEP (NEAREST) can be supported out of the box by Godot's Animation,
+			// Only LINEAR and STEP (NEAREST) can be supported out of the box by BlackForest's Animation,
 			// the other modes have to be baked.
 			GLTFAnimation::Interpolation gltf_interp = track.weight_tracks[i].interpolation;
 			if (gltf_interp == GLTFAnimation::INTERP_LINEAR || gltf_interp == GLTFAnimation::INTERP_STEP) {
@@ -5896,7 +5896,7 @@ void GLTFDocument::_import_animation(Ref<GLTFState> p_state, AnimationPlayer *p_
 				anim_end = MAX(anim_end, channel.times[i]);
 			}
 		}
-		// Begin converting the glTF animation to a Godot animation.
+		// Begin converting the glTF animation to a BlackForest animation.
 		const Ref<Expression> gltf_to_godot_expr = prop->get_gltf_to_godot_expression();
 		const bool is_gltf_to_godot_expr_valid = gltf_to_godot_expr.is_valid();
 		for (const NodePath node_path : prop->get_node_paths()) {
@@ -6564,7 +6564,7 @@ void GLTFDocument::_convert_animation(Ref<GLTFState> p_state, AnimationPlayer *p
 		if (!animation->track_is_enabled(track_index)) {
 			continue;
 		}
-		// Get the Godot node and the glTF node index for the animation track.
+		// Get the BlackForest node and the glTF node index for the animation track.
 		const NodePath track_path = animation->track_get_path(track_index);
 		const NodePath root_node = p_animation_player->get_root_node();
 		const Node *anim_player_parent = p_animation_player->get_node_or_null(root_node);
@@ -6634,7 +6634,7 @@ void GLTFDocument::_convert_animation(Ref<GLTFState> p_state, AnimationPlayer *p
 		for (int32_t key_i = 0; key_i < anim_key_count; key_i++) {
 			times.write[key_i] = animation->track_get_key_time(track_index, key_i);
 		}
-		// Try converting the track to a TRS glTF node track. This will only succeed if the Godot animation is a TRS track.
+		// Try converting the track to a TRS glTF node track. This will only succeed if the BlackForest animation is a TRS track.
 		const HashMap<int, GLTFAnimation::NodeTrack>::Iterator node_track_iter = node_tracks.find(node_i);
 		GLTFAnimation::NodeTrack track;
 		if (node_track_iter) {
@@ -6658,7 +6658,7 @@ void GLTFDocument::_convert_animation(Ref<GLTFState> p_state, AnimationPlayer *p
 				case GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_INT: {
 					channel.interpolation = GLTFAnimation::INTERP_STEP;
 					if (gltf_interpolation != GLTFAnimation::INTERP_STEP) {
-						WARN_PRINT(vformat("glTF export: Animation track %d on property %s is animating an int or bool, so it MUST use STEP interpolation (Godot \"Nearest\"), but the track in the Godot AnimationPlayer is using a different interpolation. Forcing STEP interpolation. Correct this track's interpolation in the source AnimationPlayer to avoid this warning.", track_index, String(track_path)));
+						WARN_PRINT(vformat("glTF export: Animation track %d on property %s is animating an int or bool, so it MUST use STEP interpolation (BlackForest \"Nearest\"), but the track in the BlackForest AnimationPlayer is using a different interpolation. Forcing STEP interpolation. Correct this track's interpolation in the source AnimationPlayer to avoid this warning.", track_index, String(track_path)));
 					}
 				} break;
 				default: {
@@ -6679,7 +6679,7 @@ void GLTFDocument::_convert_animation(Ref<GLTFState> p_state, AnimationPlayer *p
 					base_instance = resource.ptr();
 				}
 			}
-			// Convert the Godot animation values into glTF animation values (still Variant).
+			// Convert the BlackForest animation values into glTF animation values (still Variant).
 			for (int32_t key_i = 0; key_i < anim_key_count; key_i++) {
 				Variant value = animation->track_get_key_value(track_index, key_i);
 				if (is_godot_to_gltf_expr_valid) {
@@ -6769,7 +6769,7 @@ Dictionary _serialize_texture_transform_uv(Vector2 p_offset, Vector2 p_scale) {
 		texture_transform["scale"] = scale;
 	}
 	Dictionary extension;
-	// Note: Godot doesn't support texture rotation.
+	// Note: BlackForest doesn't support texture rotation.
 	if (is_offset || is_scaled) {
 		extension["KHR_texture_transform"] = texture_transform;
 	}
@@ -7251,7 +7251,7 @@ Node *GLTFDocument::generate_scene(Ref<GLTFState> p_state, float p_bake_fps, boo
 	ERR_FAIL_COND_V(p_state.is_null(), nullptr);
 	// The glTF file must have nodes, and have some marked as root nodes, in order to generate a scene.
 	if (p_state->nodes.is_empty()) {
-		WARN_PRINT("glTF: This glTF file has no nodes, the generated Godot scene will be empty.");
+		WARN_PRINT("glTF: This glTF file has no nodes, the generated BlackForest scene will be empty.");
 	}
 	// Now that we know that we have glTF nodes, we can begin generating a scene from the parsed glTF data.
 	Error err = OK;

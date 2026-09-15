@@ -45,7 +45,7 @@ namespace GodotTools.IdeMessaging.CLI
 
                 if (!Directory.Exists(godotProjectDir))
                 {
-                    Logger.LogError($"The specified Godot project directory does not exist: {godotProjectDir}");
+                    Logger.LogError($"The specified BlackForest project directory does not exist: {godotProjectDir}");
                     return 1;
                 }
 

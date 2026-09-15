@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -778,9 +778,9 @@ TranslationServer::TranslationServer() {
 	main_domain.instantiate();
 
 #ifdef TOOLS_ENABLED
-	editor_domain = get_or_add_domain("godot.editor");
-	property_domain = get_or_add_domain("godot.properties");
-	doc_domain = get_or_add_domain("godot.documentation");
+	editor_domain = get_or_add_domain("blackforest.editor");
+	property_domain = get_or_add_domain("blackforest.properties");
+	doc_domain = get_or_add_domain("blackforest.documentation");
 #endif // TOOLS_ENABLED
 
 	init_locale_info();

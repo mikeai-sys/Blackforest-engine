@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Godot.Collections
+namespace BlackForest.Collections
 {
     internal sealed class ArrayDebugView<T>
     {

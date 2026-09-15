@@ -1,23 +1,23 @@
-# Donors to the Godot Engine project
+# Donors to the BlackForest Engine project
 
-Godot Engine is a non-profit project developed by a community of voluntary
+BlackForest Engine is a non-profit project developed by a community of voluntary
 contributors, as well as occasional paid contributors thanks to the financial
 support of generous donors.
 
 The ways to donate to the project, as well as details on how the funds are
-used, are described on [Godot's website](https://fund.godotengine.org).
+used, are described on [BlackForest's website](https://fund.blackforestengine.org).
 
 The following is a list of the current monthly donors, who will have their
-generous deed immortalized in the next stable release of Godot Engine.
+generous deed immortalized in the next stable release of BlackForest Engine.
 
 ## Patrons
 
-    Scorewarrior <https://scwr.gg/godot>
+    Scorewarrior <https://scwr.gg/blackforest>
 
 ## Platinum sponsors
 
     Battlefield Studios <https://portal.battlefield.com/>
-    JetBrains <https://www.jetbrains.com/lp/rider-godot/>
+    JetBrains <https://www.jetbrains.com/lp/rider-blackforest/>
     Mega Crit <https://www.megacrit.com/>
     Mike Klubnika <https://mikeklubnika.com/>
     V-Sekai <https://github.com/V-Sekai>
@@ -42,7 +42,7 @@ generous deed immortalized in the next stable release of Godot Engine.
     Null <https://null.com/>
     Playful Studios <https://playfulstudios.com/>
     Re-Logic <https://re-logic.com/>
-    Sentry <https://sentry.io/welcome/?utm_source=godotengine&utm_medium=paid-community&utm_campaign=gaming-fy26q3-evergreen&utm_content=static-ad-godot-eng-sponsor-trysentry>
+    Sentry <https://sentry.io/welcome/?utm_source=godotengine&utm_medium=paid-community&utm_campaign=gaming-fy26q3-evergreen&utm_content=static-ad-blackforest-eng-sponsor-trysentry>
     Wavedash <https://wavedash.com>
 
 ## Diamond members
@@ -78,7 +78,7 @@ generous deed immortalized in the next stable release of Godot Engine.
     Space Kraken Studios <https://www.spacekraken.studio/>
     Tiago Magalhães <https://azerkail.github.io/>
     TrampolineTales <https://TrampolineTales.com/>
-    Ziva.sh - Godot AI Agent <https://ziva.sh>
+    Ziva.sh - BlackForest AI Agent <https://ziva.sh>
     And 1 anonymous donor
 
 ## Platinum members

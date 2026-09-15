@@ -273,7 +273,7 @@ def generate_sdk_package_versions():
     godot_dotnet_version_str = "{major}.{minor}.{patch}".format(**version_info)
     if version_status == "stable":
         # For stable versions, use the latest revision version available
-        # of the Godot .NET packages.
+        # of the BlackForest .NET packages.
         godot_dotnet_version_str = ".*"
     else:
         # Pre-releases and development builds.
@@ -288,7 +288,7 @@ def generate_sdk_package_versions():
             godotsharp_version_status = version_status[:pos]
             godot_dotnet_version_status = version_status[:pos]
 
-            # "dev" pre-releases always use the "alpha" label in the Godot .NET packages.
+            # "dev" pre-releases always use the "alpha" label in the BlackForest .NET packages.
             if godot_dotnet_version_status == "dev":
                 godot_dotnet_version_status = "alpha"
 
@@ -296,7 +296,7 @@ def generate_sdk_package_versions():
             godot_dotnet_version_status += f".{version_status[pos:]}"
         else:
             # If the version status is not numbered, it must be a development build.
-            # Development builds always use the "dev" label in the Godot .NET packages.
+            # Development builds always use the "dev" label in the BlackForest .NET packages.
             godot_dotnet_version_status = "dev"
             godotsharp_version_status = version_status
 
@@ -333,13 +333,13 @@ def generate_sdk_package_versions():
 
     # Also write the versioned docs URL to a constant for the Source Generators.
 
-    constants = """namespace Godot.SourceGenerators
+    constants = """namespace BlackForest.SourceGenerators
 {{
 // TODO: This is currently disabled because of https://github.com/dotnet/roslyn/issues/52904
 #pragma warning disable IDE0040 // Add accessibility modifiers.
     partial class Common
     {{
-        public const string VersionDocsUrl = "https://docs.godotengine.org/en/{docs_branch}";
+        public const string VersionDocsUrl = "https://docs.blackforestengine.org/en/{docs_branch}";
     }}
 }}
 """.format(**version_info)
@@ -347,8 +347,8 @@ def generate_sdk_package_versions():
     generators_dir = os.path.join(
         dirname(script_path),
         "editor",
-        "Godot.NET.Sdk",
-        "Godot.SourceGenerators",
+        "BlackForest.NET.Sdk",
+        "BlackForest.SourceGenerators",
         "Generated",
     )
     os.makedirs(generators_dir, exist_ok=True)
@@ -363,7 +363,7 @@ def build_all(
     # Generate SdkPackageVersions.props and VersionDocsUrl constant
     generate_sdk_package_versions()
 
-    # Godot API
+    # BlackForest API
     exit_code = build_godot_api(
         msbuild_tool, module_dir, output_dir, push_nupkgs_local, precision, no_deprecated, werror
     )
@@ -383,7 +383,7 @@ def build_all(
     if exit_code != 0:
         return exit_code
 
-    # Godot.NET.Sdk
+    # BlackForest.NET.Sdk
     args = ["/restore", "/t:Build", "/p:Configuration=Release"]
     if push_nupkgs_local:
         args += ["/p:ClearNuGetLocalCache=true", "/p:PushNuGetToLocalSource=" + push_nupkgs_local]
@@ -391,7 +391,7 @@ def build_all(
         args += ["/p:GodotFloat64=true"]
     if no_deprecated:
         args += ["/p:GodotNoDeprecated=true"]
-    sln = os.path.join(module_dir, "editor/Godot.NET.Sdk/Godot.NET.Sdk.sln")
+    sln = os.path.join(module_dir, "editor/BlackForest.NET.Sdk/BlackForest.NET.Sdk.sln")
     exit_code = run_msbuild(msbuild_tool, sln=sln, chdir_to=module_dir, msbuild_args=args)
     if exit_code != 0:
         return exit_code
@@ -403,15 +403,15 @@ def main():
     import argparse
     import sys
 
-    parser = argparse.ArgumentParser(description="Builds all Godot .NET solutions")
-    parser.add_argument("--godot-output-dir", type=str, required=True)
+    parser = argparse.ArgumentParser(description="Builds all BlackForest .NET solutions")
+    parser.add_argument("--blackforest-output-dir", type=str, required=True)
     parser.add_argument(
         "--dev-debug",
         action="store_true",
         default=False,
-        help="Build GodotTools and Godot.NET.Sdk with 'Configuration=Debug'",
+        help="Build GodotTools and BlackForest.NET.Sdk with 'Configuration=Debug'",
     )
-    parser.add_argument("--godot-platform", type=str, default="")
+    parser.add_argument("--blackforest-platform", type=str, default="")
     parser.add_argument("--mono-prefix", type=str, default="")
     parser.add_argument("--push-nupkgs-local", type=str, default="")
     parser.add_argument(
@@ -430,7 +430,7 @@ def main():
     this_script_dir = os.path.dirname(os.path.realpath(__file__))
     module_dir = os.path.abspath(os.path.join(this_script_dir, os.pardir))
 
-    output_dir = os.path.abspath(args.godot_output_dir)
+    output_dir = os.path.abspath(args.blackforest_output_dir)
 
     push_nupkgs_local = os.path.abspath(args.push_nupkgs_local) if args.push_nupkgs_local else None
 
@@ -444,7 +444,7 @@ def main():
         msbuild_tool,
         module_dir,
         output_dir,
-        args.godot_platform,
+        args.blackforest_platform,
         args.dev_debug,
         push_nupkgs_local,
         args.precision,

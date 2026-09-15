@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Define a new category for the following exported properties. This helps to organize properties in the Inspector dock.

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -806,7 +806,7 @@ bool FreeDesktopPortalDesktop::inhibit(const String &p_xid) {
 
 			append_dbus_dict_string(&arr_iter, "handle_token", token);
 
-			const char *reason = "Running Godot Engine Project";
+			const char *reason = "Running BlackForest Engine Project";
 			append_dbus_dict_string(&arr_iter, "reason", reason);
 
 			dbus_message_iter_close_container(&iter, &arr_iter);

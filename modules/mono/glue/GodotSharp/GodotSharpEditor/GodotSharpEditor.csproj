@@ -5,14 +5,14 @@
     <LangVersion>12</LangVersion>
     <OutputPath>bin/$(Configuration)</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <RootNamespace>Godot</RootNamespace>
+    <RootNamespace>BlackForest</RootNamespace>
     <DocumentationFile>$(OutputPath)/$(AssemblyName).xml</DocumentationFile>
     <EnableDefaultItems>false</EnableDefaultItems>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Godot C# Editor API.</Description>
-    <Authors>Godot Engine contributors</Authors>
+    <Description>BlackForest C# Editor API.</Description>
+    <Authors>BlackForest Engine contributors</Authors>
 
     <PackageId>GodotSharpEditor</PackageId>
     <Version>4.8.0</Version>
@@ -20,7 +20,7 @@
     <RepositoryUrl>https://github.com/godotengine/godot/tree/master/modules/mono/glue/GodotSharp/GodotSharpEditor</RepositoryUrl>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Copyright (c) Godot Engine contributors</Copyright>
+    <Copyright>Copyright (c) BlackForest Engine contributors</Copyright>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>

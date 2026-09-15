@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -102,7 +102,7 @@ void JoltConeTwistJoint3D::_update_twist_motor_state() {
 
 void JoltConeTwistJoint3D::_update_motor_velocity() {
 	if (JPH::SwingTwistConstraint *constraint = static_cast<JPH::SwingTwistConstraint *>(jolt_ref.GetPtr())) {
-		// We flip the direction since Jolt is CCW but Godot is CW.
+		// We flip the direction since Jolt is CCW but BlackForest is CW.
 		constraint->SetTargetAngularVelocityCS({ (float)-twist_motor_target_speed, (float)-swing_motor_target_speed_y, (float)-swing_motor_target_speed_z });
 	}
 }

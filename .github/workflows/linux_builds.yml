@@ -35,15 +35,15 @@ jobs:
             cache-name: linux-editor-mono
             target: editor
             scons-flags: module_mono_enabled=yes compiledb=yes
-            bin: ./bin/godot.linuxbsd.editor.x86_64.mono
+            bin: ./bin/blackforest.linuxbsd.editor.x86_64.mono
             build-mono: true
             doc-test: true
             proj-conv: true
             proj-export: true
             api-compat: true
             artifact: true
-            # Validate godot-cpp compatibility on one arbitrary editor build.
-            godot-cpp: true
+            # Validate blackforest-cpp compatibility on one arbitrary editor build.
+            blackforest-cpp: true
             clangd-tidy: true
 
           - name: Editor with doubles and GCC sanitizers (target=editor, dev_build=yes, scu_build=yes, precision=double, use_asan=yes, use_ubsan=yes, linker=mold)
@@ -58,7 +58,7 @@ jobs:
               use_asan=yes
               use_ubsan=yes
               linker=mold
-            bin: ./bin/godot.linuxbsd.editor.dev.double.x86_64.san
+            bin: ./bin/blackforest.linuxbsd.editor.dev.double.x86_64.san
             install-mold: true
             proj-test: true
             free-space: true
@@ -72,7 +72,7 @@ jobs:
               use_ubsan=yes
               use_llvm=yes
               linker=lld
-            bin: ./bin/godot.linuxbsd.editor.dev.x86_64.llvm.san
+            bin: ./bin/blackforest.linuxbsd.editor.dev.x86_64.llvm.san
             # Test our oldest supported SCons/Python versions on one arbitrary editor build.
             legacy-scons: true
             free-space: true
@@ -85,21 +85,21 @@ jobs:
               use_tsan=yes
               use_llvm=yes
               linker=lld
-            bin: ./bin/godot.linuxbsd.editor.dev.x86_64.llvm.san
+            bin: ./bin/blackforest.linuxbsd.editor.dev.x86_64.llvm.san
             free-space: true
 
           - name: Template w/ Mono, release (target=template_release)
             cache-name: linux-template-mono
             target: template_release
             scons-flags: module_mono_enabled=yes
-            bin: ./bin/godot.linuxbsd.template_release.x86_64.mono
+            bin: ./bin/blackforest.linuxbsd.template_release.x86_64.mono
             artifact: true
 
           - name: Template w/ Mono, debug (target=template_debug)
             cache-name: linux-template-mono-debug
             target: template_debug
             scons-flags: module_mono_enabled=yes
-            bin: ./bin/godot.linuxbsd.template_debug.x86_64.mono
+            bin: ./bin/blackforest.linuxbsd.template_debug.x86_64.mono
             artifact: true
 
           - name: Minimal template (target=template_release, everything disabled)
@@ -115,7 +115,7 @@ jobs:
               deprecated=no
               minizip=no
               brotli=no
-            bin: ./bin/godot.linuxbsd.template_release.x86_64
+            bin: ./bin/blackforest.linuxbsd.template_release.x86_64
             artifact: true
 
     steps:
@@ -139,19 +139,19 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           echo "Disk usage after:" && df -h
 
-      - name: Restore Godot build cache
-        uses: ./.github/actions/godot-cache-restore
+      - name: Restore BlackForest build cache
+        uses: ./.github/actions/blackforest-cache-restore
         with:
           cache-name: ${{ matrix.cache-name }}
         continue-on-error: true
 
       - name: Setup Python and SCons
         if: "!matrix.legacy-scons"
-        uses: ./.github/actions/godot-deps
+        uses: ./.github/actions/blackforest-deps
 
       - name: Setup Python and SCons (legacy versions)
         if: matrix.legacy-scons
-        uses: ./.github/actions/godot-deps
+        uses: ./.github/actions/blackforest-deps
         with:
           # Sync with Ensure*Version in SConstruct.
           python-version: 3.9
@@ -187,7 +187,7 @@ jobs:
           make-default: false
 
       - name: Compilation
-        uses: ./.github/actions/godot-build
+        uses: ./.github/actions/blackforest-build
         with:
           scons-flags: ${{ env.SCONS_FLAGS }} ${{ matrix.scons-flags }} accesskit=${{ steps.accesskit-sdk.outputs.ACCESSKIT_ENABLED }}
           platform: linuxbsd
@@ -199,16 +199,16 @@ jobs:
         with:
           changed-files: ${{ inputs.changed-files }}
 
-      - name: Compilation (godot-cpp)
-        uses: ./.github/actions/godot-cpp-build
+      - name: Compilation (blackforest-cpp)
+        uses: ./.github/actions/blackforest-cpp-build
         if: matrix.godot-cpp
         with:
           bin: ${{ matrix.bin }}
           scons-flags: target=template_debug dev_build=yes verbose=yes
-          godot-cpp-branch: ${{ env.GODOT_CPP_BRANCH }}
+          blackforest-cpp-branch: ${{ env.GODOT_CPP_BRANCH }}
 
-      - name: Save Godot build cache
-        uses: ./.github/actions/godot-cache-save
+      - name: Save BlackForest build cache
+        uses: ./.github/actions/blackforest-cache-save
         with:
           cache-name: ${{ matrix.cache-name }}
         continue-on-error: true
@@ -222,14 +222,14 @@ jobs:
         if: matrix.build-mono
         run: |
           dotnet --info
-          ./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=linuxbsd --werror
+          ./modules/mono/build_scripts/build_assemblies.py --blackforest-output-dir=./bin --blackforest-platform=linuxbsd --werror
 
       - name: Prepare artifact
         if: matrix.artifact
         run: |
           rm -rf ./bin/build_deps
-          strip bin/godot.*
-          chmod +x bin/godot.*
+          strip bin/blackforest.*
+          chmod +x bin/blackforest.*
 
       - name: Upload artifact
         uses: ./.github/actions/upload-artifact
@@ -246,7 +246,7 @@ jobs:
       - name: .NET source generators tests
         if: matrix.build-mono
         run: |
-          dotnet test modules/mono/editor/Godot.NET.Sdk/Godot.SourceGenerators.Tests
+          dotnet test modules/mono/editor/BlackForest.NET.Sdk/BlackForest.SourceGenerators.Tests
 
       # Check class reference
       - name: Check for class reference updates
@@ -264,29 +264,29 @@ jobs:
           ./misc/scripts/validate_extension_api.sh "${{ matrix.bin }}"
 
       - name: Test GDExtension compatibility – load methods
-        uses: ./.github/actions/godot-compat-test
+        uses: ./.github/actions/blackforest-compat-test
         if: matrix.api-compat
         with:
           bin: ${{ matrix.bin }}
           reftags: "4.5-stable,4.4-stable"
 
       # Download and run the test project
-      - name: Test Godot project
-        uses: ./.github/actions/godot-project-test
+      - name: Test BlackForest project
+        uses: ./.github/actions/blackforest-project-test
         if: matrix.proj-test
         with:
           bin: ${{ matrix.bin }}
 
       # Test project export
       - name: Test project export
-        uses: ./.github/actions/godot-project-export
+        uses: ./.github/actions/blackforest-project-export
         if: matrix.proj-export
         with:
           bin: ${{ matrix.bin }}
 
       # Test the project converter
       - name: Test project converter
-        uses: ./.github/actions/godot-converter-test
+        uses: ./.github/actions/blackforest-converter-test
         if: matrix.proj-conv
         with:
           bin: ${{ matrix.bin }}

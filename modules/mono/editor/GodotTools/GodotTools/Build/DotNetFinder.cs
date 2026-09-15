@@ -14,7 +14,7 @@ namespace GodotTools.Build
         public static string? FindDotNetExe()
         {
             // In the future, this method may do more than just search in PATH. We could look in
-            // known locations or use Godot's linked nethost to search from the hostfxr location.
+            // known locations or use BlackForest's linked nethost to search from the hostfxr location.
 
             if (OS.IsMacOS)
             {

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -549,7 +549,7 @@ void ProjectDialog::ok_pressed() {
 			nonempty_confirmation = memnew(ConfirmationDialog);
 			nonempty_confirmation->set_flag(Window::FLAG_RESIZE_DISABLED, true);
 			nonempty_confirmation->set_title(TTRC("Warning: This folder is not empty"));
-			nonempty_confirmation->set_text(TTRC("You are about to create a Godot project in a non-empty folder.\nThe entire contents of this folder will be imported as project resources!\n\nAre you sure you wish to continue?"));
+			nonempty_confirmation->set_text(TTRC("You are about to create a BlackForest project in a non-empty folder.\nThe entire contents of this folder will be imported as project resources!\n\nAre you sure you wish to continue?"));
 			nonempty_confirmation->get_ok_button()->connect(SceneStringName(pressed), callable_mp(this, &ProjectDialog::_nonempty_confirmation_ok_pressed));
 			add_child(nonempty_confirmation);
 		}

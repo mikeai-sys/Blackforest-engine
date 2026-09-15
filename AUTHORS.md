@@ -1,6 +1,6 @@
-# Godot Engine authors
+# BlackForest Engine authors
 
-Godot Engine is developed by a community of voluntary contributors who
+BlackForest Engine is developed by a community of voluntary contributors who
 contribute code, bug reports, documentation, translations, support, etc.,
 across multiple repositories.
 

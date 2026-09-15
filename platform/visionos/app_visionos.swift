@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -62,7 +62,7 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
 		let options: LayerRenderer.Capabilities.SupportedLayoutsOptions = foveationEnabled ? [.foveationEnabled] : []
 		let supportedLayouts = capabilities.supportedLayouts(options: options)
 		if (!supportedLayouts.contains(.layered)) {
-			fatalError("Only the .layered layout is supported by Godot's visionOS XR module.")
+			fatalError("Only the .layered layout is supported by BlackForest's visionOS XR module.")
 		}
 		configuration.layout = .layered
 	}

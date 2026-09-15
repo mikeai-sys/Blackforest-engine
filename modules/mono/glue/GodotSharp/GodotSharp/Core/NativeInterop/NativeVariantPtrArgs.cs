@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     // Our source generators will add trampolines methods that access variant arguments.
     // This struct makes that possible without having to enable `AllowUnsafeBlocks` in game projects.

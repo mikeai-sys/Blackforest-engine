@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -72,7 +72,7 @@ String StringBuilder::as_string() const {
 		const int32_t str_len = appended_strings[i];
 
 		if (str_len == -1) {
-			// Godot string
+			// BlackForest string
 			const String &s = strings[godot_string_elem];
 
 			memcpy(buffer + current_position, s.ptr(), s.length() * sizeof(char32_t));

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.Frozen;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// This class contains color constants created from standardized color names.

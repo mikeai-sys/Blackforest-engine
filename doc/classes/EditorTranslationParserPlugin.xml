@@ -28,14 +28,14 @@
 			return ["csv"]
 		[/gdscript]
 		[csharp]
-		using Godot;
+		using BlackForest;
 
 		[Tool]
 		public partial class CustomParser : EditorTranslationParserPlugin
 		{
-			public override Godot.Collections.Array&lt;string[]&gt; _ParseFile(string path)
+			public override BlackForest.Collections.Array&lt;string[]&gt; _ParseFile(string path)
 			{
-				Godot.Collections.Array&lt;string[]&gt; ret;
+				BlackForest.Collections.Array&lt;string[]&gt; ret;
 				using var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
 				string text = file.GetAsText();
 				string[] splitStrs = text.Split(",", allowEmpty: false);
@@ -85,7 +85,7 @@
 			return ["gd"]
 		[/gdscript]
 		[csharp]
-		public override Godot.Collections.Array&lt;string[]&gt; _ParseFile(string path)
+		public override BlackForest.Collections.Array&lt;string[]&gt; _ParseFile(string path)
 		{
 			var res = ResourceLoader.Load&lt;Script&gt;(path, "Script");
 			string text = res.SourceCode;

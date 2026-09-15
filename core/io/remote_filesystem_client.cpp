@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -166,7 +166,7 @@ Error RemoteFilesystemClient::_synchronize_with_server(const String &p_host, int
 	// Connection OK, now send the current file state.
 	print_verbose("Remote Filesystem: Connection OK.");
 
-	// Header (GRFS) - Godot Remote File System
+	// Header (GRFS) - BlackForest Remote File System
 	print_verbose("Remote Filesystem: Sending header");
 	tcp_client->put_u8('G');
 	tcp_client->put_u8('R');

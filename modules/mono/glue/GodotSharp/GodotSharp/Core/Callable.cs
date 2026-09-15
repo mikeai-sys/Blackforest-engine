@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Callable is a first class object which can be held in variables and passed to functions.

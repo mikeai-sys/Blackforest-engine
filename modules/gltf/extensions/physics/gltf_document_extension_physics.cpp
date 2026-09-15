@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -129,7 +129,7 @@ Error GLTFDocumentExtensionPhysics::parse_node_extensions(Ref<GLTFState> p_state
 				p_gltf_node->set_additional_data(StringName("GLTFPhysicsTriggerShapeIndex"), node_shape_index);
 			} else {
 				// If this node is a trigger but does not have a trigger shape,
-				// then it's a trigger body, what Godot calls an Area3D node.
+				// then it's a trigger body, what BlackForest calls an Area3D node.
 				Ref<GLTFPhysicsBody> trigger_body;
 				trigger_body.instantiate();
 				trigger_body->set_body_type("trigger");
@@ -276,7 +276,7 @@ Ref<GLTFObjectModelProperty> GLTFDocumentExtensionPhysics::import_object_model_p
 				ret->append_path_to_property(node_path, "inertia");
 				ret->set_types(Variant::VECTOR3, GLTFObjectModelProperty::GLTF_OBJECT_MODEL_TYPE_FLOAT3);
 			} else if (prop_name == "inertiaOrientation") {
-				WARN_PRINT("GLTF Physics: The 'inertiaOrientation' property is not supported by Godot.");
+				WARN_PRINT("GLTF Physics: The 'inertiaOrientation' property is not supported by BlackForest.");
 			} else {
 				// Not something we handle, return without appending a NodePath.
 				return ret;
@@ -339,7 +339,7 @@ CollisionObject3D *_generate_shape_with_body(Ref<GLTFState> p_state, Ref<GLTFNod
 
 CollisionObject3D *_get_ancestor_collision_object(Node *p_scene_parent) {
 	// Note: Despite the name of the method, at the moment this only checks
-	// the direct parent. Only check more later if Godot adds support for it.
+	// the direct parent. Only check more later if BlackForest adds support for it.
 	if (p_scene_parent) {
 		CollisionObject3D *co = Object::cast_to<CollisionObject3D>(p_scene_parent);
 		if (likely(co)) {

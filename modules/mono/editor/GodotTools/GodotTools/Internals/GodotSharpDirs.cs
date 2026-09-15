@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading;
-using Godot;
-using Godot.NativeInterop;
+using BlackForest;
+using BlackForest.NativeInterop;
 using Microsoft.VisualStudio.SolutionPersistence;
 using Microsoft.VisualStudio.SolutionPersistence.Serializer;
 
@@ -117,7 +117,7 @@ namespace GodotTools.Internals
 
                 foreach (var project in solution.SolutionProjects)
                 {
-                    // Convert '\' path separators on Windows to '/' to match Godot's Unix style separators
+                    // Convert '\' path separators on Windows to '/' to match BlackForest's Unix style separators
                     var absoluteProjectFilePath = Path.GetFullPath(project.FilePath, solutionDirectory).Replace('\\', '/');
 
                     if (string.Equals(absoluteProjectFilePath, _projectCsProjPath, StringComparison.Ordinal))

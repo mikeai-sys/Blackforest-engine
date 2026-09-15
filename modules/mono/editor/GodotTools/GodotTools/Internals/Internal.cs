@@ -4,9 +4,9 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using Godot;
-using Godot.NativeInterop;
-using Godot.SourceGenerators.Internal;
+using BlackForest;
+using BlackForest.NativeInterop;
+using BlackForest.SourceGenerators.Internal;
 using GodotTools.IdeMessaging.Requests;
 
 namespace GodotTools.Internals
@@ -27,7 +27,7 @@ namespace GodotTools.Internals
             }
         }
 
-        public static string SimplifyGodotPath(this string path) => Godot.StringExtensions.SimplifyPath(path);
+        public static string SimplifyGodotPath(this string path) => BlackForest.StringExtensions.SimplifyPath(path);
 
         public static bool IsMacOSAppBundleInstalled(string bundleId)
         {

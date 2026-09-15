@@ -4,11 +4,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     internal static class DebuggingUtils
     {

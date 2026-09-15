@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -54,10 +54,10 @@ GodotInstance::~GodotInstance() {
 }
 
 bool GodotInstance::initialize(GDExtensionInitializationFunction p_init_func) {
-	print_verbose("Godot Instance initialization");
+	print_verbose("BlackForest Instance initialization");
 	GDExtensionManager *gdextension_manager = GDExtensionManager::get_singleton();
 	GDExtensionPtr<const GDExtensionInitializationFunction> ptr((const GDExtensionInitializationFunction *)&p_init_func);
-	GDExtensionManager::LoadStatus status = gdextension_manager->load_extension_from_function("libgodot://main", ptr);
+	GDExtensionManager::LoadStatus status = gdextension_manager->load_extension_from_function("libblackforest://main", ptr);
 	return status == GDExtensionManager::LoadStatus::LOAD_STATUS_OK;
 }
 

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotSharpEditor", "GodotSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotPlugins", "GodotPlugins\GodotPlugins.csproj", "{944B77DB-497B-47F5-A1E3-81C35E3E9D4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godot.SourceGenerators.Internal", "Godot.SourceGenerators.Internal\Godot.SourceGenerators.Internal.csproj", "{7749662B-E30C-419A-B745-13852573360A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackForest.SourceGenerators.Internal", "BlackForest.SourceGenerators.Internal\BlackForest.SourceGenerators.Internal.csproj", "{7749662B-E30C-419A-B745-13852573360A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

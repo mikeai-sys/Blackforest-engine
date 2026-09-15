@@ -1,4 +1,4 @@
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Represents a signal defined in an object.

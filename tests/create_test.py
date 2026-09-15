@@ -46,9 +46,9 @@ def main():
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -96,7 +96,7 @@ TEST_CASE("[{name_pascal_case}] Example test case") {{
     print("Test file created:")
     print(os.path.abspath(file_path))
     print(
-        "Don't forget to add special tags to the test case if needed, see https://docs.godotengine.org/en/latest/contributing/development/core_and_modules/unit_testing.html#special-tags-in-test-case-names for more information."
+        "Don't forget to add special tags to the test case if needed, see https://docs.blackforestengine.org/en/latest/contributing/development/core_and_modules/unit_testing.html#special-tags-in-test-case-names for more information."
     )
 
 

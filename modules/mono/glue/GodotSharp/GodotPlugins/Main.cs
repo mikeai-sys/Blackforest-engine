@@ -5,8 +5,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Loader;
-using Godot.Bridge;
-using Godot.NativeInterop;
+using BlackForest.Bridge;
+using BlackForest.NativeInterop;
 
 namespace GodotPlugins
 {
@@ -73,7 +73,7 @@ namespace GodotPlugins
         }
 
         private static readonly List<AssemblyName> SharedAssemblies = new();
-        private static readonly Assembly CoreApiAssembly = typeof(global::Godot.GodotObject).Assembly;
+        private static readonly Assembly CoreApiAssembly = typeof(global::BlackForest.GodotObject).Assembly;
         private static Assembly? _editorApiAssembly;
         private static PluginLoadContextWrapper? _projectLoadContext;
         private static bool _editorHint = false;
@@ -171,7 +171,7 @@ namespace GodotPlugins
                 string assemblyPath = new(nAssemblyPath);
 
                 if (_editorApiAssembly == null)
-                    throw new InvalidOperationException("The Godot editor API assembly is not loaded.");
+                    throw new InvalidOperationException("The BlackForest editor API assembly is not loaded.");
 
                 var (assembly, _) = LoadPlugin(assemblyPath, isCollectible: false);
 

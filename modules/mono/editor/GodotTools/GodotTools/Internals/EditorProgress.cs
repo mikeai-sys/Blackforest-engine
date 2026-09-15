@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
-using Godot;
-using Godot.NativeInterop;
+using BlackForest;
+using BlackForest.NativeInterop;
 
 namespace GodotTools.Internals
 {

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -123,7 +123,7 @@ void OpenXRDebugUtilsExtension::on_instance_created(const XrInstance p_instance)
 			ERR_PRINT("OpenXR: Failed to create debug callback [" + OpenXRAPI::get_singleton()->get_error_string(result) + "]");
 		}
 
-		set_object_name(XR_OBJECT_TYPE_INSTANCE, uint64_t(p_instance), "Main Godot OpenXR Instance");
+		set_object_name(XR_OBJECT_TYPE_INSTANCE, uint64_t(p_instance), "Main BlackForest OpenXR Instance");
 	}
 }
 
@@ -280,7 +280,7 @@ XrBool32 OpenXRDebugUtilsExtension::debug_callback(XrDebugUtilsMessageSeverityFl
 	} else if (p_message_severity == XR_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT) {
 		print_line("OpenXR: Severity: Info" + msg);
 	} else if (p_message_severity == XR_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT) {
-		// This is a bit double because we won't output this unless verbose messaging in Godot is on.
+		// This is a bit double because we won't output this unless verbose messaging in BlackForest is on.
 		print_verbose("OpenXR: Severity: Verbose" + msg);
 	}
 

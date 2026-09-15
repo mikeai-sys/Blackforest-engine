@@ -694,8 +694,8 @@ File extracted from upstream release tarball:
 
 - Relevant headers and library files via the script in `thirdparty/mbedtls/extract_mbedtls_sources.py`
 - `LICENSE` (edited to keep only the Apache 2.0 variant)
-- Added 2 headers `godot_mbedtls_config.h` and `godot_psa_config.h` in `thirdparty/mbedtls/godot` for build configuration
-- Added `thirdparty/mbedtls/godot/godot_mbedtls_platform.cpp` to implement some mbedTLS platform functions using Godot-native APIs
+- Added 2 headers `godot_mbedtls_config.h` and `godot_psa_config.h` in `thirdparty/mbedtls/blackforest` for build configuration
+- Added `thirdparty/mbedtls/blackforest/godot_mbedtls_platform.cpp` to implement some mbedTLS platform functions using BlackForest-native APIs
 
 
 ## metal-cpp

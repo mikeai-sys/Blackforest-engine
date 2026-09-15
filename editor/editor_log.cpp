@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -225,7 +225,7 @@ void EditorLog::_meta_clicked(const String &p_meta) {
 			ScriptEditor::get_singleton()->focus_script_editor(res);
 		}
 	} else if (path.has_extension("cpp") || path.has_extension("h") || path.has_extension("mm") || path.has_extension("hpp")) {
-		// Godot source file. Try to open it in external editor.
+		// BlackForest source file. Try to open it in external editor.
 		if (path.begins_with("./") || path.begins_with(".\\")) {
 			// Relative path. Convert to absolute, using executable path as reference.
 			path = path.trim_prefix("./").trim_prefix(".\\");
@@ -587,7 +587,7 @@ EditorLog::EditorLog() {
 	hbox->add_child(editor_filter->toggle_button);
 	type_filter_map.insert(MSG_TYPE_EDITOR, editor_filter);
 
-	add_message(GODOT_VERSION_FULL_NAME " (c) 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.");
+	add_message(GODOT_VERSION_FULL_NAME " (c) 2007-present Juan Linietsky, Ariel Manzur & BlackForest Contributors.");
 
 	eh.errfunc = _error_handler;
 	eh.userdata = this;

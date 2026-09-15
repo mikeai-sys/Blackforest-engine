@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
-    /// Godot's global functions.
+    /// BlackForest's global functions.
     /// </summary>
     public static partial class GD
     {
@@ -45,7 +45,7 @@ namespace Godot
         /// </summary>
         /// <example>
         /// <code>
-        /// Variant a = new Godot.Collections.Array { 4, 2.5, 1.2 };
+        /// Variant a = new BlackForest.Collections.Array { 4, 2.5, 1.2 };
         /// GD.Print(a.VariantType == Variant.Type.Array); // Prints true
         ///
         /// var b = GD.Convert(a, Variant.Type.PackedByteArray);
@@ -187,7 +187,7 @@ namespace Godot
         /// </summary>
         /// <example>
         /// <code>
-        /// var a = new Godot.Collections.Array { 1, 2, 3 };
+        /// var a = new BlackForest.Collections.Array { 1, 2, 3 };
         /// GD.Print("a", "b", a); // Prints ab[1, 2, 3]
         /// </code>
         /// </example>
@@ -351,7 +351,7 @@ namespace Godot
         }
 
         /// <summary>
-        /// Pushes an error message to Godot's built-in debugger and to the OS terminal.
+        /// Pushes an error message to BlackForest's built-in debugger and to the OS terminal.
         ///
         /// Note: Errors printed this way will not pause project execution.
         /// </summary>
@@ -367,7 +367,7 @@ namespace Godot
         }
 
         /// <summary>
-        /// Pushes an error message to Godot's built-in debugger and to the OS terminal.
+        /// Pushes an error message to BlackForest's built-in debugger and to the OS terminal.
         ///
         /// Note: Errors printed this way will not pause project execution.
         /// </summary>
@@ -383,7 +383,7 @@ namespace Godot
         }
 
         /// <summary>
-        /// Pushes a warning message to Godot's built-in debugger and to the OS terminal.
+        /// Pushes a warning message to BlackForest's built-in debugger and to the OS terminal.
         /// </summary>
         /// <example>
         /// <code>
@@ -397,7 +397,7 @@ namespace Godot
         }
 
         /// <summary>
-        /// Pushes a warning message to Godot's built-in debugger and to the OS terminal.
+        /// Pushes a warning message to BlackForest's built-in debugger and to the OS terminal.
         /// </summary>
         /// <example>
         /// <code>
@@ -589,7 +589,7 @@ namespace Godot
         /// </summary>
         /// <example>
         /// <code>
-        /// ulong mySeed = (ulong)GD.Hash("Godot Rocks");
+        /// ulong mySeed = (ulong)GD.Hash("BlackForest Rocks");
         /// GD.Seed(mySeed);
         /// var a = GD.Randf() + GD.Randi();
         /// GD.Seed(mySeed);
@@ -656,7 +656,7 @@ namespace Godot
         /// </summary>
         /// <example>
         /// <code>
-        /// var a = new Godot.Collections.Dictionary { ["a"] = 1, ["b"] = 2 };
+        /// var a = new BlackForest.Collections.Dictionary { ["a"] = 1, ["b"] = 2 };
         /// GD.Print(GD.VarToStr(a));
         /// // Prints:
         /// // {
@@ -699,7 +699,7 @@ namespace Godot
 
         /// <summary>
         /// Returns a new byte array with the data decompressed.
-        /// <para>Note: Decompression is not guaranteed to work with data not compressed by Godot, for example if data compressed with the deflate compression mode lacks a checksum or header.</para>
+        /// <para>Note: Decompression is not guaranteed to work with data not compressed by BlackForest, for example if data compressed with the deflate compression mode lacks a checksum or header.</para>
         /// </summary>
         /// <param name="instance">The byte array to decompress.</param>
         /// <param name="bufferSize">The size of the uncompressed data.</param>
@@ -717,7 +717,7 @@ namespace Godot
         ///	Returns a new byte array with the data decompressed. <b>This method only accepts brotli, gzip, and deflate compression modes</b>.
         /// <para>This method is potentially slower than <see cref="Decompress"/>, as it may have to re-allocate its output buffer multiple times while decompressing, whereas <see cref="Decompress"/> knows it's output buffer size from the beginning.</para>
         /// <para>GZIP has a maximal compression ratio of 1032:1, meaning it's very possible for a small compressed payload to decompress to a potentially very large output. To guard against this, you may provide a maximum size this function is allowed to allocate in bytes via [param max_output_size]. Passing -1 will allow for unbounded output. If any positive value is passed, and the decompression exceeds that amount in bytes, then an error will be returned.</para>
-        /// <para>Note: Decompression is not guaranteed to work with data not compressed by Godot, for example if data compressed with the deflate compression mode lacks a checksum or header.</para>
+        /// <para>Note: Decompression is not guaranteed to work with data not compressed by BlackForest, for example if data compressed with the deflate compression mode lacks a checksum or header.</para>
         /// </summary>
         /// <param name="instance">The byte array to decompress.</param>
         /// <param name="maxOutputSize">The maximum size this function is allowed to allocate in bytes.</param>

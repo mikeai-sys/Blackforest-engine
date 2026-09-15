@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -217,12 +217,20 @@ void EditorProfiler::_update_plot() {
 	uint8_t *wr = graph_image.ptrw();
 	const Color background_color = get_theme_color(SNAME("dark_color_2"), EditorStringName(Editor));
 
+	// Convert the background color to bytes once instead of per pixel channel.
+	const uint8_t bg_bytes[4] = {
+		uint8_t(Math::fast_ftoi(background_color.r * 255)),
+		uint8_t(Math::fast_ftoi(background_color.g * 255)),
+		uint8_t(Math::fast_ftoi(background_color.b * 255)),
+		uint8_t(Math::fast_ftoi(background_color.a * 255)),
+	};
+
 	// Clear the previous frame and set the background color.
 	for (int i = 0; i < desired_len; i += 4) {
-		wr[i + 0] = Math::fast_ftoi(background_color.r * 255);
-		wr[i + 1] = Math::fast_ftoi(background_color.g * 255);
-		wr[i + 2] = Math::fast_ftoi(background_color.b * 255);
-		wr[i + 3] = Math::fast_ftoi(background_color.a * 255);
+		wr[i + 0] = bg_bytes[0];
+		wr[i + 1] = bg_bytes[1];
+		wr[i + 2] = bg_bytes[2];
+		wr[i + 3] = bg_bytes[3];
 	}
 
 	//find highest value
@@ -261,6 +269,8 @@ void EditorProfiler::_update_plot() {
 		int *column = columnv.ptrw();
 
 		HashMap<StringName, int> prev_plots;
+		// Cache plot colors: theme lookups + HSV conversion per signature, not per pixel row.
+		HashMap<StringName, Color> plot_colors;
 
 		const int max_profiles_shown = frame_metrics.size() / Math::exp(graph_zoom);
 		const int left_border = _get_zoom_left_border();
@@ -311,12 +321,22 @@ void EditorProfiler::_update_plot() {
 					SWAP(prev_plot, plot_pos);
 				}
 
-				Color col = _get_color_from_signature(E);
+				Color col;
+				HashMap<StringName, Color>::ConstIterator color_it = plot_colors.find(E);
+				if (color_it) {
+					col = color_it->value;
+				} else {
+					col = _get_color_from_signature(E);
+					plot_colors[E] = col;
+				}
+				const int col_r = Math::fast_ftoi(CLAMP(col.r * 255, 0, 255));
+				const int col_g = Math::fast_ftoi(CLAMP(col.g * 255, 0, 255));
+				const int col_b = Math::fast_ftoi(CLAMP(col.b * 255, 0, 255));
 
 				for (int j = prev_plot; j <= plot_pos; j++) {
-					column[j * 4 + 0] += Math::fast_ftoi(CLAMP(col.r * 255, 0, 255));
-					column[j * 4 + 1] += Math::fast_ftoi(CLAMP(col.g * 255, 0, 255));
-					column[j * 4 + 2] += Math::fast_ftoi(CLAMP(col.b * 255, 0, 255));
+					column[j * 4 + 0] += col_r;
+					column[j * 4 + 1] += col_g;
+					column[j * 4 + 2] += col_b;
 					column[j * 4 + 3] += 1;
 				}
 			}
@@ -336,10 +356,10 @@ void EditorProfiler::_update_plot() {
 				const int widx = ((j >> 2) * w + i) * 4;
 
 				// If the pixel isn't filled by any profiler line, apply the background color instead.
-				wr[widx + 0] = is_filled ? red : Math::fast_ftoi(background_color.r * 255);
-				wr[widx + 1] = is_filled ? green : Math::fast_ftoi(background_color.g * 255);
-				wr[widx + 2] = is_filled ? blue : Math::fast_ftoi(background_color.b * 255);
-				wr[widx + 3] = is_filled ? 255 : Math::fast_ftoi(background_color.a * 255);
+				wr[widx + 0] = is_filled ? red : bg_bytes[0];
+				wr[widx + 1] = is_filled ? green : bg_bytes[1];
+				wr[widx + 2] = is_filled ? blue : bg_bytes[2];
+				wr[widx + 3] = is_filled ? 255 : bg_bytes[3];
 			}
 		}
 	}
@@ -359,6 +379,43 @@ void EditorProfiler::_update_plot() {
 	graph->queue_redraw();
 }
 
+void EditorProfiler::_compute_history_aggregates() {
+	category_aggregates.clear();
+	item_aggregates.clear();
+
+	const bool use_self = display_time->get_selected() == DISPLAY_SELF_TIME;
+
+	for (int i = 0; i < frame_metrics.size(); i++) {
+		const Metric &m = frame_metrics[i];
+		if (!m.valid) {
+			continue;
+		}
+
+		for (const Metric::Category &category : m.categories) {
+			Aggregate &agg = category_aggregates[category.signature];
+			agg.sum += category.total_time;
+			agg.frames++;
+			agg.max_value = MAX(agg.max_value, category.total_time);
+		}
+
+		for (const Metric::Category &category : m.categories) {
+			for (const Metric::Category::Item &item : category.items) {
+				float time = use_self ? item.self : item.total;
+				Aggregate &agg = item_aggregates[item.signature];
+				agg.sum += time;
+				agg.frames++;
+				agg.max_value = MAX(agg.max_value, time);
+			}
+		}
+	}
+}
+
+String EditorProfiler::_get_aggregate_as_text(float p_time) const {
+	const String &lang = _get_locale();
+	const TranslationServer *ts = TranslationServer::get_singleton();
+	return ts->format_number(rtos(p_time * 1000).pad_decimals(2), lang) + " " + TTR("ms");
+}
+
 void EditorProfiler::_update_frame() {
 	int cursor_metric = cursor_metric_edit->get_value() - _get_frame_metric(0).frame_number;
 
@@ -370,6 +427,8 @@ void EditorProfiler::_update_frame() {
 
 	int dtime = display_time->get_selected();
 
+	_compute_history_aggregates();
+
 	for (int i = 0; i < m.categories.size(); i++) {
 		TreeItem *category = variables->create_item(root);
 		category->set_cell_mode(0, TreeItem::CELL_MODE_CHECK);
@@ -378,6 +437,12 @@ void EditorProfiler::_update_frame() {
 		category->set_text(0, String(m.categories[i].name));
 		category->set_auto_translate_mode(0, AUTO_TRANSLATE_MODE_DISABLED);
 		category->set_text(1, _get_time_as_text(m, m.categories[i].total_time, 1));
+
+		HashMap<StringName, Aggregate>::ConstIterator cat_agg = category_aggregates.find(m.categories[i].signature);
+		if (cat_agg) {
+			category->set_text(3, _get_aggregate_as_text(cat_agg->value.sum / cat_agg->value.frames));
+			category->set_text(4, _get_aggregate_as_text(cat_agg->value.max_value));
+		}
 
 		if (collapsed_categories.has(m.categories[i].signature)) {
 			category->set_collapsed(true);
@@ -413,6 +478,12 @@ void EditorProfiler::_update_frame() {
 			item->set_text(1, _get_time_as_text(m, time, it.calls));
 
 			item->set_text(2, itos(it.calls));
+
+			HashMap<StringName, Aggregate>::ConstIterator item_agg = item_aggregates.find(it.signature);
+			if (item_agg) {
+				item->set_text(3, _get_aggregate_as_text(item_agg->value.sum / item_agg->value.frames));
+				item->set_text(4, _get_aggregate_as_text(item_agg->value.max_value));
+			}
 
 			if (plot_sigs.has(it.signature)) {
 				item->set_checked(0, true);
@@ -461,6 +532,10 @@ void EditorProfiler::_autostart_toggled(bool p_toggled_on) {
 
 void EditorProfiler::_notification(int p_what) {
 	switch (p_what) {
+		case NOTIFICATION_VISIBILITY_CHANGED: {
+			_visibility_changed();
+		} break;
+
 		case NOTIFICATION_TRANSLATION_CHANGED: {
 			if (is_ready()) {
 				_update_frame();
@@ -595,6 +670,30 @@ void EditorProfiler::disable_seeking() {
 void EditorProfiler::_combo_changed(int) {
 	_update_frame();
 	_update_plot();
+}
+
+void EditorProfiler::_frame_delay_timeout() {
+	// Skip rebuilding the tree while the profiler is not visible (e.g. another
+	// bottom panel tab is shown). add_frame_metric() re-arms the timer, so no
+	// data is lost; we refresh when the profiler becomes visible again.
+	if (!is_visible_in_tree()) {
+		return;
+	}
+	_update_frame();
+}
+
+void EditorProfiler::_plot_delay_timeout() {
+	if (!is_visible_in_tree()) {
+		return;
+	}
+	_update_plot();
+}
+
+void EditorProfiler::_visibility_changed() {
+	if (is_visible_in_tree() && last_metric != -1) {
+		_update_plot();
+		_update_frame();
+	}
 }
 
 void EditorProfiler::_bind_methods() {
@@ -779,7 +878,7 @@ EditorProfiler::EditorProfiler() {
 	variables->set_custom_minimum_size(Size2(320, 0) * EDSCALE);
 	h_split->add_child(variables);
 	variables->set_hide_root(true);
-	variables->set_columns(3);
+	variables->set_columns(5);
 	variables->set_column_titles_visible(true);
 	variables->set_column_title(0, TTRC("Name"));
 	variables->set_column_expand(0, true);
@@ -793,6 +892,16 @@ EditorProfiler::EditorProfiler() {
 	variables->set_column_expand(2, false);
 	variables->set_column_clip_content(2, true);
 	variables->set_column_custom_minimum_width(2, 50 * EDSCALE);
+	// TRANSLATORS: Average time per frame for this function/category over the whole recorded profiler history.
+	variables->set_column_title(3, TTRC("Avg"));
+	variables->set_column_expand(3, false);
+	variables->set_column_clip_content(3, true);
+	variables->set_column_custom_minimum_width(3, 75 * EDSCALE);
+	// TRANSLATORS: Maximum time per frame for this function/category over the whole recorded profiler history.
+	variables->set_column_title(4, TTRC("Max"));
+	variables->set_column_expand(4, false);
+	variables->set_column_clip_content(4, true);
+	variables->set_column_custom_minimum_width(4, 75 * EDSCALE);
 	variables->set_theme_type_variation("TreeSecondary");
 	variables->connect("item_edited", callable_mp(this, &EditorProfiler::_item_edited));
 	variables->connect("item_collapsed", callable_mp(this, &EditorProfiler::_item_collapsed));
@@ -819,13 +928,15 @@ EditorProfiler::EditorProfiler() {
 	frame_delay->set_wait_time(0.1);
 	frame_delay->set_one_shot(true);
 	add_child(frame_delay);
-	frame_delay->connect("timeout", callable_mp(this, &EditorProfiler::_update_frame));
+	frame_delay->connect("timeout", callable_mp(this, &EditorProfiler::_frame_delay_timeout));
 
 	plot_delay = memnew(Timer);
 	plot_delay->set_wait_time(0.1);
 	plot_delay->set_one_shot(true);
 	add_child(plot_delay);
-	plot_delay->connect("timeout", callable_mp(this, &EditorProfiler::_update_plot));
+	plot_delay->connect("timeout", callable_mp(this, &EditorProfiler::_plot_delay_timeout));
+
+
 
 	plot_sigs.insert("physics_frame_time");
 	plot_sigs.insert("category_frame_time");

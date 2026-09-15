@@ -1,6 +1,6 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Attribute that restricts generic type parameters to be only types

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -3265,7 +3265,7 @@ const char *get_rename_from_map(const char *map[][2], String key) {
 	return nullptr;
 }
 
-// Checks if an identifier/function name has been renamed in Godot 4, uses ProjectConverter3To4 for rename map.
+// Checks if an identifier/function name has been renamed in BlackForest 4, uses ProjectConverter3To4 for rename map.
 // Returns the new name if found, nullptr otherwise.
 const char *check_for_renamed_identifier(String identifier, GDScriptParser::Node::Type type) {
 	switch (type) {

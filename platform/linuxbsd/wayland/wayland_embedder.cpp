@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -903,7 +903,7 @@ void WaylandEmbedder::socket_error(int p_socket, uint32_t p_object_id, uint32_t 
 	LocalVector<union wl_argument> args;
 	args.push_back(wl_arg_object(p_object_id));
 	args.push_back(wl_arg_uint(p_code));
-	args.push_back(wl_arg_string(vformat("[Godot Embedder] %s", p_message).utf8().get_data()));
+	args.push_back(wl_arg_string(vformat("[BlackForest Embedder] %s", p_message).utf8().get_data()));
 
 	send_wayland_event(p_socket, DISPLAY_ID, wl_display_interface, WL_DISPLAY_ERROR, args);
 
@@ -2701,7 +2701,7 @@ WaylandEmbedder::MessageStatus WaylandEmbedder::handle_event(uint32_t p_global_i
 				// mistake[1]). We can somewhat workaround by reporting a random tablet
 				// instead. This isn't ideal as it might not represent the same thing, but
 				// AFAICS there's no reliable way to 100% identify a tablet from its
-				// description, and Godot does not do anything fancy in the first place.
+				// description, and BlackForest does not do anything fancy in the first place.
 				// [1]: https://oftc.catirclogs.org/wayland/2026-07-02#1782988779-1782991085
 				tablet = *seat_data->tablets.begin();
 			}
@@ -3209,7 +3209,7 @@ Error WaylandEmbedder::init(bool debug) {
 
 	int socket_id = 0;
 	while (socket_path.is_empty()) {
-		String test_socket_path = runtime_dir_path + "/godot-wayland-" + itos(socket_id);
+		String test_socket_path = runtime_dir_path + "/blackforest-wayland-" + itos(socket_id);
 		String test_socket_lock_path = test_socket_path + ".lock";
 
 		print_verbose(vformat("Trying to get socket %s", test_socket_path));

@@ -1,9 +1,9 @@
-# Additional game controller mappings for Godot
-# Source: https://github.com/godotengine/godot
+# Additional game controller mappings for BlackForest
+# Source: https://github.com/godotengine/blackforest
 
 # *** IMPORTANT ***
 # These mappings extend or supersede community mappings found in gamecontrollerdb.txt.
-# Any mapping issue found with Godot should be solved either via an upstream SDL fix, or a downstream mapping in godotcontrollerdb.txt.
+# Any mapping issue found with BlackForest should be solved either via an upstream SDL fix, or a downstream mapping in godotcontrollerdb.txt.
 # gamecontrollerdb.txt is to be considered read-only.
 
 # Windows

@@ -1,10 +1,10 @@
 using System;
 using System.Runtime.InteropServices;
-using Godot.Bridge;
+using BlackForest.Bridge;
 
 // ReSharper disable InconsistentNaming
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     internal static class InteropUtils
     {

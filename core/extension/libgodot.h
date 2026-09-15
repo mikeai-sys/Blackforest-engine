@@ -1,11 +1,11 @@
 /**************************************************************************/
-/*  libgodot.h                                                            */
+/*  libblackforest.h                                                            */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -46,10 +46,10 @@ extern "C" {
 #endif
 
 /**
- * @name libgodot_create_godot_instance
+ * @name libblackforest_create_godot_instance
  * @since 4.6
  *
- * Creates a new Godot instance.
+ * Creates a new BlackForest instance.
  *
  * @param p_argc The number of command line arguments.
  * @param p_argv The C-style array of command line arguments.
@@ -57,18 +57,18 @@ extern "C" {
  *
  * @return A pointer to created \ref GodotInstance GDExtension object or nullptr if there was an error.
  */
-LIBGODOT_API GDExtensionObjectPtr libgodot_create_godot_instance(int p_argc, char *p_argv[], GDExtensionInitializationFunction p_init_func);
+LIBGODOT_API GDExtensionObjectPtr libblackforest_create_godot_instance(int p_argc, char *p_argv[], GDExtensionInitializationFunction p_init_func);
 
 /**
- * @name libgodot_destroy_godot_instance
+ * @name libblackforest_destroy_godot_instance
  * @since 4.6
  *
- * Destroys an existing Godot instance.
+ * Destroys an existing BlackForest instance.
  *
  * @param p_godot_instance The reference to the GodotInstance object to destroy.
  *
  */
-LIBGODOT_API void libgodot_destroy_godot_instance(GDExtensionObjectPtr p_godot_instance);
+LIBGODOT_API void libblackforest_destroy_godot_instance(GDExtensionObjectPtr p_godot_instance);
 
 #ifdef __cplusplus
 }

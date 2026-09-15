@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -129,7 +129,7 @@ void EditorAssetLibraryItem::_asset_clicked() {
 }
 
 void EditorAssetLibraryItem::_author_clicked() {
-	OS::get_singleton()->shell_open("https://store.godotengine.org/publisher/" + author_id.uri_encode() + "/");
+	OS::get_singleton()->shell_open("https://store.blackforestengine.org/publisher/" + author_id.uri_encode() + "/");
 }
 
 void EditorAssetLibraryItem::_license_clicked() {
@@ -2020,7 +2020,7 @@ void EditorAssetLibrary::_http_request_completed(int p_status, int p_code, const
 						}
 					}
 					if (!is_compat) {
-						continue; // This release is for a newer version of Godot.
+						continue; // This release is for a newer version of BlackForest.
 					}
 				}
 
@@ -2039,7 +2039,7 @@ void EditorAssetLibrary::_http_request_completed(int p_status, int p_code, const
 						}
 					}
 					if (!is_compat) {
-						continue; // This release is for an older version of Godot.
+						continue; // This release is for an older version of BlackForest.
 					}
 				}
 

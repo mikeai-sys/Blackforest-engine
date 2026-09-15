@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Godot;
+using BlackForest;
 using GodotTools.Build;
 using GodotTools.Utils;
 
@@ -36,7 +36,7 @@ namespace GodotTools.Inspector
 
                 if (string.IsNullOrEmpty(scriptPath))
                 {
-                    // Generic types used empty paths in older versions of Godot
+                    // Generic types used empty paths in older versions of BlackForest
                     // so we assume your project is out of sync.
                     AddCustomControl(new InspectorOutOfSyncWarning());
                     break;

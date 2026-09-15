@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -188,7 +188,7 @@ void JoltArea3D::_report_event(Callable &p_callback, PS3DE::AreaBodyStatus p_sta
 
 	if (unlikely(ce.error != Callable::CallError::CALL_OK)) {
 		if (ce.error == Callable::CallError::CALL_ERROR_INSTANCE_IS_NULL) {
-			// Godot Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
+			// BlackForest Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
 			// There's no point in trying to call this callback again though, so we clear it.
 			p_callback = Callable();
 		} else {

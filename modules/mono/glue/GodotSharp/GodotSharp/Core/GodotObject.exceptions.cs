@@ -4,7 +4,7 @@ using System.Text;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     public partial class GodotObject
     {

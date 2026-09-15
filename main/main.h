@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -69,6 +69,7 @@ public:
 #endif
 
 	static int test_entrypoint(int argc, char *argv[], bool &tests_need_run);
+	static void flush_denormals_to_zero();
 	static Error setup(const char *execpath, int argc, char *argv[], bool p_second_phase = true);
 	static Error setup2(bool p_show_boot_logo = true); // The thread calling setup2() will effectively become the main thread.
 	static String get_locale_override();

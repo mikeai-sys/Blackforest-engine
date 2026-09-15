@@ -27,7 +27,7 @@ MARKUP_ALLOWED_SUBSEQUENT = " -.,:;!?\\/'\")]}>"
 # Used to translate section headings and other hardcoded strings when required with
 # the --lang argument. The BASE_STRINGS list should be synced with what we actually
 # write in this script (check `translate()` uses), and also hardcoded in
-# `scripts/extract_classes.py` (godotengine/godot-editor-l10n repo) to include them in the source POT file.
+# `scripts/extract_classes.py` (godotengine/blackforest-editor-l10n repo) to include them in the source POT file.
 BASE_STRINGS = [
     "All classes",
     "Globals",
@@ -68,16 +68,16 @@ BASE_STRINGS = [
     "This method describes a valid operator to use with this type as left-hand operand.",
     "This value is an integer composed as a bitmask of the following flags.",
     "No return value.",
-    "There is currently no description for this class. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this signal. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this enum. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this constant. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this annotation. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this constructor. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this operator. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
-    "There is currently no description for this theme property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this class. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this signal. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this enum. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this constant. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this annotation. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this property. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this constructor. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this method. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this operator. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
+    "There is currently no description for this theme property. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!",
     "There are notable differences when using this API with C#. See :ref:`doc_c_sharp_differences` for more information.",
     "Deprecated:",
     "Experimental:",
@@ -110,7 +110,7 @@ CLASS_GROUPS_BASE: dict[str, str] = {
     "variant": "Variant",
 }
 
-# Sync with the types mentioned in https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_differences.html
+# Sync with the types mentioned in https://docs.blackforestengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_differences.html
 CLASSES_WITH_CSHARP_DIFFERENCES: list[str] = [
     "@GlobalScope",
     "String",
@@ -952,7 +952,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
             generator_github_url = f"https://github.com/godotengine/godot/tree/{git_branch}/doc/tools/make_rst.py"
 
             f.write(".. DO NOT EDIT THIS FILE!!!\n")
-            f.write(".. Generated automatically from Godot engine sources.\n")
+            f.write(".. Generated automatically from BlackForest engine sources.\n")
             f.write(f".. Generator: {generator_github_url}.\n")
             f.write(f".. XML source: {source_github_url}.\n\n")
 
@@ -1024,7 +1024,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
             f.write(".. container:: contribute\n\n\t")
             f.write(
                 translate(
-                    "There is currently no description for this class. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                    "There is currently no description for this class. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                 )
                 + "\n\n"
             )
@@ -1150,7 +1150,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                     f.write(".. container:: contribute\n\n\t")
                     f.write(
                         translate(
-                            "There is currently no description for this signal. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                            "There is currently no description for this signal. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                         )
                         + "\n\n"
                     )
@@ -1199,7 +1199,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                         f.write(".. container:: contribute\n\n\t")
                         f.write(
                             translate(
-                                "There is currently no description for this enum. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                                "There is currently no description for this enum. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                             )
                             + "\n\n"
                         )
@@ -1234,7 +1234,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                     f.write(".. container:: contribute\n\n\t")
                     f.write(
                         translate(
-                            "There is currently no description for this constant. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                            "There is currently no description for this constant. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                         )
                         + "\n\n"
                     )
@@ -1275,7 +1275,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                         f.write(".. container:: contribute\n\n\t")
                         f.write(
                             translate(
-                                "There is currently no description for this annotation. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                                "There is currently no description for this annotation. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                             )
                             + "\n\n"
                         )
@@ -1338,7 +1338,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                     f.write(".. container:: contribute\n\n\t")
                     f.write(
                         translate(
-                            "There is currently no description for this property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                            "There is currently no description for this property. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                         )
                         + "\n\n"
                     )
@@ -1387,7 +1387,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                         f.write(".. container:: contribute\n\n\t")
                         f.write(
                             translate(
-                                "There is currently no description for this constructor. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                                "There is currently no description for this constructor. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                             )
                             + "\n\n"
                         )
@@ -1434,7 +1434,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                         f.write(".. container:: contribute\n\n\t")
                         f.write(
                             translate(
-                                "There is currently no description for this method. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                                "There is currently no description for this method. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                             )
                             + "\n\n"
                         )
@@ -1478,7 +1478,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                         f.write(".. container:: contribute\n\n\t")
                         f.write(
                             translate(
-                                "There is currently no description for this operator. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                                "There is currently no description for this operator. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                             )
                             + "\n\n"
                         )
@@ -1523,7 +1523,7 @@ def make_rst_class(class_def: ClassDef, state: State, dry_run: bool, output_dir:
                     f.write(".. container:: contribute\n\n\t")
                     f.write(
                         translate(
-                            "There is currently no description for this theme property. Please help us by `contributing one <https://contributing.godotengine.org/en/latest/documentation/class_reference.html>`__!"
+                            "There is currently no description for this theme property. Please help us by `contributing one <https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html>`__!"
                         )
                         + "\n\n"
                     )
@@ -1783,7 +1783,7 @@ def make_rst_index(grouped_classes: dict[str, list[str]], dry_run: bool, output_
         generator_github_url = f"https://github.com/godotengine/godot/tree/{git_branch}/doc/tools/make_rst.py"
 
         f.write(".. DO NOT EDIT THIS FILE!!!\n")
-        f.write(".. Generated automatically from Godot engine sources.\n")
+        f.write(".. Generated automatically from BlackForest engine sources.\n")
         f.write(f".. Generator: {generator_github_url}.\n\n")
 
         f.write(".. _doc_class_reference:\n\n")

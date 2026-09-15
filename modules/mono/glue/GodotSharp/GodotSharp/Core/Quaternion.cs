@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// A unit quaternion used for representing 3D rotations.

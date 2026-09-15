@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -354,7 +354,7 @@ Vector<String> CSharpLanguage::get_string_delimiters() const {
 static String get_base_class_name(const String &p_base_class_name, const String p_class_name) {
 	String base_class = pascal_to_pascal_case(p_base_class_name);
 	if (p_class_name == base_class) {
-		base_class = "Godot." + base_class;
+		base_class = "BlackForest." + base_class;
 	}
 	return base_class;
 }
@@ -1373,7 +1373,7 @@ void CSharpLanguage::tie_native_managed_to_unmanaged(GCHandleIntPtr p_gchandle_i
 	MonoGCHandleData gchandle = MonoGCHandleData(p_gchandle_intptr,
 			p_ref_counted ? gdmono::GCHandleType::WEAK_HANDLE : gdmono::GCHandleType::STRONG_HANDLE);
 
-	// If it's just a wrapper Godot class and not a custom inheriting class, then attach a
+	// If it's just a wrapper BlackForest class and not a custom inheriting class, then attach a
 	// script binding instead. One of the advantages of this is that if a script is attached
 	// later and it's not a C# script, then the managed object won't have to be disposed.
 	// Another reason for doing this is that this instance could outlive CSharpLanguage, which would

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// The RID type is used to access a low-level resource by its unique ID.

@@ -81,7 +81,7 @@ vec3 tonemap_aces(vec3 color) {
 	return color_tonemapped / tonemapper_params.x;
 }
 
-// allenwp tonemapping curve; developed for use in the Godot game engine.
+// allenwp tonemapping curve; developed for use in the BlackForest game engine.
 // Source and details: https://allenwp.com/blog/2025/05/29/allenwp-tonemapping-curve/
 // Input must be a non-negative linear scene value.
 vec3 allenwp_curve(vec3 x) {

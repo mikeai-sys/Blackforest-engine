@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -98,6 +98,19 @@ private:
 		Color seek_line_hover_color;
 	} theme_cache;
 
+	// Aggregated statistics over the recorded frame history (Unity-style summary).
+	struct Aggregate {
+		float sum = 0;
+		int frames = 0;
+		float max_value = 0;
+	};
+
+	HashMap<StringName, Aggregate> category_aggregates;
+	HashMap<StringName, Aggregate> item_aggregates;
+
+	void _compute_history_aggregates();
+	String _get_aggregate_as_text(float p_time) const;
+
 	Button *activate = nullptr;
 	Button *clear_button = nullptr;
 	TextureRect *graph = nullptr;
@@ -153,6 +166,10 @@ private:
 	void _item_collapsed(TreeItem *p_item);
 
 	void _update_plot();
+
+	void _frame_delay_timeout();
+	void _plot_delay_timeout();
+	void _visibility_changed();
 
 	void _graph_tex_mouse_exit();
 

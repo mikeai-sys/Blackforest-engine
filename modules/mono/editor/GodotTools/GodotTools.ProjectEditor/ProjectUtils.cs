@@ -186,7 +186,7 @@ namespace GodotTools.ProjectEditor
             foreach (var property in propertiesToChange)
             {
                 // If the main 'TargetFramework' property targets a version newer than
-                // the minimum required by Godot, we don't want to remove the conditional
+                // the minimum required by BlackForest, we don't want to remove the conditional
                 // 'TargetFramework' properties, only upgrade them to the new minimum.
                 // Otherwise, it can be removed.
                 if (mainTfmVersion > minTfmVersion)
@@ -211,7 +211,7 @@ namespace GodotTools.ProjectEditor
             static bool ConditionMatchesGodotPlatform(string condition)
             {
                 // Check if the condition is checking the 'GodotTargetPlatform' for one of the
-                // Godot platforms with built-in support in the Godot.NET.Sdk.
+                // BlackForest platforms with built-in support in the BlackForest.NET.Sdk.
                 var match = GodotTargetPlatformConditionRegex().Match(condition);
                 if (match.Success)
                 {

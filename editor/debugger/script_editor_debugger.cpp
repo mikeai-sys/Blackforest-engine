@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -45,6 +45,8 @@
 #include "editor/debugger/editor_performance_profiler.h"
 #include "editor/debugger/editor_profiler.h"
 #include "editor/debugger/editor_visual_profiler.h"
+#include "editor/debugger/editor_memory_profiler.h"
+#include "editor/debugger/editor_frame_debugger.h"
 #include "editor/docks/filesystem_dock.h"
 #include "editor/docks/inspector_dock.h"
 #include "editor/editor_log.h"
@@ -2384,6 +2386,16 @@ ScriptEditorDebugger::ScriptEditorDebugger() {
 	{ //monitors
 		performance_profiler = memnew(EditorPerformanceProfiler);
 		tabs->add_child(performance_profiler);
+	}
+
+	{ //memory profiler
+		memory_profiler = memnew(EditorMemoryProfiler);
+		tabs->add_child(memory_profiler);
+	}
+
+	{ //frame render-info debugger
+		frame_debugger = memnew(EditorFrameDebugger);
+		tabs->add_child(frame_debugger);
 	}
 
 	{ //vmem inspect

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -151,8 +151,8 @@ void JoltBody3D::_integrate_forces(float p_step) {
 
 	JPH::MotionProperties &motion_properties = *jolt_body->GetMotionPropertiesUnchecked();
 
-	// Jolt applies damping differently from Godot Physics, where Godot Physics applies damping before integrating
-	// forces whereas Jolt does it after integrating forces. The way Godot Physics does it seems to yield more
+	// Jolt applies damping differently from BlackForest Physics, where BlackForest Physics applies damping before integrating
+	// forces whereas Jolt does it after integrating forces. The way BlackForest Physics does it seems to yield more
 	// consistent results across different update frequencies when using high (>1) damping values, so we apply the
 	// damping ourselves instead, before any force integration happens.
 	JPH::Vec3 linear_velocity = motion_properties.GetLinearVelocity();
@@ -1085,7 +1085,7 @@ void JoltBody3D::call_queries() {
 
 		if (unlikely(ce.error != Callable::CallError::CALL_OK)) {
 			if (ce.error == Callable::CallError::CALL_ERROR_INSTANCE_IS_NULL) {
-				// Godot Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
+				// BlackForest Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
 				// There's no point in trying to call this callback again though, so we clear it.
 				custom_integration_callback = Callable();
 			} else {
@@ -1104,7 +1104,7 @@ void JoltBody3D::call_queries() {
 
 		if (unlikely(ce.error != Callable::CallError::CALL_OK)) {
 			if (ce.error == Callable::CallError::CALL_ERROR_INSTANCE_IS_NULL) {
-				// Godot Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
+				// BlackForest Physics effectively silences this error by virtue of doing a `Callable::is_valid` check before the call, so we silently ignore this for compatibility.
 				// There's no point in trying to call this callback again though, so we clear it.
 				state_sync_callback = Callable();
 			} else {

@@ -1,9 +1,9 @@
-short_name = "godot"
-name = "Godot Engine"
+short_name = "blackforest"
+name = "BlackForest Engine"
 major = 4
 minor = 8
 patch = 0
 status = "dev"
 module_config = ""
-website = "https://godotengine.org"
+website = "https://blackforestengine.org"
 docs = "latest"

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Godot;
-using Godot.Collections;
+using BlackForest;
+using BlackForest.Collections;
 using GodotTools.Internals;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
@@ -30,10 +30,10 @@ public partial class CsTranslationParserPlugin : EditorTranslationParserPlugin
 
     private const string TranslationCommentPrefix = "TRANSLATORS:";
     private const string NoTranslateComment = "NO_TRANSLATE";
-    private const string TranslationStaticClass = "Godot.TranslationServer";
+    private const string TranslationStaticClass = "BlackForest.TranslationServer";
     private const string TranslationMethod = "Translate";
     private const string TranslationPluralMethod = "TranslatePlural";
-    private const string TranslationClass = "Godot.GodotObject";
+    private const string TranslationClass = "BlackForest.GodotObject";
     private const string TranslationMethodTr = "Tr";
     private const string TranslationMethodTrN = "TrN";
     private static readonly string[] _configurations = ["Debug", "Release"];

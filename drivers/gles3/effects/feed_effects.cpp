@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -109,7 +109,7 @@ Transform3D transform3D_from_mat4(const float *p_mat4) {
 void FeedEffects::draw() {
 	bool success = feed.shader.version_bind_shader(feed.shader_version, FeedShaderGLES3::MODE_DEFAULT, FeedShaderGLES3::USE_EXTERNAL_SAMPLER);
 	if (!success) {
-		OS::get_singleton()->print("Godot : FeedShaderGLES3 Could not bind version_bind_shader USE_EXTERNAL_SAMPLER");
+		OS::get_singleton()->print("BlackForest : FeedShaderGLES3 Could not bind version_bind_shader USE_EXTERNAL_SAMPLER");
 		return;
 	}
 

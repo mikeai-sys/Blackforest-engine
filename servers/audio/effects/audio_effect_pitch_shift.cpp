@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -34,7 +34,7 @@
 #include "core/object/class_db.h"
 #include "servers/audio/audio_server.h"
 
-/* Thirdparty code, so disable clang-format with Godot style */
+/* Thirdparty code, so disable clang-format with BlackForest style */
 /* clang-format off */
 
 /****************************************************************************
@@ -288,7 +288,7 @@ void SMBPitchShift::smbFft(float *fftBuffer, long fftFrameSize, long sign)
 }
 
 
-/* Godot code again */
+/* BlackForest code again */
 /* clang-format on */
 
 void AudioEffectPitchShiftInstance::process(const AudioFrame *p_src_frames, AudioFrame *p_dst_frames, int p_frame_count) {

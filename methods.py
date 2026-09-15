@@ -17,7 +17,7 @@ from typing import Generator, TextIO, cast
 from misc.utility.color import print_error, print_info, print_warning
 from platform_methods import detect_arch
 
-# Get the "Godot" folder name ahead of time
+# Get the "BlackForest" folder name ahead of time
 base_folder = Path(__file__).resolve().parent
 
 compiler_version_cache = None
@@ -261,11 +261,11 @@ def detect_modules(search_path, recursive=False):
 
     def is_engine(path):
         # Prevent recursively detecting modules in self and other
-        # Godot sources when using `custom_modules` build option.
+        # BlackForest sources when using `custom_modules` build option.
         version_path = os.path.join(path, "version.py")
         if os.path.exists(version_path):
             with open(version_path, "r", encoding="utf-8") as f:
-                if 'short_name = "godot"' in f.read():
+                if 'short_name = "blackforest"' in f.read():
                     return True
         return False
 
@@ -475,7 +475,7 @@ def detect_visual_c_compiler_version(tools_env):
     # "x86"           Native 32 bit compiler
     # "x86_amd64"     32 bit Cross Compiler for 64 bit
 
-    # There are other architectures, but Godot does not support them currently, so this function does not detect arm/amd64_arm
+    # There are other architectures, but BlackForest does not support them currently, so this function does not detect arm/amd64_arm
     # and similar architectures/compilers
 
     # Set chosen compiler to "not detected"
@@ -1000,7 +1000,7 @@ def dump(env):
 #
 # To generate AND build from the command line:
 #   scons vsproj=yes vsproj_gen_only=no
-def generate_vs_project(env, original_args, project_name="godot"):
+def generate_vs_project(env, original_args, project_name="blackforest"):
     # Augmented glob_recursive that also fills the dirs argument with traversed directories that have content.
     def glob_recursive_2(pattern, dirs, node="."):
         from SCons import Node
@@ -1233,7 +1233,7 @@ def generate_vs_project(env, original_args, project_name="godot"):
     others_active = []
 
     get_dependencies(
-        env.File(f"#bin/godot{env['PROGSUFFIX']}"), env, extensions, headers_active, sources_active, others_active
+        env.File(f"#bin/blackforest{env['PROGSUFFIX']}"), env, extensions, headers_active, sources_active, others_active
     )
 
     all_items = []
@@ -1294,7 +1294,7 @@ def generate_vs_project(env, original_args, project_name="godot"):
             properties.append(
                 "<ActiveProjectItemList_%s>;%s;</ActiveProjectItemList_%s>" % (x, ";".join(itemlist[x]), x)
             )
-        output = os.path.join("bin", f"godot{env['PROGSUFFIX']}")
+        output = os.path.join("bin", f"blackforest{env['PROGSUFFIX']}")
 
         # The modules_enabled.gen.h header containing the defines is only generated on build, and only for the most recently built
         # platform, which means VS can't properly render code that's inside module-specific ifdefs. This adds those defines to the
@@ -1400,7 +1400,7 @@ def generate_vs_project(env, original_args, project_name="godot"):
         # When both Windows and Mac define an editor target, it's defined as platform+target+arch (windows+editor+x64 for example).
         # VS only supports two attributes, a "Configuration" and a "Platform", and we currently map our target to the Configuration
         # (i.e. editor/template_debug/template_release), and our architecture to the "Platform" (i.e. x64, arm64, etc).
-        # Those two are not enough to disambiguate multiple godot targets for different godot platforms with the same architecture,
+        # Those two are not enough to disambiguate multiple blackforest targets for different blackforest platforms with the same architecture,
         # i.e. editor|x64 would currently match both windows editor intel 64 and linux editor intel 64.
         #
         # TODO: More work is needed in order to support generating VS projects that unambiguously support all platform+target+arch variations.
@@ -1515,9 +1515,9 @@ def generate_copyright_header(filename: str) -> str:
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */

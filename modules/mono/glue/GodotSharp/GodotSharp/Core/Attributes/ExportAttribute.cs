@@ -1,9 +1,9 @@
 using System;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
-    /// Exports the annotated member as a property of the Godot Object.
+    /// Exports the annotated member as a property of the BlackForest Object.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public sealed class ExportAttribute : Attribute

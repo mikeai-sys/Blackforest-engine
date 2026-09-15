@@ -4,12 +4,12 @@
 
 using System;
 using System.Runtime.CompilerServices;
-using Godot.Collections;
+using BlackForest.Collections;
 
 
 #nullable enable
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     public static partial class VariantUtils
     {

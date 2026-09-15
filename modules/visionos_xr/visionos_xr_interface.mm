@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -277,7 +277,7 @@ void VisionOSXRInterface::update_layer_renderer(cp_layer_renderer_t p_layer_rend
 Dictionary VisionOSXRInterface::get_system_info() {
 	Dictionary dict;
 
-	dict[SNAME("XRRuntimeName")] = String("Godot visionOS XR interface");
+	dict[SNAME("XRRuntimeName")] = String("BlackForest visionOS XR interface");
 	dict[SNAME("XRRuntimeVersion")] = String("1.0");
 
 	return dict;
@@ -574,7 +574,7 @@ Projection VisionOSXRInterface::RenderThread::get_projection_for_view(uint32_t p
 	simd_float4x4 eye_simd_projection = cp_drawable_compute_projection(current_drawable, cp_axis_direction_convention_right_up_forward, p_view);
 	eye_projection = MTL::simd_to_projection(eye_simd_projection);
 
-	// Godot renderers work in the normalized [-1, 1] depth space, and they do a final z remap of the projection matrixes to the [0, 1] depth space in RenderSceneDataRD::update_ubo().
+	// BlackForest renderers work in the normalized [-1, 1] depth space, and they do a final z remap of the projection matrixes to the [0, 1] depth space in RenderSceneDataRD::update_ubo().
 	// Compositor Services projection matrices are already in the [0, 1] depth space, so we need to apply the inverse z remap before passing them to the renderer.
 	Projection normalized_depth_correction;
 	normalized_depth_correction.set_depth_correction(false, false, true);
@@ -660,7 +660,7 @@ void VisionOSXRInterface::RenderThread::pre_render() {
 		cp_drawable_t drawable = cp_drawable_array_get_drawable(drawables, i);
 		// Find screen drawable (target = cp_drawable_target_built_in).
 		// High quality recording (target = cp_drawable_target_capture) not supported yet,
-		// to support this feature, we'd need Godot to perform an additional render pass on the extra drawable
+		// to support this feature, we'd need BlackForest to perform an additional render pass on the extra drawable
 		if (cp_drawable_get_target(drawable) == cp_drawable_target_built_in) {
 			current_drawable = drawable;
 		}

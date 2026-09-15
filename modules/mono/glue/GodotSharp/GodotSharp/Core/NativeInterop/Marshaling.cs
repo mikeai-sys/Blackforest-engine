@@ -2,7 +2,7 @@
 
 using System;
 using System.Runtime.InteropServices;
-using Godot.Collections;
+using BlackForest.Collections;
 using Array = System.Array;
 
 // ReSharper disable InconsistentNaming
@@ -12,7 +12,7 @@ using Array = System.Array;
 
 #nullable enable
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     public static class Marshaling
     {
@@ -156,7 +156,7 @@ namespace Godot.NativeInterop
                         if (typeof(GodotObject).IsAssignableFrom(type))
                             return Variant.Type.Object;
 
-                        // We use `IsAssignableFrom` with our helper interfaces to detect generic Godot collections
+                        // We use `IsAssignableFrom` with our helper interfaces to detect generic BlackForest collections
                         // because `GetGenericTypeDefinition` is not supported in NativeAOT reflection-free mode.
 
                         if (typeof(IGenericGodotDictionary).IsAssignableFrom(type))
@@ -219,7 +219,7 @@ namespace Godot.NativeInterop
             {
                 unsafe
                 {
-                    Godot.Bridge.ScriptManagerBridge.GetOrLoadOrCreateScriptForType(typeof(T), &scriptRef);
+                    BlackForest.Bridge.ScriptManagerBridge.GetOrLoadOrCreateScriptForType(typeof(T), &scriptRef);
                 }
 
                 // Don't call GodotObject.InternalGetClassNativeBaseName here!

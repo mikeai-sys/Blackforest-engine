@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -687,9 +687,9 @@ struct TextDocumentItem {
 		// Clients should use "gdscript" as language id, but we can't enforce it.
 		// We normalize some known ids to make them easier to work with:
 		// Rider < 2026.1: "gd"
-		// Kate: "godot"
+		// Kate: "blackforest"
 		String rawLanguageId = p_dict["languageId"];
-		if (rawLanguageId == "gdscript" || rawLanguageId == "gd" || rawLanguageId == "godot") {
+		if (rawLanguageId == "gdscript" || rawLanguageId == "gd" || rawLanguageId == "blackforest") {
 			languageId = LanguageId::GDSCRIPT;
 		} else {
 			languageId = LanguageId::OTHER;

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -166,7 +166,7 @@ void VisionOSHandTracking::set_hand_tracker_data_from_arkit(Ref<XRHandTracker> p
 	ar_hand_skeleton_t hand_skeleton = ar_hand_anchor_get_hand_skeleton(p_hand_anchor);
 	Transform3D origin_from_hand_anchor = MTL::simd_to_transform3D(origin_from_hand_anchor_simd);
 
-	// Rotate from ARKit coordinates to Godot Humanoid coordinates
+	// Rotate from ARKit coordinates to BlackForest Humanoid coordinates
 	ar_hand_chirality_t chirality = ar_hand_anchor_get_chirality(p_hand_anchor);
 	bool is_left_hand = (chirality == ar_hand_chirality_left);
 	real_t rotation_angle = (is_left_hand ? -1 : 1) * Math::PI * 0.5;

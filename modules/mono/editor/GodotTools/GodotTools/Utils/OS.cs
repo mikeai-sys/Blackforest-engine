@@ -1,4 +1,4 @@
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,7 +32,7 @@ namespace GodotTools.Utils
         }
 
         /// <summary>
-        /// Godot platform identifiers.
+        /// BlackForest platform identifiers.
         /// </summary>
         public static class Platforms
         {
@@ -94,7 +94,7 @@ namespace GodotTools.Utils
             // TODO:
             // Does .NET 6 support BSD variants? If it does, it may need the name `unix`
             // instead of `linux` in the runtime identifier. This would be a problem as
-            // Godot has a single export profile for both, named LinuxBSD.
+            // BlackForest has a single export profile for both, named LinuxBSD.
             [Platforms.LinuxBSD] = DotNetOS.Linux,
             [Platforms.Android] = DotNetOS.Android,
             [Platforms.iOS] = DotNetOS.iOS,

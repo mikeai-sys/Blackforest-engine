@@ -2,7 +2,7 @@
 #pragma warning disable IDE1006 // Naming rule violation
 // ReSharper disable InconsistentNaming
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     public static partial class NativeFuncs
     {

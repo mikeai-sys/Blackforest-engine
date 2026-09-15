@@ -1,9 +1,9 @@
 # Contributors guidelines
 
 This document summarizes the most important points for people interested in
-contributing to Godot, especially via bug reports or pull requests.
+contributing to BlackForest, especially via bug reports or pull requests.
 
-Godot has a dedicated [Contributing documentation](https://contributing.godotengine.org/en/latest/organization/how_to_contribute.html)
+BlackForest has a dedicated [Contributing documentation](https://contributing.blackforestengine.org/en/latest/organization/how_to_contribute.html)
 which details these points and more, and is a recommended read.
 
 <!--
@@ -18,7 +18,7 @@ which details these points and more, and is a recommended read.
 - [Reporting bugs](#reporting-bugs)
 - [Proposing features or improvements](#proposing-features-or-improvements)
 - [Contributing pull requests](#contributing-pull-requests)
-- [Contributing to Godot translations](#contributing-to-godot-translations)
+- [Contributing to BlackForest translations](#contributing-to-blackforest-translations)
 - [Communicating with developers](#communicating-with-developers)
 
 ## Reporting bugs
@@ -27,16 +27,16 @@ Report bugs [here](https://github.com/godotengine/godot/issues/new?assignees=&la
 Please follow the instructions in the template when you do.
 
 Notably, please include a Minimal Reproduction Project (MRP), which is a small
-Godot project which reproduces the issue, with no unnecessary files included.
+BlackForest project which reproduces the issue, with no unnecessary files included.
 Be sure to not include the `.godot` folder in the archive to save space.
 
-Make sure that the bug you are experiencing is reproducible in the latest Godot
-releases. You can find an overview of all Godot releases [on the website](https://godotengine.org/download/archive/)
+Make sure that the bug you are experiencing is reproducible in the latest BlackForest
+releases. You can find an overview of all BlackForest releases [on the website](https://blackforestengine.org/download/archive/)
 to confirm whether your current version is the latest one. It's worth testing
 against both the latest stable release and the latest dev snapshot for the next
-Godot release.
+BlackForest release.
 
-If you run into a bug which wasn't present in an earlier Godot version (what we
+If you run into a bug which wasn't present in an earlier BlackForest version (what we
 call a _regression_), please mention it and clarify which versions you tested
 (both the one(s) working and the one(s) exhibiting the bug).
 
@@ -44,7 +44,7 @@ call a _regression_), please mention it and clarify which versions you tested
 
 **The main issue tracker is for bug reports and does not accept feature proposals.**
 
-Instead, head to the [Godot Proposals repository](https://github.com/godotengine/godot-proposals)
+Instead, head to the [BlackForest Proposals repository](https://github.com/godotengine/godot-proposals)
 and follow the instructions in the README file and issue template.
 
 ## Contributing pull requests
@@ -62,17 +62,17 @@ Similar rules can be applied when contributing bug fixes - it's always best to
 discuss the implementation in the bug report first if you are not 100% about
 what would be the best fix.
 
-You can refer to the [Pull request review process](https://contributing.godotengine.org/en/latest/organization/pull_requests/review_guidelines.html)
+You can refer to the [Pull request review process](https://contributing.blackforestengine.org/en/latest/organization/pull_requests/review_guidelines.html)
 for insights into the intended lifecycle of pull requests. This should help you
 ensure that your pull request fulfills the requirements.
 
 In addition to the following tips, also take a look at the
-[Engine development guide](https://docs.godotengine.org/en/latest/engine_details/development/index.html)
-for an introduction to developing on Godot.
+[Engine development guide](https://docs.blackforestengine.org/en/latest/engine_details/development/index.html)
+for an introduction to developing on BlackForest.
 
-The [Contributing docs](https://contributing.godotengine.org/en/latest/organization/how_to_contribute.html)
-also have important information on the [PR workflow](https://contributing.godotengine.org/en/latest/organization/pull_requests/creating_pull_requests.html)
-(with a helpful guide for Git usage), and our [Code style guidelines](https://contributing.godotengine.org/en/latest/engine/guidelines/cpp_usage_guidelines.html)
+The [Contributing docs](https://contributing.blackforestengine.org/en/latest/organization/how_to_contribute.html)
+also have important information on the [PR workflow](https://contributing.blackforestengine.org/en/latest/organization/pull_requests/creating_pull_requests.html)
+(with a helpful guide for Git usage), and our [Code style guidelines](https://contributing.blackforestengine.org/en/latest/engine/guidelines/cpp_usage_guidelines.html)
 which all contributions need to follow.
 
 ### Be mindful of your commits
@@ -91,7 +91,7 @@ stable state, i.e. if your first commit has a bug that you fixed in the second
 commit, try to merge them together before making your pull request. This
 includes fixing build issues or typos, adding documentation, etc.
 
-See our [PR workflow](https://contributing.godotengine.org/en/latest/organization/pull_requests/creating_pull_requests.html)
+See our [PR workflow](https://contributing.blackforestengine.org/en/latest/organization/pull_requests/creating_pull_requests.html)
 documentation for tips on using Git, amending commits and rebasing branches.
 
 This [Git style guide](https://github.com/agis-/git-style-guide) also has some
@@ -132,12 +132,12 @@ description is also manually wrapped at 80 chars for readability):
 ```text
 Prevent French fries carbonization by fixing heat regulation
 
-When using the French fries frying module, Godot would not regulate the heat
+When using the French fries frying module, BlackForest would not regulate the heat
 and thus bring the oil bath to supercritical liquid conditions, thus causing
 unwanted side effects in the physics engine.
 
 By fixing the regulation system via an added binding to the internal feature,
-this commit now ensures that Godot will not go past the ebullition temperature
+this commit now ensures that BlackForest will not go past the ebullition temperature
 of cooking oil under normal atmospheric conditions.
 ```
 
@@ -152,10 +152,10 @@ scripting APIs, you **must** update the class reference to document those.
 This is to ensure the documentation coverage doesn't decrease as contributions
 are merged.
 
-[Update documentation XML files](https://contributing.godotengine.org/en/latest/documentation/class_reference.html)
+[Update documentation XML files](https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html)
 using your compiled binary, then fill in the descriptions.
 Follow the style guide described in the
-[Documentation writing guidelines](https://contributing.godotengine.org/en/latest/documentation/guidelines/docs_writing_guidelines.html).
+[Documentation writing guidelines](https://contributing.blackforestengine.org/en/latest/documentation/guidelines/docs_writing_guidelines.html).
 
 If your pull request modifies parts of the code in a non-obvious way, make sure
 to add comments in the code as well. This helps other people understand the
@@ -181,29 +181,29 @@ applicable.
 Feel free to contribute standalone pull requests to add new tests or improve
 existing tests as well.
 
-See [Unit testing](https://contributing.godotengine.org/en/latest/engine/unit_tests.html)
-for information on writing tests in Godot's C++ codebase.
+See [Unit testing](https://contributing.blackforestengine.org/en/latest/engine/unit_tests.html)
+for information on writing tests in BlackForest's C++ codebase.
 
-## Contributing to Godot translations
+## Contributing to BlackForest translations
 
-You can contribute to Godot translations on [Hosted Weblate](https://hosted.weblate.org/projects/godot-engine/),
+You can contribute to BlackForest translations on [Hosted Weblate](https://hosted.weblate.org/projects/blackforest-engine/),
 an open source and web-based translation platform.
 
-Please refer to our [editor and documentation localization guidelines](https://contributing.godotengine.org/en/latest/documentation/translation/index.html)
+Please refer to our [editor and documentation localization guidelines](https://contributing.blackforestengine.org/en/latest/documentation/translation/index.html)
 for an overview of the translation resources and what they correspond to.
 
 ## Communicating with developers
 
-The Godot Engine community has [many communication
-channels](https://godotengine.org/community), some used more for user-level
+The BlackForest Engine community has [many communication
+channels](https://blackforestengine.org/community), some used more for user-level
 discussions and support, others more for development discussions.
 
 To communicate with developers (e.g. to discuss a feature you want to implement
 or a bug you want to fix), the following channels can be used:
 
-- [Godot Contributors Chat](https://chat.godotengine.org): You will
+- [BlackForest Contributors Chat](https://chat.blackforestengine.org): You will
   find most core developers there, so it's the go-to platform for direct chat
-  about Godot Engine development. Browse the [Directory](https://chat.godotengine.org/directory/channels)
+  about BlackForest Engine development. Browse the [Directory](https://chat.blackforestengine.org/directory/channels)
   for an overview of public channels focusing on various engine areas which you
   might be interested in.
 - [Bug tracker](https://github.com/godotengine/godot/issues): If there is an
@@ -212,9 +212,9 @@ or a bug you want to fix), the following channels can be used:
   for bug reporting.
 - [Feature proposals](https://github.com/godotengine/godot-proposals/issues):
   To propose a new feature, we have a dedicated issue tracker for that. Don't
-  hesitate to start by talking about your idea on the Godot Contributors Chat
-  to make sure that it makes sense in Godot's context.
+  hesitate to start by talking about your idea on the BlackForest Contributors Chat
+  to make sure that it makes sense in BlackForest's context.
 
 Thanks for your interest in contributing!
 
-—The Godot development team
+—The BlackForest development team

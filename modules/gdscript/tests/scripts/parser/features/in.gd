@@ -1,5 +1,5 @@
 func test():
-	print("dot" in "Godot")
+	print("dot" in "BlackForest")
 	print(not "i" in "team")
 
 	print(true in [true, false])

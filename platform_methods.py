@@ -182,13 +182,13 @@ def lipo_and_copy_apple_embedded(
     # env.extra_suffix contains ".simulator" when building for simulator,
     # but it's undesired when calling lipo()
     extra_suffix = env.extra_suffix.replace(".simulator", "")
-    rel_target_bin = lipo(bin_dir + "/libgodot" + module_prefix + "." + rel_prefix, extra_suffix + ".a")
-    dbg_target_bin = lipo(bin_dir + "/libgodot" + module_prefix + "." + dbg_prefix, extra_suffix + ".a")
+    rel_target_bin = lipo(bin_dir + "/libblackforest" + module_prefix + "." + rel_prefix, extra_suffix + ".a")
+    dbg_target_bin = lipo(bin_dir + "/libblackforest" + module_prefix + "." + dbg_prefix, extra_suffix + ".a")
     rel_target_bin_sim = lipo(
-        bin_dir + "/libgodot" + module_prefix + "." + rel_prefix, ".simulator" + extra_suffix + ".a"
+        bin_dir + "/libblackforest" + module_prefix + "." + rel_prefix, ".simulator" + extra_suffix + ".a"
     )
     dbg_target_bin_sim = lipo(
-        bin_dir + "/libgodot" + module_prefix + "." + dbg_prefix, ".simulator" + extra_suffix + ".a"
+        bin_dir + "/libblackforest" + module_prefix + "." + dbg_prefix, ".simulator" + extra_suffix + ".a"
     )
     # Assemble Xcode project bundle.
     if rel_target_bin != "":
@@ -196,13 +196,13 @@ def lipo_and_copy_apple_embedded(
         shutil.copy(
             rel_target_bin,
             app_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + "."
             + platform
             + ".release.xcframework/"
             + framework_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + ".a",
         )
@@ -211,13 +211,13 @@ def lipo_and_copy_apple_embedded(
         shutil.copy(
             dbg_target_bin,
             app_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + "."
             + platform
             + ".debug.xcframework/"
             + framework_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + ".a",
         )
@@ -226,13 +226,13 @@ def lipo_and_copy_apple_embedded(
         shutil.copy(
             rel_target_bin_sim,
             app_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + "."
             + platform
             + ".release.xcframework/"
             + framework_dir_sim
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + ".a",
         )
@@ -241,13 +241,13 @@ def lipo_and_copy_apple_embedded(
         shutil.copy(
             dbg_target_bin_sim,
             app_dir
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + "."
             + platform
             + ".debug.xcframework/"
             + framework_dir_sim
-            + "/libgodot"
+            + "/libblackforest"
             + module_prefix
             + ".a",
         )
@@ -256,7 +256,7 @@ def lipo_and_copy_apple_embedded(
 def generate_bundle_apple_embedded(platform, framework_dir, framework_dir_sim, use_mkv, target, source, env):
     # Template bundle.
     extra_suffix = env.extra_suffix.replace(".simulator", "")
-    app_prefix = "godot." + platform
+    app_prefix = "blackforest." + platform
     rel_prefix = platform + "." + "template_release"
     dbg_prefix = platform + "." + "template_debug"
     if env.dev_build:
@@ -283,7 +283,7 @@ def generate_bundle_apple_embedded(platform, framework_dir, framework_dir_sim, u
 
     # Remove other platform xcframeworks
     for entry in os.listdir(app_dir):
-        if (entry.startswith("libgodot.") or entry.startswith("libgodot_")) and entry.endswith(".xcframework"):
+        if (entry.startswith("libblackforest.") or entry.startswith("libblackforest_")) and entry.endswith(".xcframework"):
             parts = entry.split(".")
             if len(parts) >= 3 and parts[1] != platform:
                 full_path = os.path.join(app_dir, entry)

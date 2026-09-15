@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 using System.Diagnostics;
 
 #nullable enable
 
-namespace Godot.Collections
+namespace BlackForest.Collections
 {
     /// <summary>
-    /// Wrapper around Godot's Dictionary class, a dictionary of Variant
+    /// Wrapper around BlackForest's Dictionary class, a dictionary of Variant
     /// typed elements allocated in the engine in C++. Useful when
     /// interfacing with the engine.
     /// </summary>
@@ -84,7 +84,7 @@ namespace Godot.Collections
         /// setting.
         /// </summary>
         /// <param name="deep">If <see langword="true"/>, performs a deep copy.</param>
-        /// <returns>A new Godot Dictionary.</returns>
+        /// <returns>A new BlackForest Dictionary.</returns>
         public Dictionary Duplicate(bool deep = false)
         {
             godot_dictionary newDictionary;
@@ -476,7 +476,7 @@ namespace Godot.Collections
     }
 
     /// <summary>
-    /// Typed wrapper around Godot's Dictionary class, a dictionary of <typeparamref name="TKey"/>
+    /// Typed wrapper around BlackForest's Dictionary class, a dictionary of <typeparamref name="TKey"/>
     /// and <typeparamref name="TValue"/> annotated, Variant typed elements allocated in the engine in C++.
     /// Useful when interfacing with the engine. Otherwise prefer .NET collections
     /// such as <see cref="System.Collections.Generic.Dictionary{TKey, TValue}"/>.
@@ -543,7 +543,7 @@ namespace Godot.Collections
         /// <summary>
         /// Constructs a new empty <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <returns>A new Godot Dictionary.</returns>
+        /// <returns>A new BlackForest Dictionary.</returns>
         public Dictionary()
         {
             _underlyingDict = new Dictionary();
@@ -557,7 +557,7 @@ namespace Godot.Collections
         /// The <paramref name="dictionary"/> is <see langword="null"/>.
         /// </exception>
         /// <param name="dictionary">The dictionary to construct from.</param>
-        /// <returns>A new Godot Dictionary.</returns>
+        /// <returns>A new BlackForest Dictionary.</returns>
         public Dictionary(IDictionary<TKey, TValue> dictionary)
         {
             ArgumentNullException.ThrowIfNull(dictionary);
@@ -576,7 +576,7 @@ namespace Godot.Collections
         /// The <paramref name="dictionary"/> is <see langword="null"/>.
         /// </exception>
         /// <param name="dictionary">The dictionary to construct from.</param>
-        /// <returns>A new Godot Dictionary.</returns>
+        /// <returns>A new BlackForest Dictionary.</returns>
         public Dictionary(Dictionary dictionary)
         {
             ArgumentNullException.ThrowIfNull(dictionary);
@@ -593,7 +593,7 @@ namespace Godot.Collections
         /// Converts this typed <see cref="Dictionary{TKey, TValue}"/> to an untyped <see cref="Dictionary"/>.
         /// </summary>
         /// <param name="from">The typed dictionary to convert.</param>
-        /// <returns>A new Godot Dictionary, or <see langword="null"/> if <see paramref="from"/> was null.</returns>
+        /// <returns>A new BlackForest Dictionary, or <see langword="null"/> if <see paramref="from"/> was null.</returns>
         [return: NotNullIfNotNull("from")]
         public static explicit operator Dictionary?(Dictionary<TKey, TValue>? from)
         {
@@ -612,7 +612,7 @@ namespace Godot.Collections
         /// setting.
         /// </summary>
         /// <param name="deep">If <see langword="true"/>, performs a deep copy.</param>
-        /// <returns>A new Godot Dictionary.</returns>
+        /// <returns>A new BlackForest Dictionary.</returns>
         public Dictionary<TKey, TValue> Duplicate(bool deep = false)
         {
             return new Dictionary<TKey, TValue>(_underlyingDict.Duplicate(deep));

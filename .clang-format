@@ -158,7 +158,7 @@ InsertBraces: true
 #   Hex: 0
 #   HexMinDigits: 0
 JavaImportGroups:
-  - org.godotengine
+  - org.blackforestengine
   - android
   - androidx
   - com.android

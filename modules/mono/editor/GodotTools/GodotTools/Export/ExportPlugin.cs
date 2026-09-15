@@ -1,4 +1,4 @@
-using Godot;
+using BlackForest;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -35,18 +35,18 @@ namespace GodotTools.Export
             return new string[] { "dotnet" };
         }
 
-        public override Godot.Collections.Array<Godot.Collections.Dictionary> _GetExportOptions(EditorExportPlatform platform)
+        public override BlackForest.Collections.Array<BlackForest.Collections.Dictionary> _GetExportOptions(EditorExportPlatform platform)
         {
-            var exportOptionList = new Godot.Collections.Array<Godot.Collections.Dictionary>();
+            var exportOptionList = new BlackForest.Collections.Array<BlackForest.Collections.Dictionary>();
 
             if (platform.GetOsName().Equals(OS.Platforms.Android, StringComparison.OrdinalIgnoreCase))
             {
                 exportOptionList.Add
                 (
-                    new Godot.Collections.Dictionary()
+                    new BlackForest.Collections.Dictionary()
                     {
                         {
-                            "option", new Godot.Collections.Dictionary()
+                            "option", new BlackForest.Collections.Dictionary()
                             {
                                 { "name", "dotnet/android_use_linux_bionic" },
                                 { "type", (int)Variant.Type.Bool }
@@ -59,10 +59,10 @@ namespace GodotTools.Export
 
             exportOptionList.Add
             (
-                new Godot.Collections.Dictionary()
+                new BlackForest.Collections.Dictionary()
                 {
                     {
-                        "option", new Godot.Collections.Dictionary()
+                        "option", new BlackForest.Collections.Dictionary()
                         {
                             { "name", "dotnet/include_scripts_content" },
                             { "type", (int)Variant.Type.Bool }
@@ -73,10 +73,10 @@ namespace GodotTools.Export
             );
             exportOptionList.Add
             (
-                new Godot.Collections.Dictionary()
+                new BlackForest.Collections.Dictionary()
                 {
                     {
-                        "option", new Godot.Collections.Dictionary()
+                        "option", new BlackForest.Collections.Dictionary()
                         {
                             { "name", "dotnet/include_debug_symbols" },
                             { "type", (int)Variant.Type.Bool }
@@ -87,10 +87,10 @@ namespace GodotTools.Export
             );
             exportOptionList.Add
             (
-                new Godot.Collections.Dictionary()
+                new BlackForest.Collections.Dictionary()
                 {
                     {
-                        "option", new Godot.Collections.Dictionary()
+                        "option", new BlackForest.Collections.Dictionary()
                         {
                             { "name", "dotnet/embed_build_outputs" },
                             { "type", (int)Variant.Type.Bool }
@@ -144,11 +144,11 @@ namespace GodotTools.Export
             {
                 // We don't want to include the source code on exported games.
 
-                // Sadly, Godot prints errors when adding an empty file (nothing goes wrong, it's just noise).
+                // Sadly, BlackForest prints errors when adding an empty file (nothing goes wrong, it's just noise).
                 // Because of this, we add a file which contains a line break.
                 AddFile(path, System.Text.Encoding.UTF8.GetBytes("\n"), remap: false);
 
-                // Tell the Godot exporter that we already took care of the file.
+                // Tell the BlackForest exporter that we already took care of the file.
                 Skip();
             }
         }
@@ -267,13 +267,13 @@ namespace GodotTools.Export
 
                     if (config.UseTempDir)
                     {
-                        publishOutputDir = Path.Combine(Path.GetTempPath(), "godot-publish-dotnet",
+                        publishOutputDir = Path.Combine(Path.GetTempPath(), "blackforest-publish-dotnet",
                             $"{System.Environment.ProcessId}-{buildConfig}-{runtimeIdentifier}");
                         _tempFolders.Add(publishOutputDir);
                     }
                     else
                     {
-                        publishOutputDir = Path.Combine(GodotSharpDirs.ProjectBaseOutputPath, "godot-publish-dotnet",
+                        publishOutputDir = Path.Combine(GodotSharpDirs.ProjectBaseOutputPath, "blackforest-publish-dotnet",
                             $"{buildConfig}-{runtimeIdentifier}");
                     }
 
@@ -361,7 +361,7 @@ namespace GodotTools.Export
                                             {
                                                 // Add 'lib' prefix required for all native libraries in Android.
                                                 string newPath = string.Concat(path.AsSpan(0, path.Length - fileName.Length), "lib", fileName);
-                                                Godot.DirAccess.RenameAbsolute(path, newPath);
+                                                BlackForest.DirAccess.RenameAbsolute(path, newPath);
                                                 path = newPath;
                                             }
 
@@ -518,7 +518,7 @@ namespace GodotTools.Export
         {
             base._ExportEnd();
 
-            string aotTempDir = Path.Combine(Path.GetTempPath(), $"godot-aot-{System.Environment.ProcessId}");
+            string aotTempDir = Path.Combine(Path.GetTempPath(), $"blackforest-aot-{System.Environment.ProcessId}");
 
             if (Directory.Exists(aotTempDir))
                 Directory.Delete(aotTempDir, recursive: true);

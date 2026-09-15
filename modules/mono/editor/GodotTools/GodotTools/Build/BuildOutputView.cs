@@ -1,4 +1,4 @@
-using Godot;
+using BlackForest;
 using static GodotTools.Internals.Globals;
 
 namespace GodotTools.Build

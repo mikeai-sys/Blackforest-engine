@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -1572,7 +1572,7 @@ void EditorFileSystem::_scan_fs_changes(EditorFileSystemDirectory *p_dir, ScanPr
 			// Check here if file must be imported or not.
 			// Same logic as in _process_file_system, the last modifications dates
 			// needs to be trusted to prevent reading all the .import files and the md5
-			// each time the user switch back to Godot.
+			// each time the user switch back to BlackForest.
 			uint64_t mt = FileAccess::get_modified_time(path);
 			uint64_t import_mt = FileAccess::get_modified_time(path + ".import");
 			if (_is_test_for_reimport_needed(path, p_dir->files[i]->modified_time, mt, p_dir->files[i]->import_modified_time, import_mt, p_dir->files[i]->import_dest_paths)) {

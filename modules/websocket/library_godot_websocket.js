@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -36,7 +36,7 @@ const GodotWebSocket = {
 		_onopen: function (p_id, callback, event) {
 			const ref = IDHandler.get(p_id);
 			if (!ref) {
-				return; // Godot object is gone.
+				return; // BlackForest object is gone.
 			}
 			const c_str = GodotRuntime.allocString(ref.protocol);
 			callback(c_str);
@@ -47,7 +47,7 @@ const GodotWebSocket = {
 		_onmessage: function (p_id, callback, event) {
 			const ref = IDHandler.get(p_id);
 			if (!ref) {
-				return; // Godot object is gone.
+				return; // BlackForest object is gone.
 			}
 			let buffer;
 			let is_string = 0;
@@ -74,7 +74,7 @@ const GodotWebSocket = {
 		_onerror: function (p_id, callback, event) {
 			const ref = IDHandler.get(p_id);
 			if (!ref) {
-				return; // Godot object is gone.
+				return; // BlackForest object is gone.
 			}
 			callback();
 		},
@@ -83,7 +83,7 @@ const GodotWebSocket = {
 		_onclose: function (p_id, callback, event) {
 			const ref = IDHandler.get(p_id);
 			if (!ref) {
-				return; // Godot object is gone.
+				return; // BlackForest object is gone.
 			}
 			const c_str = GodotRuntime.allocString(event.reason);
 			callback(event.code, c_str, event.wasClean ? 1 : 0);
@@ -94,7 +94,7 @@ const GodotWebSocket = {
 		send: function (p_id, p_data) {
 			const ref = IDHandler.get(p_id);
 			if (!ref || ref.readyState !== ref.OPEN) {
-				return 1; // Godot object is gone or socket is not in a ready state.
+				return 1; // BlackForest object is gone or socket is not in a ready state.
 			}
 			ref.send(p_data);
 			return 0;
@@ -104,7 +104,7 @@ const GodotWebSocket = {
 		bufferedAmount: function (p_id) {
 			const ref = IDHandler.get(p_id);
 			if (!ref) {
-				return 0; // Godot object is gone.
+				return 0; // BlackForest object is gone.
 			}
 			return ref.bufferedAmount;
 		},

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -32,7 +32,7 @@
 
 #include "core/io/file_access.h"
 
-// This file serves as the Godot interface to minizip.
+// This file serves as the BlackForest interface to minizip.
 #include <thirdparty/minizip/unzip.h> // IWYU pragma: export
 #include <thirdparty/minizip/zip.h> // IWYU pragma: export
 

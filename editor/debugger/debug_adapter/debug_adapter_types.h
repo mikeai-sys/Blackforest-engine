@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -105,7 +105,7 @@ struct Breakpoint {
 	const Source *source = nullptr;
 	int line = 0;
 
-	Breakpoint() = default; // Empty constructor is invalid, but is necessary because Godot's collections don't support rvalues.
+	Breakpoint() = default; // Empty constructor is invalid, but is necessary because BlackForest's collections don't support rvalues.
 	Breakpoint(const Source &p_source) :
 			source(&p_source) {}
 
@@ -223,7 +223,7 @@ struct StackFrame {
 	int line = 0;
 	int column = 0;
 
-	StackFrame() = default; // Empty constructor is invalid, but is necessary because Godot's collections don't support rvalues.
+	StackFrame() = default; // Empty constructor is invalid, but is necessary because BlackForest's collections don't support rvalues.
 	StackFrame(const Source &p_source) :
 			source(&p_source) {}
 

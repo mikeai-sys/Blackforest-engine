@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -67,7 +67,7 @@
 #import "editor/embedded_process_macos.h"
 #endif
 
-// Rendering drivers - include after general Godot deps as they imply system includes
+// Rendering drivers - include after general BlackForest deps as they imply system includes
 // which may need precise ordering.
 
 #if defined(GLES3_ENABLED)
@@ -127,7 +127,7 @@ DisplayServerEnums::WindowID DisplayServerMacOS::_create_window(DisplayServerEnu
 			wpos = wpos.clamp(srect.position, srect.position + srect.size - p_rect.size / 3);
 		}
 		// macOS native y-coordinate relative to _get_screens_origin() is negative,
-		// Godot passes a positive value.
+		// BlackForest passes a positive value.
 		wpos.y *= -1;
 		wpos += _get_screens_origin();
 		wpos /= scale;
@@ -397,7 +397,7 @@ Point2i DisplayServerMacOS::_get_screens_origin() const {
 	// Returns the native top-left screen coordinate of the smallest rectangle
 	// that encompasses all screens. Needed in get_screen_position(),
 	// window_get_position, and window_set_position()
-	// to convert between macOS native screen coordinates and the ones expected by Godot.
+	// to convert between macOS native screen coordinates and the ones expected by BlackForest.
 
 	if (displays_arrangement_dirty) {
 		_update_displays_arrangement();
@@ -1440,7 +1440,7 @@ Point2i DisplayServerMacOS::screen_get_position(int p_screen) const {
 
 	Point2i position = _get_native_screen_position(p_screen) - _get_screens_origin();
 	// macOS native y-coordinate relative to _get_screens_origin() is negative,
-	// Godot expects a positive value.
+	// BlackForest expects a positive value.
 	position.y *= -1;
 	return position;
 }
@@ -2063,7 +2063,7 @@ Point2i DisplayServerMacOS::window_get_position(DisplayServerEnums::WindowID p_w
 	pos *= scale;
 	pos -= _get_screens_origin();
 	// macOS native y-coordinate relative to _get_screens_origin() is negative,
-	// Godot expects a positive value.
+	// BlackForest expects a positive value.
 	pos.y *= -1;
 	return pos;
 }
@@ -2084,7 +2084,7 @@ Point2i DisplayServerMacOS::window_get_position_with_decorations(DisplayServerEn
 	pos *= scale;
 	pos -= _get_screens_origin();
 	// macOS native y-coordinate relative to _get_screens_origin() is negative,
-	// Godot expects a positive value.
+	// BlackForest expects a positive value.
 	pos.y *= -1;
 	return pos;
 }
@@ -2101,7 +2101,7 @@ void DisplayServerMacOS::window_set_position(const Point2i &p_position, DisplayS
 
 	Point2i position = p_position;
 	// macOS native y-coordinate relative to _get_screens_origin() is negative,
-	// Godot passes a positive value.
+	// BlackForest passes a positive value.
 	position.y *= -1;
 	position += _get_screens_origin();
 	position /= screen_get_max_scale();
@@ -3525,7 +3525,7 @@ Rect2 DisplayServerMacOS::status_indicator_get_rect(DisplayServerEnums::Indicato
 	rect.position *= scale;
 	rect.position -= _get_screens_origin();
 	// macOS native y-coordinate relative to _get_screens_origin() is negative,
-	// Godot expects a positive value.
+	// BlackForest expects a positive value.
 	rect.position.y *= -1;
 	return rect;
 }
@@ -3663,7 +3663,7 @@ void DisplayServerMacOS::popup_open(DisplayServerEnums::WindowID p_window) {
 
 		if (was_empty && popup_list.is_empty()) {
 			// Inform OS that popup was opened, to close other native popups.
-			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.beginMenuTrackingNotification" object:@"org.godotengine.godot.popup_window"];
+			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.beginMenuTrackingNotification" object:@"org.blackforestengine.blackforest.popup_window"];
 		}
 		time_since_popup = OS::get_singleton()->get_ticks_msec();
 		popup_list.push_back(p_window);
@@ -3688,7 +3688,7 @@ void DisplayServerMacOS::popup_close(DisplayServerEnums::WindowID p_window) {
 	}
 	if (!was_empty && popup_list.is_empty()) {
 		// Inform OS that all popups are closed.
-		[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.godotengine.godot.popup_window"];
+		[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.blackforestengine.blackforest.popup_window"];
 	}
 }
 
@@ -3706,7 +3706,7 @@ bool DisplayServerMacOS::mouse_process_popups(bool p_close) {
 		}
 		if (!was_empty) {
 			// Inform OS that all popups are closed.
-			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.godotengine.godot.popup_window"];
+			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.blackforestengine.blackforest.popup_window"];
 		}
 	} else {
 		uint64_t delta = OS::get_singleton()->get_ticks_msec() - time_since_popup;
@@ -3738,7 +3738,7 @@ bool DisplayServerMacOS::mouse_process_popups(bool p_close) {
 		}
 		if (!was_empty && popup_list.is_empty()) {
 			// Inform OS that all popups are closed.
-			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.godotengine.godot.popup_window"];
+			[[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.HIToolbox.endMenuTrackingNotification" object:@"org.blackforestengine.blackforest.popup_window"];
 		}
 	}
 	return closed;

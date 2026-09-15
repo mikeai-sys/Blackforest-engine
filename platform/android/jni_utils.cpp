@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -521,7 +521,7 @@ Variant::Type get_jni_type(const String &p_type) {
 }
 
 void setup_android_class_loader() {
-	// Find a known class defined in the Godot package and obtain its ClassLoader.
+	// Find a known class defined in the BlackForest package and obtain its ClassLoader.
 	// This ClassLoader will be used by jni_find_class() to locate classes at runtime
 	// in a thread-safe manner, avoiding issues with FindClass in non-main threads.
 

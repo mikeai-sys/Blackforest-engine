@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -36,7 +36,7 @@
 // See the "No profiling" branch at the bottom for a short description of the functions.
 
 // To configure / use the profiler, use the --profiler_path and other --profiler_* arguments
-// when compiling Godot. You can also find details in the SCSub file (in this folder).
+// when compiling BlackForest. You can also find details in the SCSub file (in this folder).
 
 // Note: It is highly recommended to avoid including this header in other header files.
 //       Prefer including it in .cpp files only. The reason is that we want to keep
@@ -104,15 +104,15 @@ void godot_cleanup_profiler();
 #include <perfetto.h>
 
 PERFETTO_DEFINE_CATEGORIES(
-		perfetto::Category("godot")
-				.SetDescription("Godot Engine Events"),
+		perfetto::Category("blackforest")
+				.SetDescription("BlackForest Engine Events"),
 		perfetto::Category("godot_scripting")
-				.SetDescription("Godot Scripting Events"), );
+				.SetDescription("BlackForest Scripting Events"), );
 
 // See PERFETTO_INTERNAL_SCOPED_EVENT_FINALIZER
 struct PerfettoGroupedEventEnder {
 	_FORCE_INLINE_ void _end_now() {
-		TRACE_EVENT_END("godot");
+		TRACE_EVENT_END("blackforest");
 	}
 
 	_FORCE_INLINE_ ~PerfettoGroupedEventEnder() {
@@ -122,15 +122,15 @@ struct PerfettoGroupedEventEnder {
 
 #define GodotProfileFrameMark \
 	perfetto::CounterTrack __frame_time_track = perfetto::CounterTrack("Frame time", "ms").set_unit_multiplier(1000); \
-	TRACE_COUNTER("godot", __frame_time_track, Performance::get_singleton()->get_monitor(Performance::Monitor::TIME_PROCESS));
-#define GodotProfileZone(m_zone_name) TRACE_EVENT("godot", m_zone_name);
+	TRACE_COUNTER("blackforest", __frame_time_track, Performance::get_singleton()->get_monitor(Performance::Monitor::TIME_PROCESS));
+#define GodotProfileZone(m_zone_name) TRACE_EVENT("blackforest", m_zone_name);
 #define GodotProfileZoneGroupedFirst(m_group_name, m_zone_name) \
-	TRACE_EVENT_BEGIN("godot", m_zone_name); \
+	TRACE_EVENT_BEGIN("blackforest", m_zone_name); \
 	PerfettoGroupedEventEnder __godot_perfetto_zone_##m_group_name
 #define GodotProfileZoneGroupedEndEarly(m_group_name, m_zone_name) __godot_perfetto_zone_##m_group_name.~PerfettoGroupedEventEnder()
 #define GodotProfileZoneGrouped(m_group_name, m_zone_name) \
 	__godot_perfetto_zone_##m_group_name._end_now(); \
-	TRACE_EVENT_BEGIN("godot", m_zone_name);
+	TRACE_EVENT_BEGIN("blackforest", m_zone_name);
 
 static HashSet<StringName> __tracing_system_call;
 

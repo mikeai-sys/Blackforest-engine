@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -80,7 +80,7 @@ private:
 	String _execpath;
 	List<String> _cmdline;
 	List<String> _user_args;
-	bool _keep_screen_on = true; // set default value to true, because this had been true before godot 2.0.
+	bool _keep_screen_on = true; // set default value to true, because this had been true before blackforest 2.0.
 	bool low_processor_usage_mode = false;
 	int low_processor_usage_mode_sleep_usec = 10000;
 	bool _delta_smoothing_enabled = false;

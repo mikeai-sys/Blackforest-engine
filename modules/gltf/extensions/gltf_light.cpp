@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -68,13 +68,13 @@ void GLTFLight::_bind_methods() {
 }
 
 void GLTFLight::set_cone_inner_attenuation_conversion_expressions(Ref<GLTFObjectModelProperty> &r_obj_model_prop) {
-	// Expression to convert glTF innerConeAngle to Godot spot_angle_attenuation.
+	// Expression to convert glTF innerConeAngle to BlackForest spot_angle_attenuation.
 	Ref<Expression> gltf_to_godot_expr;
 	gltf_to_godot_expr.instantiate();
 	PackedStringArray gltf_to_godot_args = { "inner_cone_angle" };
 	gltf_to_godot_expr->parse("0.2 / (1.0 - inner_cone_angle / spot_angle) - 0.1", gltf_to_godot_args);
 	r_obj_model_prop->set_gltf_to_godot_expression(gltf_to_godot_expr);
-	// Expression to convert Godot spot_angle_attenuation to glTF innerConeAngle.
+	// Expression to convert BlackForest spot_angle_attenuation to glTF innerConeAngle.
 	Ref<Expression> godot_to_gltf_expr;
 	godot_to_gltf_expr.instantiate();
 	PackedStringArray godot_to_gltf_args = { "godot_spot_angle_att" };
@@ -139,7 +139,7 @@ Ref<GLTFLight> GLTFLight::from_node(const Light3D *p_light) {
 		l->light_type = "directional";
 		const DirectionalLight3D *light = cast_to<const DirectionalLight3D>(p_light);
 		l->intensity = light->get_param(DirectionalLight3D::PARAM_ENERGY);
-		l->range = FLT_MAX; // Range for directional lights is infinite in Godot.
+		l->range = FLT_MAX; // Range for directional lights is infinite in BlackForest.
 	} else if (cast_to<const OmniLight3D>(p_light)) {
 		l->light_type = "point";
 		const OmniLight3D *light = cast_to<const OmniLight3D>(p_light);

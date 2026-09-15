@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -2772,7 +2772,7 @@ void RenderingDeviceDriverD3D12::_determine_swap_chain_format(SwapChain *p_swap_
 	DEV_ASSERT(p_swap_chain->surface != 0);
 
 	// Direct3D Hardware level 10 mandates support for all these formats.
-	// Godot requires at least Hardware level 11, so these formats are guaranteed to be supported.
+	// BlackForest requires at least Hardware level 11, so these formats are guaranteed to be supported.
 	if (context_driver->surface_get_hdr_output_enabled(p_swap_chain->surface)) {
 		r_format = DATA_FORMAT_R16G16B16A16_SFLOAT;
 		r_color_space = COLOR_SPACE_REC709_LINEAR;

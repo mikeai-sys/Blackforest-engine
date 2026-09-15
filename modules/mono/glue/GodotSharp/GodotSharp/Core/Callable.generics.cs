@@ -1,8 +1,8 @@
 using System;
 using System.Runtime.CompilerServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
-namespace Godot;
+namespace BlackForest;
 
 #nullable enable
 

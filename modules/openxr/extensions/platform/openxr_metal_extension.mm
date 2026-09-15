@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -190,7 +190,7 @@ bool OpenXRMetalExtension::get_swapchain_image_data(XrSwapchain p_swapchain, int
 	switch (p_swapchain_format) {
 		case MTLPixelFormatRGBA8Unorm_sRGB:
 			// Even though this is an sRGB framebuffer format we're using UNORM here.
-			// The reason here is because Godot does a linear to sRGB conversion while
+			// The reason here is because BlackForest does a linear to sRGB conversion while
 			// with the sRGB format, this conversion would be doubled by the hardware.
 			// This also means we're reading the values as is for our preview on screen.
 			// The OpenXR runtime however is still treating this as an sRGB format and
@@ -255,7 +255,7 @@ bool OpenXRMetalExtension::get_swapchain_image_data(XrSwapchain p_swapchain, int
 
 	Vector<RID> texture_rids;
 
-	// Create Godot texture objects for each entry in our swapchain.
+	// Create BlackForest texture objects for each entry in our swapchain.
 	for (uint64_t i = 0; i < swapchain_length; i++) {
 		// Note, the formats we sent to render_device are ignored on metal.
 		RID image_rid = rendering_device->texture_create_from_extension(

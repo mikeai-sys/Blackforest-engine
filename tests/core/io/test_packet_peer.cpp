@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -68,7 +68,7 @@ TEST_CASE("[PacketPeer][PacketPeerStream] Encode buffer max size") {
 }
 
 TEST_CASE("[PacketPeer][PacketPeerStream] Read a variant from peer") {
-	String godot_rules = "Godot Rules!!!";
+	String godot_rules = "BlackForest Rules!!!";
 
 	Ref<StreamPeerBuffer> spb;
 	spb.instantiate();
@@ -95,7 +95,7 @@ TEST_CASE("[PacketPeer][PacketPeerStream] Read a variant from peer fails") {
 }
 
 TEST_CASE("[PacketPeer][PacketPeerStream] Put a variant to peer") {
-	String godot_rules = "Godot Rules!!!";
+	String godot_rules = "BlackForest Rules!!!";
 
 	Ref<StreamPeerBuffer> spb;
 	spb.instantiate();
@@ -127,7 +127,7 @@ TEST_CASE("[PacketPeer][PacketPeerStream] Put a variant to peer out of memory fa
 }
 
 TEST_CASE("[PacketPeer][PacketPeerStream] Get packet buffer") {
-	String godot_rules = "Godot Rules!!!";
+	String godot_rules = "BlackForest Rules!!!";
 
 	Ref<StreamPeerBuffer> spb;
 	spb.instantiate();
@@ -164,7 +164,7 @@ TEST_CASE("[PacketPeer][PacketPeerStream] Get packet buffer from an empty peer")
 }
 
 TEST_CASE("[PacketPeer][PacketPeerStream] Put packet buffer") {
-	String godot_rules = "Godot Rules!!!";
+	String godot_rules = "BlackForest Rules!!!";
 
 	Ref<StreamPeerBuffer> spb;
 	spb.instantiate();

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -443,7 +443,7 @@ godot_plugins_initialize_fn initialize_hostfxr_and_godot_plugins(bool &r_runtime
 
 	if (load_assembly_and_get_function_pointer == nullptr) {
 		// Show a message box to the user to make the problem explicit (and explain a potential crash).
-		OS::get_singleton()->alert(TTR("Unable to load .NET runtime, no compatible version was found.\nAttempting to create/edit a project will lead to a crash.\n\nPlease install the .NET SDK 8.0 or later from https://get.dot.net and restart Godot."), TTR("Failed to load .NET runtime"));
+		OS::get_singleton()->alert(TTR("Unable to load .NET runtime, no compatible version was found.\nAttempting to create/edit a project will lead to a crash.\n\nPlease install the .NET SDK 8.0 or later from https://get.dot.net and restart BlackForest."), TTR("Failed to load .NET runtime"));
 		ERR_FAIL_V_MSG(nullptr, ".NET: Failed to load compatible .NET runtime");
 	}
 
@@ -672,7 +672,7 @@ void GDMono::initialize() {
 #else
 
 		// Show a message box to the user to make the problem explicit (and explain a potential crash).
-		OS::get_singleton()->alert(TTR("Unable to load .NET runtime, specifically hostfxr.\nAttempting to create/edit a project will lead to a crash.\n\nPlease install the .NET SDK 8.0 or later from https://get.dot.net and restart Godot."), TTR("Failed to load .NET runtime"));
+		OS::get_singleton()->alert(TTR("Unable to load .NET runtime, specifically hostfxr.\nAttempting to create/edit a project will lead to a crash.\n\nPlease install the .NET SDK 8.0 or later from https://get.dot.net and restart BlackForest."), TTR("Failed to load .NET runtime"));
 		ERR_FAIL_MSG(".NET: Failed to load hostfxr");
 #endif
 	}
@@ -728,7 +728,9 @@ void GDMono::_try_load_project_assembly() {
 	// we're running in the editor, it may just happen to be it wasn't built yet.
 	if (!_load_project_assembly()) {
 		if (OS::get_singleton()->is_stdout_verbose()) {
-			print_error(".NET: Failed to load project assembly");
+			String assembly_name = Path::get_csharp_project_name();
+			print_error(".NET: Failed to load project assembly '" + assembly_name + "'. " +
+					"If this project uses C#, build the solution first (Build button in the editor, or 'dotnet build'), then try again.");
 		}
 	}
 }
@@ -818,7 +820,7 @@ Error GDMono::reload_project_assemblies() {
 	// Load the project's main assembly. Here, during hot-reloading, we do
 	// consider failing to load the project's main assembly to be an error.
 	if (!_load_project_assembly()) {
-		ERR_PRINT_ED(".NET: Failed to load project assembly.");
+		ERR_PRINT_ED(".NET: Failed to load project assembly. Fix any build errors reported above, rebuild the project, and save a script to trigger another reload attempt.");
 		reload_failure();
 		return ERR_CANT_OPEN;
 	}

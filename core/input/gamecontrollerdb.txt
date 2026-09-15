@@ -2,7 +2,7 @@
 # Source: https://github.com/mdqinc/SDL_GameControllerDB
 
 # *** IMPORTANT ***
-# Godot contributors: DO NOT open issues or send PRs to the above repository.
+# BlackForest contributors: DO NOT open issues or send PRs to the above repository.
 # Issues with these mappings should be handled downstream via godotcontrollerdb.txt.
 
 # Windows

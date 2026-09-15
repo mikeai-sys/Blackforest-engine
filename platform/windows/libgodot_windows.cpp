@@ -1,11 +1,11 @@
 /**************************************************************************/
-/*  libgodot_windows.cpp                                                  */
+/*  libblackforest_windows.cpp                                                  */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -31,15 +31,15 @@
 #include "os_windows.h"
 
 #include "core/extension/godot_instance.h"
-#include "core/extension/libgodot.h"
+#include "core/extension/libblackforest.h"
 #include "main/main.h"
 
 static OS_Windows *os = nullptr;
 
 static GodotInstance *instance = nullptr;
 
-GDExtensionObjectPtr libgodot_create_godot_instance(int p_argc, char *p_argv[], GDExtensionInitializationFunction p_init_func) {
-	ERR_FAIL_COND_V_MSG(instance != nullptr, nullptr, "Only one Godot Instance may be created at a time.");
+GDExtensionObjectPtr libblackforest_create_godot_instance(int p_argc, char *p_argv[], GDExtensionInitializationFunction p_init_func) {
+	ERR_FAIL_COND_V_MSG(instance != nullptr, nullptr, "Only one BlackForest Instance may be created at a time.");
 
 	os = new OS_Windows(GetModuleHandle(nullptr));
 
@@ -58,12 +58,12 @@ GDExtensionObjectPtr libgodot_create_godot_instance(int p_argc, char *p_argv[], 
 	return (GDExtensionObjectPtr)instance;
 }
 
-void libgodot_destroy_godot_instance(GDExtensionObjectPtr p_godot_instance) {
+void libblackforest_destroy_godot_instance(GDExtensionObjectPtr p_godot_instance) {
 	GodotInstance *godot_instance = (GodotInstance *)p_godot_instance;
 	if (instance == godot_instance) {
 		godot_instance->stop();
 		memdelete(godot_instance);
-		// Note: When Godot Engine supports reinitialization, clear the instance pointer here.
+		// Note: When BlackForest Engine supports reinitialization, clear the instance pointer here.
 		//instance = nullptr;
 		Main::cleanup();
 	}

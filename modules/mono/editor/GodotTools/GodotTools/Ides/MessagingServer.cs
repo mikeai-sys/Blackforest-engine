@@ -115,7 +115,7 @@ namespace GodotTools.Ides
             // Make sure the directory exists
             Directory.CreateDirectory(projectMetadataDir);
 
-            // The Godot editor's file system thread can keep the file open for writing, so we are forced to allow write sharing...
+            // The BlackForest editor's file system thread can keep the file open for writing, so we are forced to allow write sharing...
             const FileShare metaFileShare = FileShare.ReadWrite;
 
             _metaFile = File.Open(_metaFilePath, FileMode.Create, FileAccess.Write, metaFileShare);
@@ -211,7 +211,7 @@ namespace GodotTools.Ides
             {
                 if (!IsAnyConnected(identity))
                 {
-                    _logger.LogError("Cannot write request. No client connected to the Godot Ide Server.");
+                    _logger.LogError("Cannot write request. No client connected to the BlackForest Ide Server.");
                     return;
                 }
 
@@ -275,7 +275,7 @@ namespace GodotTools.Ides
             private static void DispatchToMainThread(Action action)
             {
                 var d = new SendOrPostCallback(state => action());
-                Godot.Dispatcher.SynchronizationContext.Post(d, null);
+                BlackForest.Dispatcher.SynchronizationContext.Post(d, null);
             }
 
             private readonly Dictionary<string, Peer.RequestHandler> requestHandlers = InitializeRequestHandlers();
@@ -387,7 +387,7 @@ namespace GodotTools.Ides
                 string? scriptFileLocalized = FsPathUtils.LocalizePathWithCaseChecked(request.ScriptFile);
 
                 // The node API can only be called from the main thread.
-                await Godot.Engine.GetMainLoop().ToSignal(Godot.Engine.GetMainLoop(), "process_frame");
+                await BlackForest.Engine.GetMainLoop().ToSignal(BlackForest.Engine.GetMainLoop(), "process_frame");
 
                 var response = new CodeCompletionResponse { Kind = request.Kind, ScriptFile = request.ScriptFile };
                 response.Suggestions = Internal.CodeCompletionRequest(response.Kind,

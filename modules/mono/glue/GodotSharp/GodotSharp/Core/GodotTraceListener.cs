@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Godot
+namespace BlackForest
 {
     internal class GodotTraceListener : TraceListener
     {

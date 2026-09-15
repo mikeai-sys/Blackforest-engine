@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -107,7 +107,7 @@ private:
 		const Vector3 *frustum_points = nullptr;
 	};
 
-	// Same order as godot.
+	// Same order as blackforest.
 	enum PlaneOrder {
 		PLANE_NEAR,
 		PLANE_FAR,
@@ -118,7 +118,7 @@ private:
 		PLANE_TOTAL,
 	};
 
-	// Same order as godot.
+	// Same order as blackforest.
 	enum PointOrder {
 		PT_FAR_LEFT_TOP,
 		PT_FAR_LEFT_BOTTOM,

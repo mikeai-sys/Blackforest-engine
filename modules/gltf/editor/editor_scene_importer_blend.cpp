@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -136,7 +136,7 @@ Node *EditorSceneFormatImporterBlend::import_scene(const String &p_path, uint32_
 	const String sink = ProjectSettings::get_singleton()->get_imported_files_path().path_join(
 			vformat("%s-%s.gltf", blend_basename, p_path.md5_text()));
 	const String sink_global = ProjectSettings::get_singleton()->globalize_path(sink);
-	// If true, unpack the original images to the Godot file system and use them. Allows changing image import settings like VRAM compression.
+	// If true, unpack the original images to the BlackForest file system and use them. Allows changing image import settings like VRAM compression.
 	// If false, allow Blender to convert the original images, such as re-packing roughness and metallic into one roughness+metallic texture.
 	// In most cases this is desired, but if the .blend file's images are not in the correct format, this must be disabled for correct behavior.
 	const bool unpack_original_images = p_options.has(SNAME("blender/materials/unpack_enabled")) && p_options[SNAME("blender/materials/unpack_enabled")];
@@ -404,7 +404,7 @@ void EditorSceneFormatImporterBlend::get_import_options(const String &p_path, Li
 	ADD_OPTION_BOOL("blender/animation/always_sample", true);
 	ADD_OPTION_BOOL("blender/animation/group_tracks", true);
 
-	r_options->push_back(ResourceImporterScene::ImportOption(PropertyInfo(Variant::INT, "gltf/naming_version", PROPERTY_HINT_ENUM, "Godot 4.0 or 4.1,Godot 4.2 to 4.4,Godot 4.5 or later"), 2));
+	r_options->push_back(ResourceImporterScene::ImportOption(PropertyInfo(Variant::INT, "gltf/naming_version", PROPERTY_HINT_ENUM, "BlackForest 4.0 or 4.1,BlackForest 4.2 to 4.4,BlackForest 4.5 or later"), 2));
 	r_options->push_back(ResourceImporterScene::ImportOption(PropertyInfo(Variant::INT, "gltf/texture_map_mode", PROPERTY_HINT_ENUM, "Do Not Remap,Remap to StandardMaterial3D", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_UPDATE_ALL_IF_MODIFIED), GLTFDocument::TEXTURE_MAP_MODE_REMAP_TO_STANDARD_MATERIAL));
 }
 

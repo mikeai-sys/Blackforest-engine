@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -232,7 +232,7 @@ TEST_CASE("[TranslationCSV] CSV import") {
 	CHECK(result == OK);
 	CHECK(gen_files.size() == 4);
 
-	Ref<TranslationDomain> td = TranslationServer::get_singleton()->get_or_add_domain("godot.test");
+	Ref<TranslationDomain> td = TranslationServer::get_singleton()->get_or_add_domain("blackforest.test");
 	for (const String &file : gen_files) {
 		Ref<Translation> translation = ResourceLoader::load(file);
 		CHECK(translation.is_valid());
@@ -262,7 +262,7 @@ TEST_CASE("[TranslationCSV] CSV import") {
 	CHECK(td->translate("GOOD_EVENING", String()) == String::utf8("عصر بخیر"));
 	*/
 
-	TranslationServer::get_singleton()->remove_domain("godot.test");
+	TranslationServer::get_singleton()->remove_domain("blackforest.test");
 }
 
 #endif // TOOLS_ENABLED

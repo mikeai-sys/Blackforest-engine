@@ -1,5 +1,5 @@
-using Godot;
-using Godot.NativeInterop;
+using BlackForest;
+using BlackForest.NativeInterop;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 

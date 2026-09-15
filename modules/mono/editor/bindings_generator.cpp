@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -326,7 +326,7 @@ String BindingsGenerator::bbcode_to_text(const String &p_bbcode, const TypeInter
 #endif
 				);
 			} else if (tag == "Variant") {
-				output.append("'Godot.Variant'");
+				output.append("'BlackForest.Variant'");
 			} else if (tag == "String") {
 				output.append("string");
 			} else if (tag == "Nil") {
@@ -645,7 +645,7 @@ String BindingsGenerator::bbcode_to_xml(const String &p_bbcode, const TypeInterf
 #endif
 								  "\"/>");
 			} else if (tag == "Variant") {
-				xml_output.append("<see cref=\"Godot.Variant\"/>");
+				xml_output.append("<see cref=\"BlackForest.Variant\"/>");
 			} else if (tag == "String") {
 				xml_output.append("<see cref=\"string\"/>");
 			} else if (tag == "Nil") {
@@ -1876,7 +1876,7 @@ Error BindingsGenerator::generate_cs_core_project(const String &p_proj_dir) {
 	cs_icalls_content.append("using System;\n"
 							 "using System.Diagnostics.CodeAnalysis;\n"
 							 "using System.Runtime.InteropServices;\n"
-							 "using Godot.NativeInterop;\n"
+							 "using BlackForest.NativeInterop;\n"
 							 "\n");
 	cs_icalls_content.append("[SuppressMessage(\"ReSharper\", \"InconsistentNaming\")]\n");
 	cs_icalls_content.append("[SuppressMessage(\"ReSharper\", \"RedundantUnsafeContext\")]\n");
@@ -2021,7 +2021,7 @@ Error BindingsGenerator::generate_cs_editor_project(const String &p_proj_dir) {
 	cs_icalls_content.append("using System;\n"
 							 "using System.Diagnostics.CodeAnalysis;\n"
 							 "using System.Runtime.InteropServices;\n"
-							 "using Godot.NativeInterop;\n"
+							 "using BlackForest.NativeInterop;\n"
 							 "\n");
 	cs_icalls_content.append("[SuppressMessage(\"ReSharper\", \"InconsistentNaming\")]\n");
 	cs_icalls_content.append("[SuppressMessage(\"ReSharper\", \"RedundantUnsafeContext\")]\n");
@@ -2107,7 +2107,7 @@ Error BindingsGenerator::generate_cs_api(const String &p_output_dir) {
 		return proj_err;
 	}
 
-	_log("The Godot API sources were successfully generated\n");
+	_log("The BlackForest API sources were successfully generated\n");
 
 	return OK;
 }
@@ -2142,7 +2142,7 @@ Error BindingsGenerator::_generate_cs_type(const TypeInterface &itype, const Str
 	output.append("using System;\n"); // IntPtr
 	output.append("using System.ComponentModel;\n"); // EditorBrowsable
 	output.append("using System.Diagnostics;\n"); // DebuggerBrowsable
-	output.append("using Godot.NativeInterop;\n");
+	output.append("using BlackForest.NativeInterop;\n");
 
 	output.append("\n#nullable disable\n");
 
@@ -2444,7 +2444,7 @@ Error BindingsGenerator::_generate_cs_type(const TypeInterface &itype, const Str
 
 		output << MEMBER_BEGIN "/// <summary>\n"
 			   << INDENT1 "/// Invokes the method with the given name, using the given arguments.\n"
-			   << INDENT1 "/// This method is used by Godot to invoke methods from the engine side.\n"
+			   << INDENT1 "/// This method is used by BlackForest to invoke methods from the engine side.\n"
 			   << INDENT1 "/// Do not call or override this method.\n"
 			   << INDENT1 "/// </summary>\n"
 			   << INDENT1 "/// <param name=\"method\">Name of the method to invoke.</param>\n"
@@ -2539,7 +2539,7 @@ Error BindingsGenerator::_generate_cs_type(const TypeInterface &itype, const Str
 
 		output << MEMBER_BEGIN "/// <summary>\n"
 			   << INDENT1 "/// Check if the type contains a method with the given name.\n"
-			   << INDENT1 "/// This method is used by Godot to check if a method exists before invoking it.\n"
+			   << INDENT1 "/// This method is used by BlackForest to check if a method exists before invoking it.\n"
 			   << INDENT1 "/// Do not call or override this method.\n"
 			   << INDENT1 "/// </summary>\n"
 			   << INDENT1 "/// <param name=\"method\">Name of the method to check for.</param>\n";
@@ -2578,7 +2578,7 @@ Error BindingsGenerator::_generate_cs_type(const TypeInterface &itype, const Str
 
 		output << MEMBER_BEGIN "/// <summary>\n"
 			   << INDENT1 "/// Check if the type contains a signal with the given name.\n"
-			   << INDENT1 "/// This method is used by Godot to check if a signal exists before raising it.\n"
+			   << INDENT1 "/// This method is used by BlackForest to check if a signal exists before raising it.\n"
 			   << INDENT1 "/// Do not call or override this method.\n"
 			   << INDENT1 "/// </summary>\n"
 			   << INDENT1 "/// <param name=\"signal\">Name of the signal to check for.</param>\n";
@@ -3101,7 +3101,7 @@ Error BindingsGenerator::_generate_cs_method(const BindingsGenerator::TypeInterf
 		p_output.append(arguments_sig + ")\n" OPEN_BLOCK_L1);
 
 		if (p_imethod.is_virtual) {
-			// Godot virtual method must be overridden, therefore we return a default value by default.
+			// BlackForest virtual method must be overridden, therefore we return a default value by default.
 
 			if (return_type->cname == name_cache.type_void) {
 				p_output.append(CLOSE_BLOCK_L1);
@@ -3113,7 +3113,7 @@ Error BindingsGenerator::_generate_cs_method(const BindingsGenerator::TypeInterf
 		}
 
 		if (p_imethod.requires_object_call) {
-			// Fallback to Godot's object.Call(string, params)
+			// Fallback to BlackForest's object.Call(string, params)
 
 			p_output.append(INDENT2 CS_METHOD_CALL "(");
 			p_output.append("MethodName." + p_imethod.proxy_name);
@@ -4057,7 +4057,7 @@ bool BindingsGenerator::_populate_object_type_interfaces() {
 
 				// A virtual method without the virtual flag. This is a special case.
 
-				// There is no method bind, so let's fallback to Godot's object.Call(string, params)
+				// There is no method bind, so let's fallback to BlackForest's object.Call(string, params)
 				imethod.requires_object_call = true;
 
 				// The method Object.free is registered as a virtual method, but without the virtual flag.
@@ -5000,7 +5000,7 @@ void BindingsGenerator::_populate_builtin_type_interfaces() {
 	itype.name = "Array_@generic";
 	itype.cname = itype.name;
 	itype.cs_out = "%5return new %2(%0(%1));";
-	// For generic Godot collections, Variant.From<T>/As<T> is slower, so we need this special case
+	// For generic BlackForest collections, Variant.From<T>/As<T> is slower, so we need this special case
 	itype.cs_variant_to_managed = "VariantUtils.ConvertToArray(%0)";
 	itype.cs_managed_to_variant = "VariantUtils.CreateFromArray(%0)";
 	builtin_types.insert(itype.cname, itype);
@@ -5027,7 +5027,7 @@ void BindingsGenerator::_populate_builtin_type_interfaces() {
 	itype.name = "Dictionary_@generic";
 	itype.cname = itype.name;
 	itype.cs_out = "%5return new %2(%0(%1));";
-	// For generic Godot collections, Variant.From<T>/As<T> is slower, so we need this special case
+	// For generic BlackForest collections, Variant.From<T>/As<T> is slower, so we need this special case
 	itype.cs_variant_to_managed = "VariantUtils.ConvertToDictionary(%0)";
 	itype.cs_managed_to_variant = "VariantUtils.CreateFromDictionary(%0)";
 	builtin_types.insert(itype.cname, itype);

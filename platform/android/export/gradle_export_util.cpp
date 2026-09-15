@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -226,7 +226,7 @@ Error _create_project_name_strings_files(const Ref<EditorExportPreset> &p_preset
 	}
 
 	// Setup a temporary translation domain to translate the project name.
-	const StringName domain_name = "godot.project_name_localization";
+	const StringName domain_name = "blackforest.project_name_localization";
 	Ref<TranslationDomain> domain = TranslationServer::get_singleton()->get_or_add_domain(domain_name);
 	TranslationServer::get_singleton()->load_project_translations(domain);
 

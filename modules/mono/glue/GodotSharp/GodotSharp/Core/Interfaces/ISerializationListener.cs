@@ -1,8 +1,8 @@
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Allows a GodotObject to react to the serialization/deserialization
-    /// that occurs when Godot reloads assemblies.
+    /// that occurs when BlackForest reloads assemblies.
     /// </summary>
     public interface ISerializationListener
     {

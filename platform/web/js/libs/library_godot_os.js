@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -126,7 +126,7 @@ const GodotFS = {
 			return GodotFS._idbfs ? 1 : 0;
 		},
 
-		// Initialize godot file system, setting up persistent paths.
+		// Initialize blackforest file system, setting up persistent paths.
 		// Returns a promise that resolves when the FS is ready.
 		// We keep track of mount_points, so that we can properly close the IDBFS
 		// since emscripten is not doing it by itself. (emscripten GH#12516).
@@ -170,7 +170,7 @@ const GodotFS = {
 			});
 		},
 
-		// Deinit godot file system, making sure to unmount file systems, and close IDBFS(s).
+		// Deinit blackforest file system, making sure to unmount file systems, and close IDBFS(s).
 		deinit: function () {
 			GodotFS._mount_points.forEach(function (path) {
 				try {
@@ -343,7 +343,7 @@ const GodotOS = {
 	godot_js_os_hw_concurrency_get__proxy: 'sync',
 	godot_js_os_hw_concurrency_get__sig: 'i',
 	godot_js_os_hw_concurrency_get: function () {
-		// TODO Godot core needs fixing to avoid spawning too many threads (> 24).
+		// TODO BlackForest core needs fixing to avoid spawning too many threads (> 24).
 		const concurrency = navigator.hardwareConcurrency || 1;
 		return concurrency < 2 ? concurrency : 2;
 	},
@@ -382,7 +382,7 @@ autoAddDeps(GodotOS, '$GodotOS');
 mergeInto(LibraryManager.library, GodotOS);
 
 /*
- * Godot event listeners.
+ * BlackForest event listeners.
  * Keeps track of registered event listeners so it can remove them on shutdown.
  */
 const GodotEventListeners = {

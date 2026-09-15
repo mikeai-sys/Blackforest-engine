@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -777,7 +777,7 @@ Error RenderingDeviceDriverVulkan::_check_device_features() {
 
 	// Check for required features.
 	if (!physical_device_features.imageCubeArray || !physical_device_features.independentBlend) {
-		String error_string = vformat("Your GPU (%s) does not support the following features which are required to use Vulkan-based renderers in Godot:\n\n", context_device.name);
+		String error_string = vformat("Your GPU (%s) does not support the following features which are required to use Vulkan-based renderers in BlackForest:\n\n", context_device.name);
 		if (!physical_device_features.imageCubeArray) {
 			error_string += "- No support for image cube arrays.\n";
 		}
@@ -1024,7 +1024,7 @@ Error RenderingDeviceDriverVulkan::_check_device_capabilities() {
 
 		if (use_1_2_features) {
 #ifdef MACOS_ENABLED
-			ERR_FAIL_COND_V_MSG(!device_features_vk_1_2.shaderSampledImageArrayNonUniformIndexing, ERR_CANT_CREATE, "Your GPU doesn't support shaderSampledImageArrayNonUniformIndexing which is required to use the Vulkan-based renderers in Godot.");
+			ERR_FAIL_COND_V_MSG(!device_features_vk_1_2.shaderSampledImageArrayNonUniformIndexing, ERR_CANT_CREATE, "Your GPU doesn't support shaderSampledImageArrayNonUniformIndexing which is required to use the Vulkan-based renderers in BlackForest.");
 #endif
 			if (enabled_device_extension_names.has(VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME)) {
 				shader_capabilities.shader_float16_is_supported = device_features_vk_1_2.shaderFloat16;
@@ -3392,7 +3392,7 @@ Error RenderingDeviceDriverVulkan::command_queue_execute_and_present(CommandQueu
 
 		// Handling VK_SUBOPTIMAL_KHR the same as VK_SUCCESS is completely intentional.
 		//
-		// Godot does not currently support native rotation in Android when creating the swap chain. It intentionally uses
+		// BlackForest does not currently support native rotation in Android when creating the swap chain. It intentionally uses
 		// VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR instead of the current transform bits available in the surface capabilities.
 		// Choosing the transform that leads to optimal presentation leads to distortion that makes the application unusable,
 		// as the rotation of all the content is not handled at the moment.

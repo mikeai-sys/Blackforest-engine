@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -41,7 +41,7 @@ public:
 		FORMAT_BASIC,
 		// v4.3.2.stable.mono [HASH]
 		FORMAT_WITH_BUILD,
-		// Godot Engine v4.3.2.stable.mono.official [HASH]
+		// BlackForest Engine v4.3.2.stable.mono.official [HASH]
 		FORMAT_WITH_NAME_AND_BUILD,
 	};
 

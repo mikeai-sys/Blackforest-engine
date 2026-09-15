@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTools.OpenVisualStudio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotTools.Shared", "GodotTools.Shared\GodotTools.Shared.csproj", "{2758FFAF-8237-4CF2-B569-66BF8B3587BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godot.SourceGenerators", "..\Godot.NET.Sdk\Godot.SourceGenerators\Godot.SourceGenerators.csproj", "{D8C421B2-8911-41EB-B983-F675C7141EB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackForest.SourceGenerators", "..\BlackForest.NET.Sdk\BlackForest.SourceGenerators\BlackForest.SourceGenerators.csproj", "{D8C421B2-8911-41EB-B983-F675C7141EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godot.SourceGenerators.Internal", "..\..\glue\GodotSharp\Godot.SourceGenerators.Internal\Godot.SourceGenerators.Internal.csproj", "{55666071-BEC1-4A52-8A98-9A4A7A947DBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackForest.SourceGenerators.Internal", "..\..\glue\GodotSharp\BlackForest.SourceGenerators.Internal\BlackForest.SourceGenerators.Internal.csproj", "{55666071-BEC1-4A52-8A98-9A4A7A947DBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

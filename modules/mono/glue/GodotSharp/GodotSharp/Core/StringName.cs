@@ -1,10 +1,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// StringNames are immutable strings designed for general-purpose representation of unique names.

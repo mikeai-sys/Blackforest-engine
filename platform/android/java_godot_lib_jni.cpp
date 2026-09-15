@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -293,8 +293,8 @@ JNIEXPORT jboolean JNICALL Java_org_godotengine_godot_GodotLib_step(JNIEnv *env,
 	}
 
 	if (step.get() == STEP_SETUP) {
-		// Since Godot is initialized on the UI thread, main_thread_id was set to that thread's id,
-		// but for Godot purposes, the main thread is the one running the game loop.
+		// Since BlackForest is initialized on the UI thread, main_thread_id was set to that thread's id,
+		// but for BlackForest purposes, the main thread is the one running the game loop.
 		// The logo is shown in the next frame otherwise we run into rendering issues.
 		if (Main::setup2(false) != OK) {
 			ERR_PRINT("Unable to complete engine setup!");

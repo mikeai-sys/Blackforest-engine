@@ -1,4 +1,4 @@
-namespace Godot.Bridge;
+namespace BlackForest.Bridge;
 
 public static class AlcReloadCfg
 {

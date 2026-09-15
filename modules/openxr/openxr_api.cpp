@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -615,9 +615,9 @@ XrResult OpenXRAPI::attempt_create_instance(XrVersion p_version) {
 
 	// Attempt to create our OpenXR instance for the requested version.
 	XrApplicationInfo application_info{
-		"Godot Engine", // applicationName, if we're running a game we'll update this down below.
+		"BlackForest Engine", // applicationName, if we're running a game we'll update this down below.
 		1, // applicationVersion, we don't currently have this
-		"Godot Engine", // engineName
+		"BlackForest Engine", // engineName
 		GODOT_VERSION_MAJOR * 10000 + GODOT_VERSION_MINOR * 100 + GODOT_VERSION_PATCH, // engineVersion 4.0 -> 40000, 4.0.1 -> 40001, 4.1 -> 40100, etc.
 		p_version // apiVersion
 	};
@@ -957,9 +957,9 @@ bool OpenXRAPI::create_session() {
 		return false;
 	}
 
-	set_object_name(XR_OBJECT_TYPE_SESSION, uint64_t(session), "Main Godot OpenXR Session");
+	set_object_name(XR_OBJECT_TYPE_SESSION, uint64_t(session), "Main BlackForest OpenXR Session");
 
-	begin_debug_label_region("Godot session active");
+	begin_debug_label_region("BlackForest session active");
 
 	for (OpenXRExtensionWrapper *wrapper : registered_extension_wrappers) {
 		wrapper->on_session_created(session);
@@ -2069,7 +2069,7 @@ bool OpenXRAPI::poll_events() {
 				XrEventDataInstanceLossPending *event = (XrEventDataInstanceLossPending *)&runtimeEvent;
 
 				// TODO We get this event if we're about to loose our OpenXR instance.
-				// We should queue exiting Godot at this point.
+				// We should queue exiting BlackForest at this point.
 
 				print_verbose(String("OpenXR EVENT: instance loss pending at ") + itos(event->lossTime));
 				return false;

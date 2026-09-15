@@ -2,11 +2,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
-using Godot.NativeInterop;
+using BlackForest.NativeInterop;
 
 #nullable enable
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// A color represented by red, green, blue, and alpha (RGBA) components.
@@ -479,7 +479,7 @@ namespace Godot
         /// <summary>
         /// Returns the color converted to an unsigned 32-bit integer in ARGB
         /// format (each byte represents a color channel).
-        /// ARGB is more compatible with DirectX, but not used much in Godot.
+        /// ARGB is more compatible with DirectX, but not used much in BlackForest.
         /// </summary>
         /// <returns>A <see langword="uint"/> representing this color in ARGB32 format.</returns>
         public readonly uint ToArgb32()
@@ -498,7 +498,7 @@ namespace Godot
         /// <summary>
         /// Returns the color converted to an unsigned 64-bit integer in ARGB
         /// format (each word represents a color channel).
-        /// ARGB is more compatible with DirectX, but not used much in Godot.
+        /// ARGB is more compatible with DirectX, but not used much in BlackForest.
         /// </summary>
         /// <returns>A <see langword="ulong"/> representing this color in ARGB64 format.</returns>
         public readonly ulong ToArgb64()
@@ -517,7 +517,7 @@ namespace Godot
         /// <summary>
         /// Returns the color converted to an unsigned 32-bit integer in RGBA
         /// format (each byte represents a color channel).
-        /// RGBA is Godot's default and recommended format.
+        /// RGBA is BlackForest's default and recommended format.
         /// </summary>
         /// <returns>A <see langword="uint"/> representing this color in RGBA32 format.</returns>
         public readonly uint ToRgba32()
@@ -536,7 +536,7 @@ namespace Godot
         /// <summary>
         /// Returns the color converted to an unsigned 64-bit integer in RGBA
         /// format (each word represents a color channel).
-        /// RGBA is Godot's default and recommended format.
+        /// RGBA is BlackForest's default and recommended format.
         /// </summary>
         /// <returns>A <see langword="ulong"/> representing this color in RGBA64 format.</returns>
         public readonly ulong ToRgba64()

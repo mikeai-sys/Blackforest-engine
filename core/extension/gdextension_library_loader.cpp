@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -353,7 +353,7 @@ Error GDExtensionLibraryLoader::parse_gdextension_file(const String &p_path) {
 		compatible = GODOT_VERSION_PATCH >= compatibility_minimum[2];
 	}
 	if (!compatible) {
-		ERR_PRINT(vformat("GDExtension only compatible with Godot version %d.%d.%d or later: %s, but your Godot version is %d.%d.%d",
+		ERR_PRINT(vformat("GDExtension only compatible with BlackForest version %d.%d.%d or later: %s, but your BlackForest version is %d.%d.%d",
 				compatibility_minimum[0], compatibility_minimum[1], compatibility_minimum[2], p_path,
 				GODOT_VERSION_MAJOR, GODOT_VERSION_MINOR, GODOT_VERSION_PATCH));
 		return ERR_INVALID_DATA;
@@ -387,7 +387,7 @@ Error GDExtensionLibraryLoader::parse_gdextension_file(const String &p_path) {
 #endif
 
 		if (!compatible) {
-			ERR_PRINT(vformat("GDExtension only compatible with Godot version %s or earlier: %s, but your Godot version is %d.%d.%d",
+			ERR_PRINT(vformat("GDExtension only compatible with BlackForest version %s or earlier: %s, but your BlackForest version is %d.%d.%d",
 					compat_string, p_path, GODOT_VERSION_MAJOR, GODOT_VERSION_MINOR, GODOT_VERSION_PATCH));
 			return ERR_INVALID_DATA;
 		}

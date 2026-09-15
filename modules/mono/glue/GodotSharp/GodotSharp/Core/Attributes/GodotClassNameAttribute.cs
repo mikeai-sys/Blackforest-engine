@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Godot
+namespace BlackForest
 {
     /// <summary>
     /// Attribute that specifies the engine class name when it's not the same

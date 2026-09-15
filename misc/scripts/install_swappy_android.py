@@ -14,7 +14,7 @@ from misc.utility.color import Ansi, color_print
 # Swappy
 # Check for latest version: https://github.com/godotengine/godot-swappy/releases/latest
 swappy_tag = "from-source-2025-01-31"
-swappy_filename = "godot-swappy.zip"
+swappy_filename = "blackforest-swappy.zip"
 swappy_folder = "thirdparty/swappy-frame-pacing"
 swappy_archs = [
     "arm64-v8a",
@@ -53,5 +53,5 @@ print("Swappy installed successfully.\n")
 # Complete message
 color_print(f'{Ansi.GREEN}Swappy was installed to "{swappy_folder}" successfully!')
 color_print(
-    f'{Ansi.GREEN}You can now build Godot with Swappy support enabled by running "scons platform=android swappy=yes".'
+    f'{Ansi.GREEN}You can now build BlackForest with Swappy support enabled by running "scons platform=android swappy=yes".'
 )

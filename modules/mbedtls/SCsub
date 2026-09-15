@@ -24,10 +24,10 @@ if env["builtin_mbedtls"]:
             ("MBEDTLS_CONFIG_FILE", env_mbed_tls.EscapeDefine("godot_mbedtls_config.h")),
         ]
     )
-    configs = ["#thirdparty/mbedtls/godot/godot_psa_config.h", "#thirdparty/mbedtls/godot/godot_mbedtls_config.h"]
+    configs = ["#thirdparty/mbedtls/blackforest/godot_psa_config.h", "#thirdparty/mbedtls/blackforest/godot_mbedtls_config.h"]
     env_mbed_tls.Prepend(
         CPPPATH=[
-            "#thirdparty/mbedtls/godot/",
+            "#thirdparty/mbedtls/blackforest/",
             "#thirdparty/mbedtls/include/",
             "#thirdparty/mbedtls/tf-psa-crypto/include/",
             "#thirdparty/mbedtls/tf-psa-crypto/drivers/builtin/include/",
@@ -185,7 +185,7 @@ if env["builtin_mbedtls"]:
     env.modules_sources += thirdparty_obj
 
 
-# Godot source files
+# BlackForest source files
 
 module_obj = []
 

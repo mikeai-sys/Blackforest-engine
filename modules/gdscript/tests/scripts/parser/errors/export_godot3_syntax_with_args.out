@@ -1,2 +1,2 @@
 GDTEST_PARSER_ERROR
-The "export" keyword was removed in Godot 4. Use an export annotation ("@export", "@export_range", etc.) instead.
+The "export" keyword was removed in BlackForest 4. Use an export annotation ("@export", "@export_range", etc.) instead.

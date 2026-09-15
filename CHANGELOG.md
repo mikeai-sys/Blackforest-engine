@@ -2,16 +2,16 @@
 
 This file lists all changes made between the current feature branch and the
 previous feature release. It is equivalent to the listings on our
-[interactive changelog](https://godotengine.github.io/godot-interactive-changelog/).
+[interactive changelog](https://godotengine.github.io/blackforest-interactive-changelog/).
 
 Changelogs for earlier feature releases are available in their respective Git
 branches, and linked at the [end of this file](#Past-releases).
 
 ## 4.7 - 2026-06-18
 
-- [Release announcement](https://godotengine.org/releases/4.7/)
-- [Migration guide](https://docs.godotengine.org/en/4.7/tutorials/migrating/upgrading_to_godot_4.7.html)
-- [Interactive changelog](https://godotengine.github.io/godot-interactive-changelog/#4.7)
+- [Release announcement](https://blackforestengine.org/releases/4.7/)
+- [Migration guide](https://docs.blackforestengine.org/en/4.7/tutorials/migrating/upgrading_to_godot_4.7.html)
+- [Interactive changelog](https://godotengine.github.io/blackforest-interactive-changelog/#4.7)
 - [Breaking changes](https://github.com/godotengine/godot/pulls?q=is%3Apr+is%3Amerged+label%3A%22breaks+compat%22+milestone%3A4.7)
 
 Table of contents:
@@ -142,7 +142,7 @@ Table of contents:
 - Make the `GridMap` editor ignore empty and repeated selections ([GH-117525](https://github.com/godotengine/godot/pull/117525)).
 - Make trackball rotation optional as toggle option of Node3DEditorTool ([GH-115794](https://github.com/godotengine/godot/pull/115794)).
 - Persist editor viewport splitter ratios on editor restart ([GH-116019](https://github.com/godotengine/godot/pull/116019)).
-- Register zoom shortcuts to match preset `Godot` navigation scheme ([GH-115290](https://github.com/godotengine/godot/pull/115290)).
+- Register zoom shortcuts to match preset `BlackForest` navigation scheme ([GH-115290](https://github.com/godotengine/godot/pull/115290)).
 - Remove unneeded checks for undo-redo history from Skeleton3DEditor ([GH-115784](https://github.com/godotengine/godot/pull/115784)).
 - Reset follow mode count on subgizmo point switch ([GH-117923](https://github.com/godotengine/godot/pull/117923)).
 - Reset follow mode focus count after committing a transform ([GH-117289](https://github.com/godotengine/godot/pull/117289)).
@@ -293,7 +293,7 @@ Table of contents:
 - CI: Remove `build_deps` from Windows artifacts ([GH-120311](https://github.com/godotengine/godot/pull/120311)).
 - CI: Remove build dependencies from uploaded artifacts ([GH-117471](https://github.com/godotengine/godot/pull/117471)).
 - CI: Replace `pre-commit` with `prek` ([GH-119150](https://github.com/godotengine/godot/pull/119150)).
-- CI: Restore godot-cpp caching ([GH-116586](https://github.com/godotengine/godot/pull/116586)).
+- CI: Restore blackforest-cpp caching ([GH-116586](https://github.com/godotengine/godot/pull/116586)).
 - CI: Run Android Editor instrumented tests ([GH-118024](https://github.com/godotengine/godot/pull/118024)).
 - CI: Run instrumented tests on Firebase Test Lab ([GH-111816](https://github.com/godotengine/godot/pull/111816)).
 - CI: Skip running instrumented tests on forks ([GH-117874](https://github.com/godotengine/godot/pull/117874)).
@@ -393,7 +393,7 @@ Table of contents:
 - Tests: Convert test headers to compilation files ([GH-112041](https://github.com/godotengine/godot/pull/112041)).
 - Tests: Tidy up compiled tests ([GH-116512](https://github.com/godotengine/godot/pull/116512)).
 - Tidy up includes in `scene/main` and `scene/debugger` ([GH-115732](https://github.com/godotengine/godot/pull/115732)).
-- Update `godot.natvis` to fix presenting `godot::StringName` correctly and remove non-working options of 'StringName' ([GH-116955](https://github.com/godotengine/godot/pull/116955)).
+- Update `blackforest.natvis` to fix presenting `blackforest::StringName` correctly and remove non-working options of 'StringName' ([GH-116955](https://github.com/godotengine/godot/pull/116955)).
 - Update CODEOWNERS after teams restructuring ([GH-116006](https://github.com/godotengine/godot/pull/116006)).
 - Web: Add missing includes for single threaded build ([GH-118770](https://github.com/godotengine/godot/pull/118770)).
 - Web: Fix assertions wrongly affecting release template, make it configurable ([GH-117018](https://github.com/godotengine/godot/pull/117018)).
@@ -407,11 +407,11 @@ Table of contents:
 #### C#
 
 - Add "Build C# project" to command palette ([GH-118169](https://github.com/godotengine/godot/pull/118169)).
-- Add MSBuild property to enable Godot.NET preview ([GH-118001](https://github.com/godotengine/godot/pull/118001)).
+- Add MSBuild property to enable BlackForest.NET preview ([GH-118001](https://github.com/godotengine/godot/pull/118001)).
 - Deprecate `ScriptLanguage::instance_has` ([GH-118217](https://github.com/godotengine/godot/pull/118217)).
 - Fix bugs in C# StringExtensions ([GH-114509](https://github.com/godotengine/godot/pull/114509)).
 - Fix GodotVersionConstants property name ([GH-118516](https://github.com/godotengine/godot/pull/118516)).
-- Implement `AddRange(ROS)` for `Godot.Collections.Array(<T>)` ([GH-106765](https://github.com/godotengine/godot/pull/106765)).
+- Implement `AddRange(ROS)` for `BlackForest.Collections.Array(<T>)` ([GH-106765](https://github.com/godotengine/godot/pull/106765)).
 - Improve source-generated `EmitSignal{...}` performance in C# ([GH-115741](https://github.com/godotengine/godot/pull/115741)).
 - Prevent SourceGenerators from becoming a transitive dependency ([GH-114868](https://github.com/godotengine/godot/pull/114868)).
 - Revert "[.NET] Remove EFS update on reloading assemblies" but with deferred call ([GH-117617](https://github.com/godotengine/godot/pull/117617)).
@@ -454,7 +454,7 @@ Table of contents:
 - Add move semantics to `HashSet` ([GH-116284](https://github.com/godotengine/godot/pull/116284)).
 - Add move semantics to `RBMap` and `RBSet`. Make their copy constructors explicit ([GH-116552](https://github.com/godotengine/godot/pull/116552)).
 - Add Toki Pona (tok) to language/locale list ([GH-102787](https://github.com/godotengine/godot/pull/102787)).
-- Android: Clean up `Godot.kt` ([GH-117687](https://github.com/godotengine/godot/pull/117687)).
+- Android: Clean up `BlackForest.kt` ([GH-117687](https://github.com/godotengine/godot/pull/117687)).
 - Android: Fix reported crashes from the Play store ([GH-119496](https://github.com/godotengine/godot/pull/119496)).
 - Android: Fix the use of `--main-pack` in template builds ([GH-119495](https://github.com/godotengine/godot/pull/119495)).
 - Android: Miscellaneous bug fixes ([GH-119297](https://github.com/godotengine/godot/pull/119297)).
@@ -585,7 +585,7 @@ Table of contents:
 - Fix "subresources" misspelling in `Resource.DEEP_DUPLICATE_NONE` docs ([GH-115681](https://github.com/godotengine/godot/pull/115681)).
 - Fix documentation for `get_velocity_at_local_position` ([GH-116106](https://github.com/godotengine/godot/pull/116106)).
 - Fix Font's documentation for `ascent`/`get_descent` ([GH-116088](https://github.com/godotengine/godot/pull/116088)).
-- Fix Godot version for default change in stretch mode project settings description ([GH-118971](https://github.com/godotengine/godot/pull/118971)).
+- Fix BlackForest version for default change in stretch mode project settings description ([GH-118971](https://github.com/godotengine/godot/pull/118971)).
 - Fix item focused signal description ([GH-119099](https://github.com/godotengine/godot/pull/119099)).
 - Fix links for code style / hooks ([GH-116800](https://github.com/godotengine/godot/pull/116800)).
 - Fix misleading InputEventMouseMotion Velocity documentation ([GH-101501](https://github.com/godotengine/godot/pull/101501)).
@@ -709,7 +709,7 @@ Table of contents:
 - Don't process invisible update spinner ([GH-105308](https://github.com/godotengine/godot/pull/105308)).
 - Don't tint the preview camera icon ([GH-116525](https://github.com/godotengine/godot/pull/116525)).
 - Don't update inspector when invisible ([GH-101769](https://github.com/godotengine/godot/pull/101769)).
-- Don't use system color as godot base color when Follow System Theme is active ([GH-119710](https://github.com/godotengine/godot/pull/119710)).
+- Don't use system color as blackforest base color when Follow System Theme is active ([GH-119710](https://github.com/godotengine/godot/pull/119710)).
 - Editor Help: Make codeblocks full-width ([GH-116532](https://github.com/godotengine/godot/pull/116532)).
 - Editor Help: Start new paragraphs after codeblocks ([GH-117008](https://github.com/godotengine/godot/pull/117008)).
 - Editor UI: Hide AudioStream filename in the inspector if it's width is negative or zero ([GH-119497](https://github.com/godotengine/godot/pull/119497)).
@@ -1012,7 +1012,7 @@ Table of contents:
 - Allow viewing GDExtensions from inside project settings ([GH-118063](https://github.com/godotengine/godot/pull/118063)).
 - Bind `Object::ConnectFlags` as a bitfield, instead of enum ([GH-109892](https://github.com/godotengine/godot/pull/109892)).
 - Change `Object::is_class` to take `StringName` instead of `String`, for better performance ([GH-118582](https://github.com/godotengine/godot/pull/118582)).
-- Change godot-cpp to godot-headers for the reference GDExtensions files ([GH-115401](https://github.com/godotengine/godot/pull/115401)).
+- Change blackforest-cpp to blackforest-headers for the reference GDExtensions files ([GH-115401](https://github.com/godotengine/godot/pull/115401)).
 - Clean up types for new `classdb_register_extension_class6` ([GH-118750](https://github.com/godotengine/godot/pull/118750)).
 - Delegate `Script::reload_from_file` to `ScriptLanguage` ([GH-115157](https://github.com/godotengine/godot/pull/115157)).
 - Deprecate GDExtension's `object_cast_to` and `classdb_get_class_tag`, in favor of `is_class` casts ([GH-119254](https://github.com/godotengine/godot/pull/119254)).
@@ -1064,7 +1064,7 @@ Table of contents:
 - Improve display of non-exported members in Remote Tree Inspector ([GH-115705](https://github.com/godotengine/godot/pull/115705)).
 - Improve evaluation of constant expressions with arrays/dictionaries ([GH-113228](https://github.com/godotengine/godot/pull/113228)).
 - Inherit parent method return types for untyped overrides ([GH-115763](https://github.com/godotengine/godot/pull/115763)).
-- LSP: Add `godot` to known language ids ([GH-115671](https://github.com/godotengine/godot/pull/115671)).
+- LSP: Add `blackforest` to known language ids ([GH-115671](https://github.com/godotengine/godot/pull/115671)).
 - LSP: Calculate simple string insertions on the server-side ([GH-117710](https://github.com/godotengine/godot/pull/117710)).
 - LSP: Document editor settings ([GH-116403](https://github.com/godotengine/godot/pull/116403)).
 - LSP: Don't serialize empty documentation ([GH-105350](https://github.com/godotengine/godot/pull/105350)).
@@ -1386,7 +1386,7 @@ Table of contents:
 - Add ability for Area3D to detect/influence SoftBody3D with Jolt Physics ([GH-114198](https://github.com/godotengine/godot/pull/114198)).
 - Add one-way collision direction for CollisionShape2Ds ([GH-104736](https://github.com/godotengine/godot/pull/104736)).
 - Bypass physics command queue during physics processing ([GH-117268](https://github.com/godotengine/godot/pull/117268)).
-- Fix Godot Physics missing area overlaps after `area_set_space` ([GH-118420](https://github.com/godotengine/godot/pull/118420)).
+- Fix BlackForest Physics missing area overlaps after `area_set_space` ([GH-118420](https://github.com/godotengine/godot/pull/118420)).
 - Fix gravity not being initialized properly when using Jolt ([GH-118291](https://github.com/godotengine/godot/pull/118291)).
 - Fix Jolt integration not converting planes correctly ([GH-118948](https://github.com/godotengine/godot/pull/118948)).
 - Fix over-removal of area overlaps when using Jolt ([GH-118285](https://github.com/godotengine/godot/pull/118285)).
@@ -1463,7 +1463,7 @@ Table of contents:
 - Only attempt to load ANGLE DLLs from executable folder ([GH-117250](https://github.com/godotengine/godot/pull/117250)).
 - open_dynamic_library(String(), library, &data) should only be called for apple ([GH-119510](https://github.com/godotengine/godot/pull/119510)).
 - Print file path when failing to load dynamic library ([GH-116125](https://github.com/godotengine/godot/pull/116125)).
-- Remove the godot::String and godot::StringName from godot.natvis ([GH-119842](https://github.com/godotengine/godot/pull/119842)).
+- Remove the blackforest::String and blackforest::StringName from blackforest.natvis ([GH-119842](https://github.com/godotengine/godot/pull/119842)).
 - Remove unused and broken big endian support code ([GH-118514](https://github.com/godotengine/godot/pull/118514)).
 - Replace `//` with `\\` before sending project path to MSBuild ([GH-116071](https://github.com/godotengine/godot/pull/116071)).
 - Retrieve drive information only when needed ([GH-118054](https://github.com/godotengine/godot/pull/118054)).
@@ -1624,7 +1624,7 @@ Table of contents:
 - Metal: Various fixes ([GH-116371](https://github.com/godotengine/godot/pull/116371)).
 - OpenGL: Fix vertex shader compilation error with `EYE_OFFSET` ([GH-119998](https://github.com/godotengine/godot/pull/119998)).
 - OpenXR: Allow using Vulkan subsampled images with foveated rendering ([GH-116220](https://github.com/godotengine/godot/pull/116220)).
-- OpenXR: Fix crash when using `XR_EXT_frame_synthesis` after Godot 4.7-dev5 ([GH-118901](https://github.com/godotengine/godot/pull/118901)).
+- OpenXR: Fix crash when using `XR_EXT_frame_synthesis` after BlackForest 4.7-dev5 ([GH-118901](https://github.com/godotengine/godot/pull/118901)).
 - Optimize `get_total_memory_used` in D3D12 and Vulkan ([GH-116355](https://github.com/godotengine/godot/pull/116355)).
 - Pick the sample closer to the camera when resolving 2x MSAA ([GH-115124](https://github.com/godotengine/godot/pull/115124)).
 - Properly set `drawable_type` property in RenderingServer's `DrawableTexture` ([GH-118242](https://github.com/godotengine/godot/pull/118242)).

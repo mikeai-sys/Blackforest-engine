@@ -45,14 +45,14 @@ if env.editor_build:
 if env["library_type"] == "executable":
     files += ["godot_main_macos.mm"]
 else:
-    files += ["libgodot_macos.mm"]
+    files += ["libblackforest_macos.mm"]
 
 if env["library_type"] == "static_library":
-    prog = env.add_library("#bin/godot", files)
+    prog = env.add_library("#bin/blackforest", files)
 elif env["library_type"] == "shared_library":
-    prog = env.add_shared_library("#bin/godot", files)
+    prog = env.add_shared_library("#bin/blackforest", files)
 else:
-    prog = env.add_program("#bin/godot", files)
+    prog = env.add_program("#bin/blackforest", files)
 
 if env["debug_symbols"] and env["separate_debug_symbols"]:
     env.AddPostAction(prog, env.Run(platform_macos_builders.make_debug_macos))

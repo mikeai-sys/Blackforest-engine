@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -65,12 +65,12 @@ void cleanup_logs() {
 TEST_CASE("[Logger][RotatedFileLogger] Creates the first log file and logs on it") {
 	initialize_logs();
 
-	String waiting_for_godot = "Waiting for Godot";
-	RotatedFileLogger logger("user://logs/godot.log");
-	logger.logf("%s", "Waiting for Godot");
+	String waiting_for_godot = "Waiting for BlackForest";
+	RotatedFileLogger logger("user://logs/blackforest.log");
+	logger.logf("%s", "Waiting for BlackForest");
 
 	Error err = Error::OK;
-	Ref<FileAccess> log = FileAccess::open("user://logs/godot.log", FileAccess::READ, &err);
+	Ref<FileAccess> log = FileAccess::open("user://logs/blackforest.log", FileAccess::READ, &err);
 	CHECK_EQ(err, Error::OK);
 	CHECK_EQ(log->get_as_text(), waiting_for_godot);
 
@@ -82,14 +82,14 @@ void get_log_files(Vector<String> &log_files) {
 	dir->list_dir_begin();
 	String file = dir->get_next();
 	while (file != "") {
-		// Filtering godot.log because ordered_insert will put it first and should be the last.
-		if (file.match("*.log") && file != "godot.log") {
+		// Filtering blackforest.log because ordered_insert will put it first and should be the last.
+		if (file.match("*.log") && file != "blackforest.log") {
 			log_files.ordered_insert(file);
 		}
 		file = dir->get_next();
 	}
-	if (FileAccess::exists("user://logs/godot.log")) {
-		log_files.push_back("godot.log");
+	if (FileAccess::exists("user://logs/blackforest.log")) {
+		log_files.push_back("blackforest.log");
 	}
 }
 
@@ -101,8 +101,8 @@ TEST_CASE("[Logger][RotatedFileLogger] Rotates logs files") {
 
 	const int number_of_files = 3;
 	for (int i = 0; i < number_of_files; i++) {
-		String waiting_for_godot = "Waiting for Godot " + itos(i);
-		RotatedFileLogger logger("user://logs/godot.log", number_of_files);
+		String waiting_for_godot = "Waiting for BlackForest " + itos(i);
+		RotatedFileLogger logger("user://logs/blackforest.log", number_of_files);
 		logger.logf("%s", waiting_for_godot.ascii().get_data());
 		all_waiting_for_godot.push_back(waiting_for_godot);
 
@@ -124,11 +124,11 @@ TEST_CASE("[Logger][RotatedFileLogger] Rotates logs files") {
 	// Required to ensure the rotation of the log file.
 	OS::get_singleton()->delay_usec(sleep_duration);
 
-	// This time the oldest log must be removed and godot.log updated.
-	String new_waiting_for_godot = "Waiting for Godot " + itos(number_of_files);
+	// This time the oldest log must be removed and blackforest.log updated.
+	String new_waiting_for_godot = "Waiting for BlackForest " + itos(number_of_files);
 	all_waiting_for_godot = all_waiting_for_godot.slice(1, all_waiting_for_godot.size());
 	all_waiting_for_godot.push_back(new_waiting_for_godot);
-	RotatedFileLogger logger("user://logs/godot.log", number_of_files);
+	RotatedFileLogger logger("user://logs/blackforest.log", number_of_files);
 	logger.logf("%s", new_waiting_for_godot.ascii().get_data());
 
 	log_files.clear();
@@ -152,9 +152,9 @@ TEST_CASE("[Logger][CompositeLogger] Logs the same into multiple loggers") {
 	all_loggers.push_back(memnew(RotatedFileLogger("user://logs/godot_logger_1.log", 1)));
 	all_loggers.push_back(memnew(RotatedFileLogger("user://logs/godot_logger_2.log", 1)));
 
-	String waiting_for_godot = "Waiting for Godot";
+	String waiting_for_godot = "Waiting for BlackForest";
 	CompositeLogger logger(all_loggers);
-	logger.logf("%s", "Waiting for Godot");
+	logger.logf("%s", "Waiting for BlackForest");
 
 	Error err = Error::OK;
 	Ref<FileAccess> log = FileAccess::open("user://logs/godot_logger_1.log", FileAccess::READ, &err);

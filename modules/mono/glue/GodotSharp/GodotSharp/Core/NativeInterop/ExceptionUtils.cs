@@ -6,7 +6,7 @@ using System.Text;
 
 #nullable enable
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     internal static class ExceptionUtils
     {
@@ -166,7 +166,7 @@ namespace Godot.NativeInterop
             string? methodstr = null;
             string basestr = GetVariantTypeName(instance);
 
-            if (method == GodotObject.MethodName.Call || (basestr == "Godot.TreeItem" && method == TreeItem.MethodName.CallRecursive))
+            if (method == GodotObject.MethodName.Call || (basestr == "BlackForest.TreeItem" && method == TreeItem.MethodName.CallRecursive))
             {
                 if (argCount >= 1)
                 {

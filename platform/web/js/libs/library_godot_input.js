@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -305,7 +305,7 @@ mergeInto(LibraryManager.library, GodotInputGamepads);
  * Drag and drop helper.
  * This is pretty big, but basically detect dropped files on GodotConfig.canvas,
  * process them one by one (recursively for directories), and copies them to
- * the temporary FS path '/tmp/drop-[random]/' so it can be emitted as a godot
+ * the temporary FS path '/tmp/drop-[random]/' so it can be emitted as a blackforest
  * event (that requires a string array of paths).
  *
  * NOTE: The temporary files are removed after the callback. This means that
@@ -477,7 +477,7 @@ const GodotInputDragDrop = {
 mergeInto(LibraryManager.library, GodotInputDragDrop);
 
 /*
- * Godot exposed input functions.
+ * BlackForest exposed input functions.
  */
 const GodotInput = {
 	$GodotInput__deps: ['$GodotRuntime', '$GodotConfig', '$GodotEventListeners', '$GodotInputGamepads', '$GodotInputDragDrop', '$GodotIME'],

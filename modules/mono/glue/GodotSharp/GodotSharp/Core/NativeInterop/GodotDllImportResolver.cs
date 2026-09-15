@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 #nullable enable
 
-namespace Godot.NativeInterop
+namespace BlackForest.NativeInterop
 {
     public class GodotDllImportResolver
     {

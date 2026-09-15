@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -61,7 +61,7 @@ const GodotFetch = {
 			obj.response = response;
 			// `body` can be null per spec (for example, in cases where the request method is HEAD).
 			// As of the time of writing, Chromium (127.0.6533.72) does not follow the spec but Firefox (131.0.3) does.
-			// See godotengine/godot#76825 for more information.
+			// See godotengine/blackforest#76825 for more information.
 			// See Chromium revert (of the change to follow the spec):
 			// https://chromium.googlesource.com/chromium/src/+/135354b7bdb554cd03c913af7c90aceead03c4d4
 			obj.reader = response.body?.getReader();

@@ -3,9 +3,9 @@
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
-/*                        https://godotengine.org                         */
+/*                        https://blackforestengine.org                         */
 /**************************************************************************/
-/* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
+/* Copyright (c) 2014-present BlackForest Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
 /* Permission is hereby granted, free of charge, to any person obtaining  */
@@ -76,10 +76,10 @@
 #include "modules/mono/csharp_script.h"
 #endif
 
-#define CONTRIBUTE_URL "https://contributing.godotengine.org/en/latest/documentation/class_reference.html"
+#define CONTRIBUTE_URL "https://contributing.blackforestengine.org/en/latest/documentation/class_reference.html"
 
 #ifdef MODULE_MONO_ENABLED
-// Sync with the types mentioned in https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_differences.html
+// Sync with the types mentioned in https://docs.blackforestengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_differences.html
 const Vector<String> classes_with_csharp_differences = {
 	"@GlobalScope",
 	"String",

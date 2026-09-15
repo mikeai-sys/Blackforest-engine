@@ -10,11 +10,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "../
 
 from misc.utility.color import Ansi, color_print
 
-# Base Godot dependencies path
+# Base BlackForest dependencies path
 # If cross-compiling (no LOCALAPPDATA), we install in `bin`
 deps_folder = os.getenv("LOCALAPPDATA")
 if deps_folder and not os.getenv("MSYSTEM"):
-    deps_folder = os.path.join(deps_folder, "Godot", "build_deps")
+    deps_folder = os.path.join(deps_folder, "BlackForest", "build_deps")
 else:
     deps_folder = os.path.join("bin", "build_deps")
 
@@ -49,7 +49,7 @@ elif platform.system() == "Darwin":
     archs.append("x86_64-macos")
 
 for arch in archs:
-    angle_filename = f"godot-angle-static-{arch}-release.zip"
+    angle_filename = f"blackforest-angle-static-{arch}-release.zip"
     angle_archive = os.path.join(deps_folder, angle_filename)
     angle_folder = os.path.join(deps_folder, f"angle-{arch}")
 
@@ -70,4 +70,4 @@ print("ANGLE installed successfully.\n")
 
 # Complete message
 color_print(f'{Ansi.GREEN}All ANGLE components were installed to "{deps_folder}" successfully!')
-color_print(f'{Ansi.GREEN}You can now build Godot with statically linked ANGLE by running "scons angle=yes".')
+color_print(f'{Ansi.GREEN}You can now build BlackForest with statically linked ANGLE by running "scons angle=yes".')
