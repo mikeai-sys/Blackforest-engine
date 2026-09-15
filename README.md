@@ -57,10 +57,7 @@ not-for-profit.
 ### Cross-Platform
 - **Android ABI Gradle cache fix** — Exports now pick up ABI changes correctly
 
-Before being open sourced in [February 2014](https://github.com/godotengine/godot/commit/0b806ee0fc9097fa7bda7ac0109191c9c5e0a1ac),
-BlackForest had been developed by [Juan Linietsky](https://github.com/reduz) and
-[Ariel Manzur](https://github.com/punto-) for several years as an in-house
-engine, used to publish several work-for-hire titles.
+.
 
 ![Screenshot of a 3D scene in the BlackForest Engine editor](https://raw.githubusercontent.com/godotengine/godot-design/master/screenshots/editor_tps_demo_1920x1080.jpg)
 
